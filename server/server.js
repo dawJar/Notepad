@@ -18,11 +18,11 @@ mongoose.Promise = global.Promise;
 
 // template engine
 app.set('view engine', 'pug');
-app.set('views', __dirname + '/server/views');
+app.set('views', __dirname + '/views');
 
 // set static resources
-app.use(express.static(__dirname + '/public'));
-// console.log(__dirname + '/public')
+app.use(express.static('./public'));
+console.log(__dirname + '/server/views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

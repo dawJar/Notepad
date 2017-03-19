@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack --watch",
-    "watch:server": "nodemon --watch public/bundle.js"
+    "watch:server": " nodemon server/server.js --watch public/bundle.js"
   },
   "keywords": [],
   "author": "",
