@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 import { Provider } from 'react-redux';
 import store from '../store';
 import AppContainer from './AppContainer.jsx';
+import Counter from '../components/Counter.jsx';
 import Test from '../components/Test.jsx';
 
 import '../../sass/main.scss';
@@ -16,12 +17,16 @@ class RootContainer extends Component {
 
     render() {
         return (
-            <Provider store={store} >
+            <Provider store={ store } >
                 <Router history={ browserHistory } >
 
-                    <Route path="/" component={ AppContainer } />
+                    <Route path="/" component={ AppContainer } >
 
-                    <Route path="/test" component={ Test } />
+                        <IndexRoute component={ Counter } />
+
+                        <Route path="/test" component={ Test } />
+
+                    </ Route>
 
                 </ Router>
             </ Provider>

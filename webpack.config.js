@@ -16,7 +16,7 @@ module.exports = {
         loaders: [{
             test: /\.js[x]?$/,
             exclude: /(node_modules|bower_components)/,
-            loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
+            loaders: ['babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0'],
         }, {
             test: /\.css$/,
             loaders: ['style-loader', 'css-loader']
@@ -47,20 +47,11 @@ module.exports = {
             compress: { warnings: false },
             output: { comments: false },
         }),
-        new webpack.optimize.UglifyJsPlugin()
-        // new webpack.ProvidePlugin({
-        //     $: "jquery",
-        //     jQuery: "jquery"
-        // }),
-        // new HtmlWebpackPlugin({
-        //     filename: 'index.html',
-        //     title: 'webpack-ejs-template',
-        //     template: './src/index-template.ejs'
-        // })
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
     ],
-    // devServer: {
-    //     contentBase: path.join(__dirname, "dist"),
-    //     compress: true,
-    //     port: 9000
-    // }
+
 }

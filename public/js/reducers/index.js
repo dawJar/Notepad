@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
+import login from './login';
+import formValidation from './formValidation';
 
 
 const rootReducer = combineReducers({
-    counter
+    login,
+    formValidation
 });
 
 export default rootReducer;

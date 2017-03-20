@@ -5,4 +5,12 @@ const testRoute = (req, res) => {
     res.render('test');
 };
 
-module.exports = testRoute;
+const loginRoute = (req, res) => {
+    console.log(req.body)
+    // res.send('logged');
+};
+
+module.exports = {
+    testRoute,
+    loginRoute
+};
