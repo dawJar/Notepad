@@ -1,15 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './js/store';
-import App from './js/containers/App.jsx';
-
-import './sass/main.scss';
-
+import RootContainer from './js/containers/RootContainer.jsx';
 
 render(
-    <Provider store={ store } >
-        <App />
-    </Provider>,
+    <RootContainer />,
     document.getElementById('app')
 );

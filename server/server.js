@@ -6,7 +6,7 @@ const session = require('express-session');
 // const multer = require('multer');
 const mongoose = require('mongoose');
 
-// const TestController = require('./controllers/TestController');
+const MainController = require('./controllers/MainController');
 
 // const upload = multer();
 const app = express();
@@ -22,7 +22,6 @@ app.set('views', __dirname + '/views');
 
 // set static resources
 app.use(express.static('./public'));
-console.log(__dirname + '/server/views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,11 +46,7 @@ app.use(session({
 //     next();
 // });
 
-// TestController(app);
-
-app.get('/', function (req, res) {
-    res.render('index');
-});
+MainController(app);
 
 app.listen(8080);
 console.log('you re listening to the server! 8080');
