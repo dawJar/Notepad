@@ -47,6 +47,7 @@ class LoginForm extends Component {
     render() {
         let {
             signUpMessage,
+            loginMessage,
             location: { pathname }
         } = this.props;
 
@@ -102,6 +103,9 @@ class LoginForm extends Component {
                         Sign in
                     </Button>
                 </FormGroup>
+
+                {/*TEMP*/}
+                <h2>{ signUpMessage || loginMessage }</h2>
             </Form>
         );
     }
