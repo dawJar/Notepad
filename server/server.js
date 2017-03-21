@@ -12,9 +12,9 @@ const MainController = require('./controllers/MainController');
 const app = express();
 
 
-mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/notepad_db');
+mongoose.Promise = global.Promise;
 
 // template engine
 app.set('view engine', 'pug');

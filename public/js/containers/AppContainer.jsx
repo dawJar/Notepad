@@ -16,6 +16,7 @@ const AppContainer = ({ children, ...otherProps }) => {
 }
 
 const mapStateToProps = state => ({
+    loginMessage: state.loginMessage,
     signUpMessage: state.signUpMessage,
     formInputFirstName: state.formValidation.firstName,
     formInputLogin: state.formValidation.login,

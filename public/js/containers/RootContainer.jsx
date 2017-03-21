@@ -26,6 +26,8 @@ class RootContainer extends Component {
 
                         <Route path="/signup" component={ LoginForm } />
 
+                        <Route path="/login" component={ LoginForm } />
+
                     </ Route>
 
                 </ Router>
