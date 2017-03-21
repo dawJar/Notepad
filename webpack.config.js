@@ -1,14 +1,13 @@
 var debug             = process.env.NODE_ENV !== "production";
 var webpack           = require('webpack');
-// var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path              = require('path');
-// var babelrc           = require('./.babelrc');
+
 
 module.exports = {
     context: __dirname,
     entry: './public/entry.js',
     output: {
-        path: __dirname + '/public',
+        path: __dirname + '/dist',
         filename: 'bundle.js'
     },
 
@@ -37,6 +36,7 @@ module.exports = {
             loader: 'json-loader'
         }]
     },
+    
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
@@ -47,7 +47,6 @@ module.exports = {
             compress: { warnings: false },
             output: { comments: false },
         }),
-        new webpack.optimize.UglifyJsPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"

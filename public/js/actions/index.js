@@ -47,3 +47,33 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
         });
 };
 
+// LOGIN
+export const loginSuccess = (message) => ({
+    type: types.SIGNUP_SUCCESS,
+    message
+});
+
+export const loginFail = (message) => ({
+    type: types.SIGNUP_SUCCESS,
+    message
+});
+
+export const attemptLogin = (login, password) => (dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/login',
+        data: { login, password }})
+        
+        .done((data) => {
+            if (data.loginUser) {
+                dispatch(loginSuccess(data.message));
+            } else {
+                dispatch(loginFail(data.message));
+            }
+        })
+
+        .fail((data) => {
+            dispatch(loginFail(data.error));
+        });
+};
+

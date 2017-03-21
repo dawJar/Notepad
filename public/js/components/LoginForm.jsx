@@ -13,12 +13,17 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         let {
+            location: { pathname },
             formInputFirstName,
             formInputLogin,
             formInputPassword
         } = this.props;
 
-        this.props.attemptSingup(formInputFirstName, formInputLogin, formInputPassword);
+        if (pathname === '/login') {
+            this.props.attemptLogin(formInputLogin, formInputPassword);
+        } else {
+            this.props.attemptSingup(formInputFirstName, formInputLogin, formInputPassword);
+        }
         event.preventDefault();
     }
 
@@ -35,20 +40,29 @@ class LoginForm extends Component {
     }
 
     render() {
-        let { signUpMessage } = this.props;
+        let { 
+            signUpMessage,
+            location: { pathname }
+        } = this.props;
+
+        let loginStyle = pathname === '/login';
 
         return (
             <div>
                 <form id="access-form" onSubmit={ this.handleSubmit }>
-                    <label>
-                        first name:
-                        <input
-                            id="first-name-input"
-                            type="text"
-                            onChange={ this.handleFirstNameChange }
-                            required
-                        />
-                    </label>
+
+                    {
+                        (!loginStyle) ? 
+                            <label>
+                                first name:
+                                <input
+                                    id="first-name-input"
+                                    type="text"
+                                    onChange={ this.handleFirstNameChange }
+                                    required
+                                />
+                            </label> : null
+                    }
 
                     <label>
                         login:

@@ -6,8 +6,6 @@ import AppContainer from './AppContainer.jsx';
 import Index from '../components/Index.jsx';
 import LoginForm from '../components/LoginForm.jsx';
 
-import '../../sass/main.scss';
-
 
 class RootContainer extends Component {
 
@@ -25,6 +23,8 @@ class RootContainer extends Component {
                         <IndexRoute component={ Index } />
 
                         <Route path="/signup" component={ LoginForm } />
+
+                        <Route path="/login" component={ LoginForm } />
 
                     </ Route>
 
