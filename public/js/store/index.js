@@ -4,10 +4,8 @@ import rootReducer from '../reducers';
 import reduxLogger from 'redux-logger';
 
 
-const middleware = [ thunk ];
-// if (process.env.NODE_ENV !== 'production') {
-//     middleware = [ ...middleware, reduxLogger() ];
-// }
+const middleware = [ thunk, reduxLogger() ];
+
 
 const store = createStore(
     rootReducer,

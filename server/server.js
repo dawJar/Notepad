@@ -14,7 +14,7 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 
-// mongoose.connect('mongodb://localhost/app_db');
+mongoose.connect('mongodb://localhost/notepad_db');
 
 // template engine
 app.set('view engine', 'pug');

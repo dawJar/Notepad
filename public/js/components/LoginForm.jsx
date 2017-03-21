@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
 
-class Test extends Component {
+class LoginForm extends Component {
 
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class Test extends Component {
             formInputPassword
         } = this.props;
 
-        this.props.attemptLogin(formInputLogin, formInputPassword);
+        this.props.attemptSingup(formInputFirstName, formInputLogin, formInputPassword);
         event.preventDefault();
     }
 
@@ -76,4 +76,4 @@ class Test extends Component {
 }
 
 
-export default Test;
+export default LoginForm;

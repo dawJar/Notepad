@@ -1,13 +1,13 @@
 const mainRoute = require('../routes/mainRoute');
-const { testRoute, loginRoute } = require('../routes/testRoute');
+const { signUpRoute, addNewUserRoute } = require('../routes/signupRoutes');
 
 
 module.exports = function (app) {
 
     app.get('/', mainRoute);
 
-    app.get('/test', testRoute);
+    app.get('/signup', signUpRoute);
 
-    app.post('/login', loginRoute);
+    app.post('/signup', addNewUserRoute);
 
 };

@@ -1,7 +1,6 @@
 import React, { cloneElement } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Counter from '../components/Counter.jsx'
 import * as actions from '../actions'
 
 
@@ -17,7 +16,7 @@ const AppContainer = ({ children, ...otherProps }) => {
 }
 
 const mapStateToProps = state => ({
-    login: state.login,
+    signUp: state.signUp,
     formInputFirstName: state.formValidation.firstName,
     formInputLogin: state.formValidation.login,
     formInputPassword: state.formValidation.password,

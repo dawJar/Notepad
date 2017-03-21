@@ -8,5 +8,7 @@ html(lang='pl')
     body
         h1 test
         #app
+        if (message)
+            h3 #{ message }
 
         script(src="bundle.js", type="text/javascript")
