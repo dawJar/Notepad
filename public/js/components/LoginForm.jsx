@@ -35,6 +35,8 @@ class LoginForm extends Component {
     }
 
     render() {
+        let { signUpMessage } = this.props;
+
         return (
             <div>
                 <form id="access-form" onSubmit={ this.handleSubmit }>
@@ -70,6 +72,7 @@ class LoginForm extends Component {
 
                     <input type="submit" value="sign up!" />
                 </form>
+                <h2>{ signUpMessage }</h2>
             </div>
         );
     }

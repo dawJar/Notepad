@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import signUp from './signUp';
+import signUpMessage from './signUpMessage';
 import formValidation from './formValidation';
 
 
 const rootReducer = combineReducers({
-    signUp,
+    signUpMessage,
     formValidation
 });
 

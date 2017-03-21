@@ -17,13 +17,15 @@ export const inputPasswordChange = (password) => ({
     password
 });
 
-// LOGIN
-export const signUpSuccess = () => ({
-    type: types.SIGNUP_SUCCESS
+// SIGN UP
+export const signUpSuccess = (message) => ({
+    type: types.SIGNUP_SUCCESS,
+    message
 });
 
-export const signUpFail = () => ({
+export const signUpFail = (message) => ({
     type: types.SIGNUP_SUCCESS,
+    message
 });
 
 export const attemptSingup = (firstName, login, password) => (dispatch) => {
@@ -33,15 +35,14 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
         data: { firstName, login, password }})
         
         .done((data) => {
-            if (data.error) {
-                dispatch(signUpFail(data.error));
+            if (data.addedNewUser) {
+                dispatch(signUpSuccess(data.message));
             } else {
-                // console.log(data)
-                dispatch(signUpSuccess(login));
+                dispatch(signUpFail(data.message));
             }
         })
 
-        .fail(() => {
+        .fail((data) => {
             dispatch(signUpFail(data.error));
         });
 };

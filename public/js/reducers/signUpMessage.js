@@ -4,19 +4,19 @@ import {
 } from '../constants/actionTypes';
 
 
-const signUp = (state = '', action) => {
-    let { type, signUp } = action;
+const signUpMessage = (state = '', action) => {
+    let { type, message } = action;
 
     switch (type) {
         case SIGNUP_SUCCESS:
-            return 'Sing up success';      
+            return message;      
 
         case SIGNUP_FAIL:
-            return 'Sign up fail';      
+            return message;      
 
         default:
             return state;
     }
 };
 
-export default signUp;
+export default signUpMessage;
