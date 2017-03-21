@@ -1,4 +1,9 @@
 import React, { PropTypes, Component } from 'react';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
 
 
 class LoginForm extends Component {
@@ -40,7 +45,7 @@ class LoginForm extends Component {
     }
 
     render() {
-        let { 
+        let {
             signUpMessage,
             location: { pathname }
         } = this.props;
@@ -48,46 +53,56 @@ class LoginForm extends Component {
         let loginStyle = pathname === '/login';
 
         return (
-            <div>
-                <form id="access-form" onSubmit={ this.handleSubmit }>
-
-                    {
-                        (!loginStyle) ? 
-                            <label>
-                                first name:
-                                <input
-                                    id="first-name-input"
-                                    type="text"
-                                    onChange={ this.handleFirstNameChange }
-                                    required
-                                />
-                            </label> : null
-                    }
-
-                    <label>
-                        login:
-                        <input
-                            id="login-input"
-                            type="text"
-                            onChange={ this.handleLoginChange }
-                            required
+            <Form id="accessForm" onSubmit={ this.handleSubmit }>        
+                
+                {
+                    (!loginStyle) ? 
+                    <FormGroup controlId="inputFirstName">
+                        <ControlLabel>
+                            First name:
+                        </ControlLabel>
+                        <FormControl 
+                            controlId="inputFirstName"
+                            type="text" 
+                            placeholder="First name" 
+                            onChange={ this.handleFirstNameChange } 
+                            required 
                         />
-                    </label>
+                    </FormGroup> : null      
+                }
 
-                    <label>
-                        password:
-                        <input
-                            id="password-input"
-                            type="password"
-                            onChange={ this.handlePasswordChange }
-                            required
-                        />
-                    </label>
+                <FormGroup controlId="inputLogin">
+                    <ControlLabel>
+                        Login:
+                    </ControlLabel>
+                    <FormControl 
+                        controlId="inputLogin"
+                        type="text" 
+                        placeholder="Login" 
+                        onChange={ this.handleLoginChange } 
+                        required
+                    />
+                </FormGroup>
 
-                    <input type="submit" value="sign up!" />
-                </form>
-                <h2>{ signUpMessage }</h2>
-            </div>
+                <FormGroup controlId="inputPassword">
+                    <ControlLabel>
+                        Password:
+                    </ControlLabel>
+                    <FormControl 
+                        controlId="inputPassword"
+                        type="password" 
+                        placeholder="Password" 
+                        onChange={ this.handlePasswordChange } 
+                        required 
+                    />
+                </FormGroup>
+
+                <FormGroup>
+                    <Button type="submit">
+                        Sign in
+                    </Button>
+                </FormGroup>
+            </Form>
         );
     }
 }
