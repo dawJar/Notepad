@@ -6,8 +6,6 @@ import AppContainer from './AppContainer.jsx';
 import Index from '../components/Index.jsx';
 import LoginForm from '../components/LoginForm.jsx';
 
-import '../../sass/main.scss';
-
 
 class RootContainer extends Component {
 

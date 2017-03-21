@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Button from 'react-bootstrap/lib/Button';
 
 
 class Index extends Component {
@@ -10,18 +11,18 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <h1>INDEX</h1>
+                <Button bsSize="large" active>react-bootstrap works</Button>
             </div>
         );
     }
 }
 
 // Index.propTypes = {
-    // increment: PropTypes.func.isRequired,
-    // incrementIfOdd: PropTypes.func.isRequired,
-    // incrementAsync: PropTypes.func.isRequired,
-    // decrement: PropTypes.func.isRequired,
-    // counter: PropTypes.number.isRequired
+// increment: PropTypes.func.isRequired,
+// incrementIfOdd: PropTypes.func.isRequired,
+// incrementAsync: PropTypes.func.isRequired,
+// decrement: PropTypes.func.isRequired,
+// counter: PropTypes.number.isRequired
 // };
 
 export default Index;

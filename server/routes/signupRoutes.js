@@ -12,7 +12,10 @@ const addNewUserRoute = (req, res) => {
 
     let specialCharsRegex = /^[a-zA-Z\d\-_.,\s]+$/;
 
-    if (login.length < 4) {
+    if (!firstName || !login || !password) {
+        res.status('400');
+        res.send({ addedNewUser: false, message: 'invalid details!' });
+    } else if (login.length < 4) {
         res.send({ addedNewUser: false, message: 'login must have at least 5 chars!' });
     } else if (!specialCharsRegex.test(login)) {
         res.send({ addedNewUser: false, message: 'login cannot contain special chars!' });
@@ -33,7 +36,8 @@ const addNewUserRoute = (req, res) => {
                     user.save()
 
                         .then(() => {
-
+                            req.session.user = login;
+                            
                             // TODO: replace with logged in path render!!!!!
 
                             res.send({ addedNewUser: true, message: 'account created' });
