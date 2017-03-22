@@ -19,14 +19,16 @@ export const inputPasswordChange = (password) => ({
 });
 
 // SIGN UP
-export const signUpSuccess = (message) => ({
+export const signUpSuccess = (message, addNewUser) => ({
     type: types.SIGNUP_SUCCESS,
-    message
+    message,
+    addNewUser
 });
 
-export const signUpFail = (message) => ({
+export const signUpFail = (message, addNewUser) => ({
     type: types.SIGNUP_SUCCESS,
-    message
+    message,
+    addNewUser
 });
 
 // LOGIN
@@ -65,5 +67,3 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
 export const fetchUsersNotes = () => (dispatch) => {
     request.fetchUserNotesRequest(dispatch);
 };
-
-// export const getUsersNotepad = () => request.getUsersNotepadRequest();

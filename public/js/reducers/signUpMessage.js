@@ -4,16 +4,27 @@ import {
 } from '../constants/actionTypes';
 
 
-const signUpMessage = (state = '', action) => {
-    let { type, message } = action;
-    message = (message === undefined) ? state : message;
+const initialState = {
+    message: '',
+    addNewUser: false
+}
+
+const signUpMessage = (state = initialState, action) => {
+    let { type, message, addNewUser } = action;
+    // message = (message === undefined) ? state : message;
 
     switch (type) {
         case SIGNUP_SUCCESS:
-            return message;      
+            return {
+                message,
+                addNewUser
+            };      
 
         case SIGNUP_FAIL:
-            return message;      
+            return {
+                message,
+                addNewUser
+            };       
 
         default:
             return state;

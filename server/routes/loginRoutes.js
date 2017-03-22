@@ -25,9 +25,7 @@ const loginUserRoute = (req, res) => {
                     req.session.user = login;
                     let { user } = req.session;
 
-                    // TODO: replace with logged in path render!!!!! 
                     res.send({ user, loginUser: true, message: `logged in as ${ user }`});
-                    // res.redirect('/notepad');
                 }
 
             });        

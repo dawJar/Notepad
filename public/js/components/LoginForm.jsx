@@ -18,13 +18,11 @@ class LoginForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        let { loginUser } = nextProps;
-        if (loginUser) {
+        let { loginUser, signUpNewUser } = nextProps;
+        if (loginUser || signUpNewUser) {
             browserHistory.push('/notepad');
             location.reload();
-            // nextProps.fetchUsersNotes();
         } 
-            
     }
 
     handleSubmit(event) {

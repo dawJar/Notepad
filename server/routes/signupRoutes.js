@@ -37,12 +37,10 @@ const addNewUserRoute = (req, res) => {
                     user.save()
 
                         .then(() => {
+                            req.session.user = login;
                             let { user } = req.session;
                             
-                            // TODO: replace with logged in path render!!!!!
-                            // res.send({ user, addedNewUser: true, message: 'account created' });
-                            res.send({ user, loginUser: true, message: `signed up and logged in as ${ user }`});
-                            // res.redirect('/notepad');
+                            res.send({ user, addedNewUser: true, message: `signed up and logged in as ${ user }`});
                         });
                 }
                 

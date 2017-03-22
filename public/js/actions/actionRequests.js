@@ -33,10 +33,12 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
     })
         
         .done((data) => {
-            if (data.addedNewUser) {
-                dispatch(actions.signUpSuccess(data.message));
+            let { addedNewUser, message } = data;
+
+            if (addedNewUser) {
+                dispatch(actions.signUpSuccess(message, addedNewUser));
             } else {
-                dispatch(actions.signUpFail(data.message));
+                dispatch(actions.signUpFail(message, addedNewUser));
             }
         })
 
@@ -45,31 +47,10 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
         });
 };
 
-// export const getUsersNotepadRequest = () => {
-//     $.ajax({
-//         type: 'GET',
-//         url: 'notepad'
-//         // data: { firstName, login, password }
-//     })
-        
-//         // .done((data) => {
-//         //     if (data.addedNewUser) {
-//         //         dispatch(actions.signUpSuccess(data.message));
-//         //     } else {
-//         //         dispatch(actions.signUpFail(data.message));
-//         //     }
-//         // })
-
-//         // .fail((data) => {
-//         //     dispatch(actions.signUpFail(data.error));
-//         // });
-// };
-
 export const fetchUserNotesRequest = (dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/notepad',
-        // data: { firstName, login, password }
     })
         
         .done((data) => {
