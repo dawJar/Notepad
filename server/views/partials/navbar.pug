@@ -19,7 +19,19 @@ nav.navbar.navbar-inverse
                 ul.nav.navbar-nav
                     li.active 
                         a(href="/") Home
-                    li 
-                        a(href="/login") Login
-                    li
-                        a(href="/signup") Sign up!
+
+                ul.nav.navbar-nav.pull-right
+                    if (user !== undefined)
+                        li 
+                            a(href="/notepad") #{ user }
+                        li 
+                            a(href="/settings")
+                                span.glyphicon.glyphicon-cog
+                        li 
+                            a(href="/logout")
+                                span.glyphicon.glyphicon-log-out
+                    else
+                        li 
+                            a(href="/login") Login
+                        li
+                            a(href="/signup") Sign up!

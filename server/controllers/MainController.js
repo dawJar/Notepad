@@ -1,6 +1,6 @@
 const mainRoute = require('../routes/mainRoutes');
 const { signUpRoute, addNewUserRoute } = require('../routes/signupRoutes');
-const { loginRoute, loginUserRoute } = require('../routes/loginRoutes');
+const { loginRoute, loginUserRoute, logoutRoute } = require('../routes/loginRoutes');
 
 
 module.exports = function (app) {
@@ -14,5 +14,7 @@ module.exports = function (app) {
     app.get('/login', loginRoute);
 
     app.post('/login', loginUserRoute);
+
+    app.get('/logout', logoutRoute);
 
 };

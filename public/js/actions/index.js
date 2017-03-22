@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes';
+import * as request from './actionRequests';
 
 
 // FORM
@@ -28,25 +29,6 @@ export const signUpFail = (message) => ({
     message
 });
 
-export const attemptSingup = (firstName, login, password) => (dispatch) => {
-    $.ajax({
-        type: 'POST',
-        url: '/signup',
-        data: { firstName, login, password }})
-        
-        .done((data) => {
-            if (data.addedNewUser) {
-                dispatch(signUpSuccess(data.message));
-            } else {
-                dispatch(signUpFail(data.message));
-            }
-        })
-
-        .fail((data) => {
-            dispatch(signUpFail(data.error));
-        });
-};
-
 // LOGIN
 export const loginSuccess = (message) => ({
     type: types.SIGNUP_SUCCESS,
@@ -58,22 +40,11 @@ export const loginFail = (message) => ({
     message
 });
 
+// REQESTS
 export const attemptLogin = (login, password) => (dispatch) => {
-    $.ajax({
-        type: 'POST',
-        url: '/login',
-        data: { login, password }})
-        
-        .done((data) => {
-            if (data.loginUser) {
-                dispatch(loginSuccess(data.message));
-            } else {
-                dispatch(loginFail(data.message));
-            }
-        })
-
-        .fail((data) => {
-            dispatch(loginFail(data.error));
-        });
+    request.attemptLoginRequest(login, password, dispatch);
 };
 
+export const attemptSingup = (firstName, login, password) => (dispatch) => {
+    request.attemptSingupRequest(firstName, login, password, dispatch);
+};

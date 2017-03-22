@@ -22,18 +22,23 @@ const loginUserRoute = (req, res) => {
                     res.send({ loginUser: false, message: 'wrong login or password!' });
                 } else {
                     req.session.user = login;
+                    let { user } = req.session;
 
                     // TODO: replace with logged in path render!!!!! 
-                    res.send({ loginUser: true, message: `logged in as ${ login }`});
+                    res.send({ user, loginUser: true, message: `logged in as ${ user }`});
                 }
 
             });        
     }
 };
 
-
+const logoutRoute = (req, res) => {
+    req.session.destroy(() => console.log('user logged out'));
+    res.redirect('/login');
+}
 
 module.exports = {
     loginRoute,
-    loginUserRoute
+    loginUserRoute,
+    logoutRoute
 };
