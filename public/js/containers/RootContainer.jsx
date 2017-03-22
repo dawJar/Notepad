@@ -5,6 +5,7 @@ import store from '../store';
 import AppContainer from './AppContainer.jsx';
 import NotepadContainer from './NotepadContainer.jsx';
 import Index from '../components/Index.jsx';
+import AddNote from '../components/AddNote.jsx';
 import LoginForm from '../components/LoginForm.jsx';
 
 
@@ -31,7 +32,7 @@ class RootContainer extends Component {
 
                             <IndexRoute component={ NotepadContainer } />
 
-                            <Route path="add-note" component={ Index } />
+                            <Route path="add-note" component={ AddNote } />
 
                         </ Route>
 

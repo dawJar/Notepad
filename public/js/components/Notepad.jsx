@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
+import NotepadTabs from './NotepadTabs.jsx';
 
 
 class Notepad extends Component {
@@ -12,28 +13,25 @@ class Notepad extends Component {
     }
 
     handleAddNewNote() {
-        // let { location: { pathname } } = this.props;
-        // browserHistory.push(`${ pathname }/add-note`);
         console.log('click')
     }
 
     render() {
-        let { anyNotes, userNotes, children, location: { pathname } } = this.props;
+        let { 
+            anyNotes, 
+            userNotes, 
+            children,
+            location: { pathname }, 
+            ...otherProps
+        } = this.props;
+        
         let renderNotes = userNotes > 0;
 
         return (
             <div>
                 {
                     (renderNotes) ?
-                        <Tabs 
-                            activeKey={1} 
-                            onSelect={this.handleSelect} 
-                            id="controlled-tab-example"
-                        >
-                            <Tab eventKey={1} title="Tab 1">Tab 1 content</Tab>
-                            <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
-                            <Tab eventKey={3} title="Tab 3">Tab 3 content</Tab>
-                        </Tabs> :
+                        { children } :
                         <Link
                             to={`${pathname}/add-note`}
                             onClick={this.handleAddNewNote}
@@ -41,8 +39,6 @@ class Notepad extends Component {
                             add new note
                         </Link>
                 }
-
-                {children}
             </div>
         );
     }
