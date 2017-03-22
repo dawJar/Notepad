@@ -22,6 +22,9 @@ const mapStateToProps = state => ({
     formInputFirstName: state.formValidation.firstName,
     formInputLogin: state.formValidation.login,
     formInputPassword: state.formValidation.password,
+
+    // anyNotes: state.fetchNotes.anyNotes,
+    // userNotes: state.fetchNotes.notes
 });
 
 const mapDispatchToProps = (dispatch) => {

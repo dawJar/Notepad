@@ -65,22 +65,24 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
 //         // });
 // };
 
-// export const fetchUserNotesRequest = () => {
-//     $.ajax({
-//         type: 'POST',
-//         url: '/notepad',
-//         // data: { firstName, login, password }
-//     })
+export const fetchUserNotesRequest = (dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/notepad',
+        // data: { firstName, login, password }
+    })
         
-//         .done((data) => {
-//             if (data.addedNewUser) {
-//                 dispatch(actions.fetchUsersNoteSuccess(data.message));
-//             } else {
-//                 dispatch(actions.fetchUsersNoteFail(data.message));
-//             }
-//         })
+        .done((data) => {
+            let { anyNotes, notes } = data;
 
-//         .fail((data) => {
-//             dispatch(actions.fetchUsersNoteFail(data.error));
-//         });
-// };
+            if (anyNotes) {
+                dispatch(actions.fetchUsersNotesSuccess(anyNotes, notes));
+            } else {
+                dispatch(actions.fetchUsersNotesSuccess(anyNotes, []));
+            }
+        })
+
+        .fail((data) => {
+            dispatch(actions.fetchUserssNoteFail());
+        });
+};
