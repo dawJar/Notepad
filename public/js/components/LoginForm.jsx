@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { browserHistory } from 'react-router';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
@@ -14,6 +15,11 @@ class LoginForm extends Component {
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let { loginUser } = nextProps;
+        if (loginUser) browserHistory.push('/notepad');
     }
 
     handleSubmit(event) {

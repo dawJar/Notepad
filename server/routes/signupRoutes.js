@@ -3,7 +3,8 @@ const User = require('../model/User');
 
 
 const signUpRoute = (req, res) => {
-    res.render('signup');
+    let { user } = req.session;
+    res.render('signup', { user });
 };
 
 
@@ -39,8 +40,9 @@ const addNewUserRoute = (req, res) => {
                             let { user } = req.session;
                             
                             // TODO: replace with logged in path render!!!!!
-
-                            res.send({ user, addedNewUser: true, message: 'account created' });
+                            // res.send({ user, addedNewUser: true, message: 'account created' });
+                            res.send({ user, loginUser: true, message: `signed up and logged in as ${ user }`});
+                            // res.redirect('/notepad');
                         });
                 }
                 

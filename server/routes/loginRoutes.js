@@ -2,7 +2,8 @@ const User = require('../model/User');
 
 
 const loginRoute = (req, res) => {
-    res.render('signup');
+    let { user } = req.session;
+    res.render('signup', { user });
 };
 
 const loginUserRoute = (req, res) => {
@@ -26,6 +27,7 @@ const loginUserRoute = (req, res) => {
 
                     // TODO: replace with logged in path render!!!!! 
                     res.send({ user, loginUser: true, message: `logged in as ${ user }`});
+                    // res.redirect('/notepad');
                 }
 
             });        

@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 import { Provider } from 'react-redux';
 import store from '../store';
 import AppContainer from './AppContainer.jsx';
+import NotepadContainer from './NotepadContainer.jsx';
 import Index from '../components/Index.jsx';
 import LoginForm from '../components/LoginForm.jsx';
 
@@ -25,6 +26,8 @@ class RootContainer extends Component {
                         <Route path="/signup" component={ LoginForm } />
 
                         <Route path="/login" component={ LoginForm } />
+
+                        <Route path="/notepad" component={ NotepadContainer } />
 
                     </ Route>
 

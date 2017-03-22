@@ -6,6 +6,7 @@ import {
 
 const signUpMessage = (state = '', action) => {
     let { type, message } = action;
+    message = (message === undefined) ? state : message;
 
     switch (type) {
         case SIGNUP_SUCCESS:
