@@ -1,27 +1,13 @@
 import React, { cloneElement } from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Notepad from '../components/Notepad.jsx';
 
-
-const NotepadContainer = () => {
-
-    // let childrenToShow = cloneElement(children, { ...otherProps });
-
-    return (
-        <div>
-            {/*{ childrenToShow }*/}
-            <h1>react notepad</h1>
-        </div>
-    );
-}
 
 const mapStateToProps = state => ({
-    // loginMessage: state.loginMessage,
-    // signUpMessage: state.signUpMessage,
-    // formInputFirstName: state.formValidation.firstName,
-    // formInputLogin: state.formValidation.login,
-    // formInputPassword: state.formValidation.password,
+    anyNotes: state.fetchNotes.anyNotes,
+    userNotes: state.fetchNotes.notes
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -31,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(NotepadContainer);
+)(Notepad);

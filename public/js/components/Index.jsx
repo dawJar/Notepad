@@ -11,7 +11,7 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <Button bsSize="large" active>react-bootstrap works</Button>
+                <h1>#app index</h1>
             </div>
         );
     }

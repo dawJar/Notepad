@@ -27,7 +27,13 @@ class RootContainer extends Component {
 
                         <Route path="/login" component={ LoginForm } />
 
-                        <Route path="/notepad" component={ NotepadContainer } />
+                        <Route path="/notepad" >
+
+                            <IndexRoute component={ NotepadContainer } />
+
+                            <Route path="add-note" component={ Index } />
+
+                        </ Route>
 
                     </ Route>
 

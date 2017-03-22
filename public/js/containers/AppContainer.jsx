@@ -1,7 +1,7 @@
 import React, { cloneElement } from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 
 const AppContainer = ({ children, ...otherProps }) => {
@@ -23,9 +23,6 @@ const mapStateToProps = state => ({
     formInputFirstName: state.formValidation.firstName,
     formInputLogin: state.formValidation.login,
     formInputPassword: state.formValidation.password,
-
-    // anyNotes: state.fetchNotes.anyNotes,
-    // userNotes: state.fetchNotes.notes
 });
 
 const mapDispatchToProps = (dispatch) => {
