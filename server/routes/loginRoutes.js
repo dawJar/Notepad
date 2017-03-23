@@ -2,7 +2,8 @@ const User = require('../model/User');
 
 
 const loginRoute = (req, res) => {
-    res.render('signup');
+    let { user } = req.session;
+    res.render('signup', { user });
 };
 
 const loginUserRoute = (req, res) => {
@@ -17,23 +18,37 @@ const loginUserRoute = (req, res) => {
             .then((result) => {
 
                 if (result === null) {
-                    res.send({ loginUser: false, message: 'user does not exsists!' });
+                    res.send({ 
+                        loginUser: false, 
+                        message: 'user does not exsists!' 
+                    });
                 } else if (result.password !== password) {
-                    res.send({ loginUser: false, message: 'wrong login or password!' });
+                    res.send({ 
+                        loginUser: false, 
+                        message: 'wrong login or password!' 
+                    });
                 } else {
                     req.session.user = login;
+                    let { user } = req.session;
 
-                    // TODO: replace with logged in path render!!!!! 
-                    res.send({ loginUser: true, message: `logged in as ${ login }`});
+                    res.send({ 
+                        user, 
+                        loginUser: true, 
+                        message: `logged in as ${ user }`
+                    });
                 }
 
             });        
     }
 };
 
-
+const logoutRoute = (req, res) => {
+    req.session.destroy(() => console.log('user logged out'));
+    res.redirect('/login');
+}
 
 module.exports = {
     loginRoute,
-    loginUserRoute
+    loginUserRoute,
+    logoutRoute
 };

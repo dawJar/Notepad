@@ -26,9 +26,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(session({
-    secret: 'secret',
-    proxy: true,
-    resave: true,
+    secret: 'some_secret',
+    // proxy: true,
+    resave: false,
+    // resave: true,
     saveUninitialized: true
 }));
 

@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes';
+import * as request from './actionRequests';
 
 
 // FORM
@@ -18,62 +19,52 @@ export const inputPasswordChange = (password) => ({
 });
 
 // SIGN UP
-export const signUpSuccess = (message) => ({
+export const signUpSuccess = (message, addNewUser) => ({
     type: types.SIGNUP_SUCCESS,
-    message
+    message,
+    addNewUser
 });
 
-export const signUpFail = (message) => ({
+export const signUpFail = (message, addNewUser) => ({
     type: types.SIGNUP_SUCCESS,
-    message
+    message,
+    addNewUser
 });
-
-export const attemptSingup = (firstName, login, password) => (dispatch) => {
-    $.ajax({
-        type: 'POST',
-        url: '/signup',
-        data: { firstName, login, password }})
-        
-        .done((data) => {
-            if (data.addedNewUser) {
-                dispatch(signUpSuccess(data.message));
-            } else {
-                dispatch(signUpFail(data.message));
-            }
-        })
-
-        .fail((data) => {
-            dispatch(signUpFail(data.error));
-        });
-};
 
 // LOGIN
-export const loginSuccess = (message) => ({
-    type: types.SIGNUP_SUCCESS,
-    message
+export const loginSuccess = (message, loginUser) => ({
+    type: types.LOGIN_SUCCESS,
+    message,
+    loginUser
 });
 
-export const loginFail = (message) => ({
-    type: types.SIGNUP_SUCCESS,
-    message
+export const loginFail = (message, loginUser) => ({
+    type: types.LOGIN_FAIL,
+    message,
+    loginUser
 });
 
+// FETCH NOTES
+export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
+    type: types.FETCH_USER_NOTES_SUCCESS,
+    anyNotes,
+    notes,
+    userNoteCategories
+});
+
+export const fetchUserNotesFail = (anyNotes) => ({
+    type: types.FETCH_USER_NOTES_FAIL
+});
+
+// REQESTS
 export const attemptLogin = (login, password) => (dispatch) => {
-    $.ajax({
-        type: 'POST',
-        url: '/login',
-        data: { login, password }})
-        
-        .done((data) => {
-            if (data.loginUser) {
-                dispatch(loginSuccess(data.message));
-            } else {
-                dispatch(loginFail(data.message));
-            }
-        })
-
-        .fail((data) => {
-            dispatch(loginFail(data.error));
-        });
+    request.attemptLoginRequest(login, password, dispatch);
 };
 
+export const attemptSingup = (firstName, login, password) => (dispatch) => {
+    request.attemptSingupRequest(firstName, login, password, dispatch);
+};
+
+export const fetchUserNotes = () => (dispatch) => {
+    request.fetchUserNotesRequest(dispatch);
+};

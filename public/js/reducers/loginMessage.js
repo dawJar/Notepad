@@ -4,15 +4,26 @@ import {
 } from '../constants/actionTypes';
 
 
-const loginMessage = (state = '', action) => {
-    let { type, message } = action;
+let initState = {
+    message: '',
+    loginUser: false
+}
+
+const loginMessage = (state = initState, action) => {
+    let { type, message, loginUser } = action;
 
     switch (type) {
         case LOGIN_SUCCESS:
-            return message;      
+            return {
+                message,
+                loginUser
+            };      
 
         case LOGIN_FAIL:
-            return message;      
+            return {
+                message,
+                loginUser
+            };       
 
         default:
             return state;

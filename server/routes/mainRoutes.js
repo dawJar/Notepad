@@ -2,8 +2,8 @@ const User = require('../model/User');
 
 
 const mainRoute = (req, res) => {
-    console.log(req.session.user);
-    res.render('index');
+    let { user } = req.session;
+    res.render('index', { user });
 };
 
 module.exports = mainRoute;

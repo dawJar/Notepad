@@ -33,7 +33,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    userNoteCategories: [],
+    userNoteCategories: {
+        type: Array,
+        default: [ 'General', 'Todo', 'Shopping' ]
+    },
     notes: [ NoteSchema ]
 });
 

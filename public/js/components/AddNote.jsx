@@ -1,23 +1,29 @@
 import React, { PropTypes, Component } from 'react';
-import Button from 'react-bootstrap/lib/Button';
+import { Link } from 'react-router';
+import Tabs from 'react-bootstrap/lib/Tabs';
+import Tab from 'react-bootstrap/lib/Tab';
+import AddNoteCategories from './AddNoteCategories.jsx';
 
 
-class Index extends Component {
+class AddNote extends Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
+        // let { userNotes, children } = this.props;
+
         return (
             <div>
-                <h1>#app index</h1>
+                <AddNoteCategories />
+                add NOTE
             </div>
         );
     }
 }
 
-// Index.propTypes = {
+// AddNote.propTypes = {
 // increment: PropTypes.func.isRequired,
 // incrementIfOdd: PropTypes.func.isRequired,
 // incrementAsync: PropTypes.func.isRequired,
@@ -25,4 +31,4 @@ class Index extends Component {
 // counter: PropTypes.number.isRequired
 // };
 
-export default Index;
+export default AddNote;
