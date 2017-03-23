@@ -3,13 +3,15 @@ import signUpMessage from './signUpMessage';
 import loginMessage from './loginMessage';
 import formValidation from './formValidation';
 import fetchNotes from './fetchNotes';
+import addNote from './addNote';
 
 
 const rootReducer = combineReducers({
     signUpMessage,
     loginMessage,
     formValidation,
-    fetchNotes
+    fetchNotes,
+    addNote
 });
 
 export default rootReducer;

@@ -27,7 +27,9 @@ class NotepadContainer extends Component {
 const mapStateToProps = state => ({
     anyNotes: state.fetchNotes.anyNotes,
     userNotes: state.fetchNotes.notes,
-    userNoteCategories: state.fetchNotes.userNoteCategories
+    userNoteCategories: state.fetchNotes.userNoteCategories,
+    addNewNoteCategory: state.addNote.addNewNoteCategory,
+    currentNewCategory: state.addNote.currentNewCategory
 });
 
 const mapDispatchToProps = (dispatch) => {

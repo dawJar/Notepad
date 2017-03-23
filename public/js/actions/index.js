@@ -44,6 +44,17 @@ export const loginFail = (message, loginUser) => ({
     loginUser
 });
 
+// ADD NEW NOTES
+export const addNoteAddNewCategory = (addNewNoteCategory) => ({
+    type: types.ADD_NOTE_SHOW_USER_CATEGORIES,
+    addNewNoteCategory
+});
+
+export const addNoteCurrentNewCategory = (currentNewCategory) => ({
+    type: types.ADD_NOTE_CURRENT_NEW_CATEGORY,
+    currentNewCategory
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,

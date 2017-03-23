@@ -34,7 +34,7 @@ class AddNoteSelectOption extends Component {
 }
 
 AddNoteSelectOption.propTypes = {
-    value: PropTypes.string.isRequired
+    // value: PropTypes.string.isRequired
 };
 
 export default AddNoteSelectOption;
