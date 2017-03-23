@@ -1,25 +1,32 @@
 import {
-    FETCH_USERS_NOTES_SUCCESS,
-    FETCH_USERS_NOTES_FAIL
+    FETCH_USER_NOTES_SUCCESS,
+    FETCH_USER_NOTES_FAIL
 } from '../constants/actionTypes';
 
 
 let initialState = {
      anyNotes: false,
-     notes: []
+     notes: [],
+     userNoteCategories: []
 };
 
 const fetchNotes = (state = initialState, action) => {
-    let { type, anyNotes, notes } = action;
+    let { 
+        type, 
+        anyNotes, 
+        notes, 
+        userNoteCategories 
+    } = action;
 
     switch (type) {
-        case FETCH_USERS_NOTES_SUCCESS:  
+        case FETCH_USER_NOTES_SUCCESS:  
             return { 
                 anyNotes,
-                notes
+                notes,
+                userNoteCategories
             };      
 
-        case FETCH_USERS_NOTES_FAIL:
+        case FETCH_USER_NOTES_FAIL:
             return state;       
 
         default:

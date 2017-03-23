@@ -45,15 +45,16 @@ export const loginFail = (message, loginUser) => ({
 });
 
 // FETCH NOTES
-export const fetchUsersNotesSuccess = (anyNotes, notes) => {
-    type: types.FETCH_USERS_NOTES_SUCCESS,
+export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
+    type: types.FETCH_USER_NOTES_SUCCESS,
     anyNotes,
-    notes
-};
+    notes,
+    userNoteCategories
+});
 
-export const fetchUsersNotesFail = (anyNotes) => {
-    type: types.FETCH_USERS_NOTES_FAIL
-};
+export const fetchUserNotesFail = (anyNotes) => ({
+    type: types.FETCH_USER_NOTES_FAIL
+});
 
 // REQESTS
 export const attemptLogin = (login, password) => (dispatch) => {
@@ -64,6 +65,6 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
     request.attemptSingupRequest(firstName, login, password, dispatch);
 };
 
-export const fetchUsersNotes = () => (dispatch) => {
+export const fetchUserNotes = () => (dispatch) => {
     request.fetchUserNotesRequest(dispatch);
 };

@@ -50,20 +50,25 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
 export const fetchUserNotesRequest = (dispatch) => {
     $.ajax({
         type: 'POST',
-        url: '/notepad',
+        url: '/fetch-notes'
+        // data: {}
     })
         
         .done((data) => {
-            let { anyNotes, notes } = data;
-
+            let { 
+                anyNotes, 
+                notes,
+                userNoteCategories 
+            } = data;
+            console.log(anyNotes, notes, userNoteCategories);
             if (anyNotes) {
-                dispatch(actions.fetchUsersNotesSuccess(anyNotes, notes));
+                dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
             } else {
-                dispatch(actions.fetchUsersNotesSuccess(anyNotes, []));
+                dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
             }
         })
 
         .fail((data) => {
-            dispatch(actions.fetchUserssNoteFail());
+            dispatch(actions.fetchUserNotesFail());
         });
 };

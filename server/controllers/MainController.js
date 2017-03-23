@@ -30,6 +30,6 @@ module.exports = function (app) {
 
     app.get('/notepad', notepadRoute)
 
-    app.post('/notepad', notepadUserRoute)
+    app.post('/fetch-notes', notepadUserRoute)
 
 };

@@ -12,7 +12,8 @@ class AddNoteCategories extends Component {
     }
 
     render() {
-        // let { userNotes, children } = this.props;
+        let { userNoteCategories } = this.props;
+        console.log(userNoteCategories);
 
         return (
             <FormGroup controlId="formControlsSelect">

@@ -32,26 +32,27 @@ const notepadUserRoute = (req, res) => {
         User.findOne({ login: user })
 
             .then((result) => {
-                let { notes } = result;
+                let { notes, userNoteCategories } = result;
+                console.log(userNoteCategories)
 
                 if (notes.length === 0) {
                     console.log('no notes')
-                    // res.render('notepad', { anyNotes: false });
-                    res.render('notepad', { 
+                    res.send({ 
                         user,
-                        anyNotes: false
+                        anyNotes: false,
+                        notes: [],
+                        userNoteCategories
                     });
                 } else {
                     console.log('got some notes')
-                    // res.render('notepad', { anyNotes: true, notes });
-                    res.render('notepad', { 
+                    res.send({ 
                         user,
                         anyNotes: true,
-                        notes
+                        notes,
+                        userNoteCategories
                     });
                 }
             });
-
     }
 };
 

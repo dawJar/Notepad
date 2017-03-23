@@ -12,6 +12,24 @@ class Notepad extends Component {
         this.handleAddNewNote = this.handleAddNewNote.bind(this);
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     console.log('cwm')
+    //     nextProps.fetchUserNotes();
+    // }
+
+    // shouldComponentUpdate() {
+    //     return true;
+    // }
+
+    componentWillMount() {
+        // console.log(this.props)
+        console.log('CWM')
+    }
+
+    componentDidMount() {
+        this.props.fetchUserNotes()        
+    }
+
     handleAddNewNote() {
         console.log('click')
     }

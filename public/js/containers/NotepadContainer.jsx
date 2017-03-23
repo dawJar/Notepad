@@ -7,7 +7,8 @@ import Notepad from '../components/Notepad.jsx';
 
 const mapStateToProps = state => ({
     anyNotes: state.fetchNotes.anyNotes,
-    userNotes: state.fetchNotes.notes
+    userNotes: state.fetchNotes.notes,
+    userNoteCategories: state.fetchNotes.userNoteCategories
 });
 
 const mapDispatchToProps = (dispatch) => {
