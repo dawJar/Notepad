@@ -27,12 +27,19 @@ class AddNoteButtonGroup extends Component {
 
     render() {
         let { addNewNoteCategory, ...otherProps } = this.props;
+        let categoryButtonText = (addNewNoteCategory) ? 'Select category' : 'Add new category';
 
         return (
             <ButtonGroup>
-                <Button onClick={ this.handleAddNewNote } >???</Button>
-                <Button onClick={ this.handleAddNewCategory } >Add new category</Button>
-                <Button onClick={ this.handleAddNewNote } >Add note</Button>
+                <Button onClick={ this.handleAddNewNote } >
+                    ???
+                </Button>
+                <Button onClick={ this.handleAddNewCategory } >
+                    { categoryButtonText }
+                </Button>
+                <Button onClick={ this.handleAddNewNote } >
+                    Add note
+                </Button>
             </ButtonGroup>
         );
     }

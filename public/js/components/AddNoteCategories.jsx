@@ -21,7 +21,6 @@ class AddNoteCategories extends Component {
             addNewNoteCategory
         } = this.props;
 
-        console.log('whichButton', whichButton)
         switch (whichButton) {
 
             case ADD_NEW_CATEGORY:
@@ -48,7 +47,10 @@ class AddNoteCategories extends Component {
                         <AddNoteNewCategory { ...otherProps } /> :                  
                         <AddNoteSelectOption { ...otherProps } /> 
                 }
-                <AddNoteButtonGroup handleOnClick={ this.handleButtonCLick } />
+                <AddNoteButtonGroup 
+                    addNewNoteCategory={ addNewNoteCategory }
+                    handleOnClick={ this.handleButtonCLick } 
+                />
             </div>
 
         );
