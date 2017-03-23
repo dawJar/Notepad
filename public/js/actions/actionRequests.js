@@ -60,7 +60,7 @@ export const fetchUserNotesRequest = (dispatch) => {
                 notes,
                 userNoteCategories 
             } = data;
-            console.log(anyNotes, notes, userNoteCategories);
+            
             if (anyNotes) {
                 dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
             } else {

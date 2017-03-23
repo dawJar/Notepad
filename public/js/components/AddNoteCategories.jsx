@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import AddNoteSelectOption from './AddNoteSelectOption.jsx';
 
 
 class AddNoteCategories extends Component {
@@ -12,17 +13,22 @@ class AddNoteCategories extends Component {
     }
 
     render() {
-        let { userNoteCategories } = this.props;
-        console.log(userNoteCategories);
+        let { ...otherProps } = this.props;
+        // console.log(userNoteCategories);
+        // let optionsToRender = userNoteCategories.map(category =>
+        //     <AddNoteSelectOption value={category} />
+        // );
 
         return (
-            <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Select</ControlLabel>
-                <FormControl componentClass="select" placeholder="select">
-                    <option value="select">select</option>
-                    <option value="other">...</option>
-                </FormControl>
-            </FormGroup>
+            <div>
+
+                <AddNoteSelectOption { ...otherProps } />
+                <FormControl
+                    type="text"
+                    placeholder="Enter text"
+                />
+            </div>
+
         );
     }
 }

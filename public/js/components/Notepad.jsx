@@ -14,7 +14,7 @@ class Notepad extends Component {
 
     // componentWillReceiveProps(nextProps) {
     //     console.log('cwm')
-    //     nextProps.fetchUserNotes();
+    //     console.log(nextProps)
     // }
 
     // shouldComponentUpdate() {
@@ -22,11 +22,6 @@ class Notepad extends Component {
     // }
 
     componentWillMount() {
-        // console.log(this.props)
-        console.log('CWM')
-    }
-
-    componentDidMount() {
         this.props.fetchUserNotes()        
     }
 
@@ -54,7 +49,7 @@ class Notepad extends Component {
                             to={`${pathname}/add-note`}
                             onClick={this.handleAddNewNote}
                         >
-                            add new note
+                            You got no notes. Add new one!
                         </Link>
                 }
             </div>

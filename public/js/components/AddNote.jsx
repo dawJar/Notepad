@@ -12,11 +12,11 @@ class AddNote extends Component {
     }
 
     render() {
-        // let { userNotes, children } = this.props;
+        let { ...otherProps } = this.props;
 
         return (
             <div>
-                <AddNoteCategories />
+                <AddNoteCategories { ...otherProps } />
                 add NOTE
             </div>
         );
