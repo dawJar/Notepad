@@ -55,6 +55,16 @@ export const addNoteCurrentNewCategory = (currentNewCategory) => ({
     currentNewCategory
 });
 
+export const addNoteContent = (addNewNoteContent) => ({
+    type: types.ADD_NOTE_CONTENT,
+    addNewNoteContent
+});
+
+export const addNoteSelectCategory = (addNewSelectedCategory) => ({
+    type: types.ADD_NOTE_SELECT_CATEGORY,
+    addNewSelectedCategory
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,

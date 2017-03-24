@@ -29,7 +29,9 @@ const mapStateToProps = state => ({
     userNotes: state.fetchNotes.notes,
     userNoteCategories: state.fetchNotes.userNoteCategories,
     addNewNoteCategory: state.addNote.addNewNoteCategory,
-    currentNewCategory: state.addNote.currentNewCategory
+    currentNewCategory: state.addNote.currentNewCategory,
+    addNewNoteContent: state.addNote.addNewNoteContent,
+    addNewSelectedCategory: state.addNote.addNewSelectedCategory
 });
 
 const mapDispatchToProps = (dispatch) => {

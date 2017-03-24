@@ -18,16 +18,18 @@ class AddNoteNewCategory extends Component {
     }
 
     render() {
-        // console.log(this.props)
+        let { currentNewCategory } = this.props;
+
         return (
-            <div>
+            <FormGroup>
                 <ControlLabel>Add new category name</ControlLabel>
                 <FormControl
                     type="text"
                     placeholder="Enter category name here ;)"
                     onChange={ this.handleNewCategoryChange }
+                    value={ currentNewCategory }
                 />
-            </div>
+            </FormGroup>
         );
     }
 }

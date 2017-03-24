@@ -3,12 +3,40 @@ import { Link } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import AddNoteCategories from './AddNoteCategories.jsx';
+import AddNoteTextArea from './AddNoteTextArea.jsx';
+import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE } from './AddNoteButtonGroup.jsx';
+
 
 
 class AddNote extends Component {
 
     constructor(props) {
         super(props);
+        this.handleButtonCLick = this.handleButtonCLick.bind(this);
+    }
+
+    handleButtonCLick (whichButton) {
+        let { 
+            addNoteAddNewCategory,
+            addNoteCurrentNewCategory,
+            addNewNoteCategory
+        } = this.props;
+
+        switch (whichButton) {
+
+            case ADD_NEW_CATEGORY:
+                addNoteAddNewCategory(addNewNoteCategory);
+                break;
+
+            case ADD_NEW_NOTE:
+                // clean new category field
+                addNoteCurrentNewCategory('');
+                break;
+        
+            default:
+                break;
+
+        }
     }
 
     render() {
@@ -17,7 +45,11 @@ class AddNote extends Component {
         return (
             <div>
                 <AddNoteCategories { ...otherProps } />
-                add NOTE
+                <AddNoteTextArea { ...otherProps } />
+                <AddNoteButtonGroup 
+                    handleOnClick={ this.handleButtonCLick } 
+                    { ...otherProps }
+                />
             </div>
         );
     }

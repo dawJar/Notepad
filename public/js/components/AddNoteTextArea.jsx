@@ -13,9 +13,8 @@ class AddNoteTextArea extends Component {
     }
 
     handleChange(event) {
-        // let { addNoteCurrentNewCategory } = this.props;
-        // addNoteCurrentNewCategory(event.target.value);
-        console.log(event.target.value)
+        let { addNoteContent } = this.props;
+        addNoteContent(event.target.value);
     }
 
     render() {

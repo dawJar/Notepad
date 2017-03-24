@@ -5,36 +5,12 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import AddNoteSelectOption from './AddNoteSelectOption.jsx';
 import AddNoteNewCategory from './AddNoteNewCategory.jsx';
-import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE } from './AddNoteButtonGroup.jsx';
 
 
 class AddNoteCategories extends Component {
 
     constructor(props) {
         super(props);
-        this.handleButtonCLick = this.handleButtonCLick.bind(this);
-    }
-
-    handleButtonCLick (whichButton) {
-        let { 
-            addNoteAddNewCategory,
-            addNewNoteCategory
-        } = this.props;
-
-        switch (whichButton) {
-
-            case ADD_NEW_CATEGORY:
-                addNoteAddNewCategory(addNewNoteCategory);
-                break;
-
-            case ADD_NEW_NOTE:
-                
-                break;
-        
-            default:
-                break;
-
-        }
     }
 
     render() {
@@ -47,10 +23,6 @@ class AddNoteCategories extends Component {
                         <AddNoteNewCategory { ...otherProps } /> :                  
                         <AddNoteSelectOption { ...otherProps } /> 
                 }
-                <AddNoteButtonGroup 
-                    addNewNoteCategory={ addNewNoteCategory }
-                    handleOnClick={ this.handleButtonCLick } 
-                />
             </div>
 
         );
