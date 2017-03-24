@@ -18,7 +18,8 @@ class AddNoteTextArea extends Component {
     }
 
     render() {
-        // console.log(this.props)
+        let { addNewNoteContent } = this.props;
+
         return (
             <FormGroup controlId="formControlsTextarea">
                 <ControlLabel>Textarea</ControlLabel>
@@ -26,6 +27,7 @@ class AddNoteTextArea extends Component {
                     componentClass="textarea" 
                     placeholder="textarea" 
                     onChange={ this.handleChange }
+                    value={ addNewNoteContent }
                 />
             </FormGroup>
         );

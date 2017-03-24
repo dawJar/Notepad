@@ -4,9 +4,9 @@ import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import AddNoteCategories from './AddNoteCategories.jsx';
 import AddNoteTextArea from './AddNoteTextArea.jsx';
+import OwnButton, { BACK_FROM_ADD_NOTE } from './OwnButton.jsx';
 import AddNoteTextField, { SET_NOTE_TITLE } from './AddNoteTextField.jsx';
-import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE } from './AddNoteButtonGroup.jsx';
-
+import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './AddNoteButtonGroup.jsx';
 
 
 class AddNote extends Component {
@@ -19,15 +19,7 @@ class AddNote extends Component {
     handleButtonCLick (whichButton) {
         let { 
             addNoteAddNewCategory,
-            addNoteCurrentNewCategory,
-            addNoteContent,
-            addNoteCurrentTitle,
-            addNewNote,
-            addNewNoteCategory,
-            addNewSelectedCategory,
-            addNewNoteContent,
-            currentNewCategory,
-            currentTitle
+            addNewNoteCategory
         } = this.props;
 
         switch (whichButton) {
@@ -37,20 +29,53 @@ class AddNote extends Component {
                 break;
 
             case ADD_NEW_NOTE:
-                let category = (addNewNoteCategory) ? currentNewCategory : addNewSelectedCategory;
-                let title = currentTitle;
-                let content = addNewNoteContent;
-                addNewNote(title, category, content);
-                addNoteCurrentNewCategory('');
-                addNoteContent('');
-                addNoteCurrentTitle('')
+                this.addNewNoteToDb();
+                this.clearAddNoteFields();
                 browserHistory.push('/notepad');
                 break;
-        
-            default:
+            
+            case CLEAR_FIELDS:
+                this.clearAddNoteFields();
+                break;
+            
+            case BACK_FROM_ADD_NOTE:
+                this.clearAddNoteFields();
+                browserHistory.push('/notepad');
                 break;
 
+            default:
+                break;
         }
+    }
+
+    addNewNoteToDb() {
+        let {
+            addNewNoteCategory,
+            currentNewCategory,
+            addNewSelectedCategory,
+            currentTitle,
+            addNewNoteContent,
+            addNewNote
+        } = this.props;
+
+        let category = (addNewNoteCategory) ? 
+                            currentNewCategory : addNewSelectedCategory;
+        let title = currentTitle;
+        let content = addNewNoteContent;
+        addNewNote(title, category, content);
+    }
+
+    clearAddNoteFields() {
+        let { 
+            addNoteCurrentNewCategory,
+            addNoteContent,
+            addNoteCurrentTitle
+        } = this.props;
+
+        addNoteCurrentNewCategory('');
+        addNoteContent('');
+        addNoteCurrentTitle('');
+        addNoteContent('');
     }
 
     render() {
@@ -58,6 +83,11 @@ class AddNote extends Component {
 
         return (
             <div>
+                <OwnButton 
+                    btnText="back" 
+                    whichAction={ BACK_FROM_ADD_NOTE }
+                    handleOnClick={ this.handleButtonCLick }
+                />
                 <AddNoteCategories { ...otherProps } />
                 <AddNoteTextField 
                     actionType={ SET_NOTE_TITLE }

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/lib/Button';
 
 export const ADD_NEW_CATEGORY = 'ADD_NEW_CATEGORY';
 export const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
+export const CLEAR_FIELDS = 'CLEAR_FIELDS';
 
 class AddNoteButtonGroup extends Component {
 
@@ -12,6 +13,7 @@ class AddNoteButtonGroup extends Component {
         super(props);
         this.handleAddNewCategory = this.handleAddNewCategory.bind(this);
         this.handleAddNewNote = this.handleAddNewNote.bind(this);
+        this.handleClearFields = this.handleClearFields.bind(this);
     }
 
     handleAddNewCategory () {
@@ -24,14 +26,19 @@ class AddNoteButtonGroup extends Component {
         handleOnClick(ADD_NEW_NOTE);    
     }
 
+    handleClearFields () {
+        let { handleOnClick } = this.props;
+        handleOnClick(CLEAR_FIELDS);    
+    }
+
     render() {
         let { addNewNoteCategory, ...otherProps } = this.props;
         let categoryButtonText = (addNewNoteCategory) ? 'Select category' : 'Add new category';
 
         return (
             <ButtonGroup>
-                <Button onClick={ this.handleAddNewNote } >
-                    ???
+                <Button onClick={ this.handleClearFields } >
+                    Clear fields
                 </Button>
                 <Button onClick={ this.handleAddNewCategory } >
                     { categoryButtonText }
