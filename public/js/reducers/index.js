@@ -4,6 +4,7 @@ import loginMessage from './loginMessage';
 import formValidation from './formValidation';
 import fetchNotes from './fetchNotes';
 import addNote from './addNote';
+import notepad from './notepad';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     loginMessage,
     formValidation,
     fetchNotes,
-    addNote
+    addNote,
+    notepad
 });
 
 export default rootReducer;

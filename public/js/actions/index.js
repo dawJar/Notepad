@@ -70,6 +70,12 @@ export const addNoteSelectCategory = (addNewSelectedCategory) => ({
     addNewSelectedCategory
 });
 
+// NOTEPAD
+export const setActiveCategoryOfNotes = (currentActiveCategoryTab) => ({
+    type: types.SET_ACTIVE_CATEGORY_OF_NOTES,
+    currentActiveCategoryTab
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,

@@ -7,7 +7,8 @@ import {
 let initialState = {
      anyNotes: false,
      notes: [],
-     userNoteCategories: []
+     userNoteCategories: [],
+    //  currentActiveCategoryTab: 0
 };
 
 const fetchNotes = (state = initialState, action) => {
@@ -17,7 +18,7 @@ const fetchNotes = (state = initialState, action) => {
         notes, 
         userNoteCategories 
     } = action;
-
+    
     switch (type) {
         case FETCH_USER_NOTES_SUCCESS:  
             return { 
