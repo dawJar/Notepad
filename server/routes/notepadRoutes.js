@@ -24,6 +24,7 @@ const notepadRoute = (req, res) => {
     }
 };
 
+
 const notepadUserRoute = (req, res) => {
     let { user } = req.session;
     if (user === undefined) {
@@ -57,6 +58,13 @@ const notepadUserRoute = (req, res) => {
 };
 
 const notepadAddNote = (req, res) => {
+    let { user } = req.session;
+    if (user === undefined)
+        res.redirect('/login');
+    res.redirect('/notepad');
+};
+
+const notepadAddNoteToDb = (req, res) => {
     let { user } = req.session;
     let { category, title, content } = req.body;
 
@@ -95,5 +103,6 @@ const notepadAddNote = (req, res) => {
 module.exports = {
     notepadRoute,
     notepadUserRoute,
-    notepadAddNote
+    notepadAddNote,
+    notepadAddNoteToDb
 };

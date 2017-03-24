@@ -1,9 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import AddNoteCategories from './AddNoteCategories.jsx';
 import AddNoteTextArea from './AddNoteTextArea.jsx';
+import AddNoteTextField, { SET_NOTE_TITLE } from './AddNoteTextField.jsx';
 import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE } from './AddNoteButtonGroup.jsx';
 
 
@@ -19,11 +20,14 @@ class AddNote extends Component {
         let { 
             addNoteAddNewCategory,
             addNoteCurrentNewCategory,
+            addNoteContent,
+            addNoteCurrentTitle,
             addNewNote,
             addNewNoteCategory,
             addNewSelectedCategory,
             addNewNoteContent,
-            currentNewCategory
+            currentNewCategory,
+            currentTitle
         } = this.props;
 
         switch (whichButton) {
@@ -33,12 +37,14 @@ class AddNote extends Component {
                 break;
 
             case ADD_NEW_NOTE:
-            // TODO: add title
-                let title = 'default';
                 let category = (addNewNoteCategory) ? currentNewCategory : addNewSelectedCategory;
+                let title = currentTitle;
                 let content = addNewNoteContent;
                 addNewNote(title, category, content);
                 addNoteCurrentNewCategory('');
+                addNoteContent('');
+                addNoteCurrentTitle('')
+                browserHistory.push('/notepad');
                 break;
         
             default:
@@ -53,6 +59,13 @@ class AddNote extends Component {
         return (
             <div>
                 <AddNoteCategories { ...otherProps } />
+                <AddNoteTextField 
+                    actionType={ SET_NOTE_TITLE }
+                    controlLabel="Note title" 
+                    placeholder="Enter note title" 
+                    title
+                    { ...otherProps } 
+                />
                 <AddNoteTextArea { ...otherProps } />
                 <AddNoteButtonGroup 
                     handleOnClick={ this.handleButtonCLick } 

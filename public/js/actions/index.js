@@ -55,6 +55,11 @@ export const addNoteCurrentNewCategory = (currentNewCategory) => ({
     currentNewCategory
 });
 
+export const addNoteCurrentTitle = (currentTitle) => ({
+    type: types.ADD_NOTE_CURRENT_TITLE,
+    currentTitle
+});
+
 export const addNoteContent = (addNewNoteContent) => ({
     type: types.ADD_NOTE_CONTENT,
     addNewNoteContent

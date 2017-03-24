@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
     userNoteCategories: state.fetchNotes.userNoteCategories,
     addNewNoteCategory: state.addNote.addNewNoteCategory,
     currentNewCategory: state.addNote.currentNewCategory,
+    currentTitle: state.addNote.currentTitle,
     addNewNoteContent: state.addNote.addNewNoteContent,
     addNewSelectedCategory: state.addNote.addNewSelectedCategory
 });

@@ -11,7 +11,8 @@ const {
 const { 
     notepadRoute,
     notepadUserRoute,
-    notepadAddNote
+    notepadAddNote,
+    notepadAddNoteToDb
 } = require('../routes/notepadRoutes');
 
 
@@ -33,6 +34,8 @@ module.exports = function (app) {
 
     app.post('/fetch-notes', notepadUserRoute);
 
-    app.post('/add-new-note', notepadAddNote);
+    app.get('/notepad/add-note', notepadAddNote);
+
+    app.post('/add-note', notepadAddNoteToDb);
 
 };

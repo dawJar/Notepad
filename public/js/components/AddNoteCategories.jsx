@@ -4,7 +4,7 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import AddNoteSelectOption from './AddNoteSelectOption.jsx';
-import AddNoteNewCategory from './AddNoteNewCategory.jsx';
+import AddNoteTextField, { SET_NOTE_CATEGORY } from './AddNoteTextField.jsx';
 
 
 class AddNoteCategories extends Component {
@@ -20,7 +20,12 @@ class AddNoteCategories extends Component {
             <div>
                 {
                     (addNewNoteCategory) ?
-                        <AddNoteNewCategory { ...otherProps } /> :                  
+                        <AddNoteTextField 
+                            actionType={ SET_NOTE_CATEGORY }
+                            controlLabel="Add new category name" 
+                            placeholder="Enter category name" 
+                            { ...otherProps } 
+                        /> :                  
                         <AddNoteSelectOption { ...otherProps } /> 
                 }
             </div>

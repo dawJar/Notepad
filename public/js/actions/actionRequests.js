@@ -82,7 +82,7 @@ export const fetchUserNotesRequest = (dispatch) => {
 export const addNewNoteRequest = (title, category, content, dispatch) => {
     $.ajax({
         type: 'POST',
-        url: '/add-new-note',
+        url: '/add-note',
         data: {
             title, 
             category, 
