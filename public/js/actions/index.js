@@ -78,6 +78,7 @@ export const fetchUserNotesFail = (anyNotes) => ({
 });
 
 // REQESTS
+// login
 export const attemptLogin = (login, password) => (dispatch) => {
     request.attemptLoginRequest(login, password, dispatch);
 };
@@ -88,4 +89,9 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
 
 export const fetchUserNotes = () => (dispatch) => {
     request.fetchUserNotesRequest(dispatch);
+};
+
+// notepad
+export const addNewNote = (title, category, content) => (dispatch) => {
+    request.addNewNoteRequest(title, category, content, dispatch);
 };

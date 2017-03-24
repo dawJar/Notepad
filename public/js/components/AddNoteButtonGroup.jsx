@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
 
@@ -38,7 +37,7 @@ class AddNoteButtonGroup extends Component {
                     { categoryButtonText }
                 </Button>
                 <Button onClick={ this.handleAddNewNote } >
-                    Add note
+                        Add note
                 </Button>
             </ButtonGroup>
         );

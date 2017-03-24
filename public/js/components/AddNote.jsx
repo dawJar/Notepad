@@ -19,7 +19,11 @@ class AddNote extends Component {
         let { 
             addNoteAddNewCategory,
             addNoteCurrentNewCategory,
-            addNewNoteCategory
+            addNewNote,
+            addNewNoteCategory,
+            addNewSelectedCategory,
+            addNewNoteContent,
+            currentNewCategory
         } = this.props;
 
         switch (whichButton) {
@@ -29,7 +33,11 @@ class AddNote extends Component {
                 break;
 
             case ADD_NEW_NOTE:
-                // clean new category field
+            // TODO: add title
+                let title = 'default';
+                let category = (addNewNoteCategory) ? currentNewCategory : addNewSelectedCategory;
+                let content = addNewNoteContent;
+                addNewNote(title, category, content);
                 addNoteCurrentNewCategory('');
                 break;
         

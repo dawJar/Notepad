@@ -11,7 +11,7 @@ const NoteSchema = new Schema({
         type: String,
         required: true,
     },
-    noteName: {
+    title: {
         type: String,
         required: true,
     },

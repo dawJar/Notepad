@@ -5,7 +5,10 @@ export const attemptLoginRequest = (login, password, dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/login',
-        data: { login, password }
+        data: { 
+            login, 
+            password 
+        }
     })
         
         .done((data) => {
@@ -29,7 +32,11 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/signup',
-        data: { firstName, login, password }
+        data: { 
+            firstName, 
+            login, 
+            password 
+        }
     })
         
         .done((data) => {
@@ -51,7 +58,6 @@ export const fetchUserNotesRequest = (dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/fetch-notes'
-        // data: {}
     })
         
         .done((data) => {
@@ -71,4 +77,29 @@ export const fetchUserNotesRequest = (dispatch) => {
         .fail((data) => {
             dispatch(actions.fetchUserNotesFail());
         });
+};
+
+export const addNewNoteRequest = (title, category, content, dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/add-new-note',
+        data: {
+            title, 
+            category, 
+            content
+        }
+    })
+        
+        // .done((data) => {
+            
+        //     if (anyNotes) {
+        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
+        //     } else {
+        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
+        //     }
+        // })
+
+        // .fail((data) => {
+        //     dispatch(actions.fetchUserNotesFail());
+        // });
 };
