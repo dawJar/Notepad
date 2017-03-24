@@ -9,12 +9,27 @@ class NotepadTabs extends Component {
 
     constructor(props) {
         super(props);
+        this.handleSelect = this.handleSelect.bind(this);
+    }
+
+    handleSelect(event) {
+        let { 
+            setActiveCategoryOfNotes,
+            userNotes,
+            userNoteCategories
+        } = this.props;
+        console.log('HERE', userNotes)
+        setActiveCategoryOfNotes(event, 
+                                    userNotes,
+                                    userNoteCategories);
     }
 
     render() {
         let { 
             userNoteCategories, 
-            activeCategoryOfNotes, 
+            currentActiveCategoryTab,
+            notesOfCurrentActiveTab,
+            activeCategoryOfNotes,
             ...otherProps 
         } = this.props;
 
@@ -30,8 +45,8 @@ class NotepadTabs extends Component {
         return (
             <Tabs
                 activeKey={ activeCategoryOfNotes }
-                onSelect={this.handleSelect}
                 id="controlled-tab-example"
+                onSelect={ this.handleSelect }
             >
                 { tabsToRender }
             </Tabs>

@@ -1,14 +1,14 @@
 import {
     FETCH_USER_NOTES_SUCCESS,
-    FETCH_USER_NOTES_FAIL
+    FETCH_USER_NOTES_FAIL,
+    SET_ACTIVE_CATEGORY_OF_NOTES
 } from '../constants/actionTypes';
 
 
 let initialState = {
      anyNotes: false,
      notes: [],
-     userNoteCategories: [],
-    //  currentActiveCategoryTab: 0
+     userNoteCategories: []
 };
 
 const fetchNotes = (state = initialState, action) => {
@@ -22,13 +22,14 @@ const fetchNotes = (state = initialState, action) => {
     switch (type) {
         case FETCH_USER_NOTES_SUCCESS:  
             return { 
+                ...state,
                 anyNotes,
                 notes,
                 userNoteCategories
             };      
 
         case FETCH_USER_NOTES_FAIL:
-            return state;       
+            return state;  
 
         default:
             return state;

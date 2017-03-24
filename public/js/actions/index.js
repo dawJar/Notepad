@@ -71,9 +71,13 @@ export const addNoteSelectCategory = (addNewSelectedCategory) => ({
 });
 
 // NOTEPAD
-export const setActiveCategoryOfNotes = (currentActiveCategoryTab) => ({
+export const setActiveCategoryOfNotes = (currentActiveCategoryTab, 
+                                        userNotes, 
+                                        userNoteCategories) => ({
     type: types.SET_ACTIVE_CATEGORY_OF_NOTES,
-    currentActiveCategoryTab
+    currentActiveCategoryTab,
+    userNotes,
+    userNoteCategories
 });
 
 // FETCH NOTES
