@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/lib/Button';
 
 
 export const BACK_FROM_ADD_NOTE = 'BACK_FROM_ADD_NOTE';
+export const NOTEPAD_ADD_NOTE = 'NOTEPAD_ADD_NOTE';
 
 class OwnButton extends Component {
 
@@ -18,6 +19,10 @@ class OwnButton extends Component {
         switch (whichAction) {
             case BACK_FROM_ADD_NOTE:
                 handleOnClick(BACK_FROM_ADD_NOTE);
+                break;
+        
+            case NOTEPAD_ADD_NOTE:
+                handleOnClick(NOTEPAD_ADD_NOTE);
                 break;
         
             default:

@@ -1,23 +1,16 @@
-import React, { PropTypes, Component } from 'react';
+/*import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import NotepadTab from './NotepadTab.jsx';
 
 
-class NotepadTabs extends Component {
+class NotepadTab extends Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
-        let { 
-            userNoteCategories, 
-            activeCategoryOfNotes, 
-            ...otherProps 
-        } = this.props;
-
+        let { userNotes, userNoteCategories } = this.props;
         let tabsToRender = userNoteCategories.map((category, i) => 
             <Tab 
                 eventKey={ i } 
@@ -28,18 +21,14 @@ class NotepadTabs extends Component {
         );
 
         return (
-            <Tabs
-                activeKey={ activeCategoryOfNotes }
-                onSelect={this.handleSelect}
-                id="controlled-tab-example"
-            >
+            <div>
                 { tabsToRender }
-            </Tabs>
+            </div>
         );
     }
 }
 
-// NotepadTabs.propTypes = {
+// NotepadTab.propTypes = {
 // increment: PropTypes.func.isRequired,
 // incrementIfOdd: PropTypes.func.isRequired,
 // incrementAsync: PropTypes.func.isRequired,
@@ -47,4 +36,4 @@ class NotepadTabs extends Component {
 // counter: PropTypes.number.isRequired
 // };
 
-export default NotepadTabs;
+export default NotepadTab;*/

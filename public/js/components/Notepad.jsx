@@ -1,8 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import NotepadTabs from './NotepadTabs.jsx';
+import OwnButton, { NOTEPAD_ADD_NOTE } from './OwnButton.jsx';
 
 
 class Notepad extends Component {
@@ -12,21 +13,23 @@ class Notepad extends Component {
         this.handleAddNewNote = this.handleAddNewNote.bind(this);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     console.log('cwm')
-    //     console.log(nextProps)
-    // }
-
-    // shouldComponentUpdate() {
-    //     return true;
-    // }
-
     componentWillMount() {
         this.props.fetchUserNotes()        
     }
 
-    handleAddNewNote() {
-        console.log('click')
+    handleAddNewNote(whichButton) {
+        let { 
+            location: { pathname } 
+        } = this.props;
+
+        switch (whichButton) {
+            case NOTEPAD_ADD_NOTE:
+                browserHistory.push(`${pathname}/add-note`);
+                break;
+        
+            default:
+                break;
+        }
     }
 
     render() {
@@ -38,20 +41,33 @@ class Notepad extends Component {
             ...otherProps
         } = this.props;
         
-        let renderNotes = userNotes > 0;
+        let renderNotes = userNotes.length > 0;
 
         return (
             <div>
                 {
                     (renderNotes) ?
-                        { children } :
+                        <NotepadTabs 
+                            userNotes={ userNotes }
+                            { ...otherProps }
+                        /> : 
                         <Link
-                            to={`${pathname}/add-note`}
-                            onClick={this.handleAddNewNote}
+                            to={ `${pathname}/add-note` }
+                            onClick={ this.handleAddNewNote }
                         >
                             You got no notes. Add new one!
                         </Link>
                 }
+
+                {
+                    (renderNotes) ?
+                        <OwnButton 
+                            btnText="Add note" 
+                            whichAction={ NOTEPAD_ADD_NOTE }
+                            handleOnClick={ this.handleAddNewNote }
+                        /> : null
+                }
+
             </div>
         );
     }

@@ -13,10 +13,10 @@ class AddNote extends Component {
 
     constructor(props) {
         super(props);
-        this.handleButtonCLick = this.handleButtonCLick.bind(this);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
-    handleButtonCLick (whichButton) {
+    handleButtonClick (whichButton) {
         let { 
             addNoteAddNewCategory,
             addNewNoteCategory
@@ -86,7 +86,7 @@ class AddNote extends Component {
                 <OwnButton 
                     btnText="back" 
                     whichAction={ BACK_FROM_ADD_NOTE }
-                    handleOnClick={ this.handleButtonCLick }
+                    handleOnClick={ this.handleButtonClick }
                 />
                 <AddNoteCategories { ...otherProps } />
                 <AddNoteTextField 
@@ -98,7 +98,7 @@ class AddNote extends Component {
                 />
                 <AddNoteTextArea { ...otherProps } />
                 <AddNoteButtonGroup 
-                    handleOnClick={ this.handleButtonCLick } 
+                    handleOnClick={ this.handleButtonClick } 
                     { ...otherProps }
                 />
             </div>
