@@ -18,7 +18,7 @@ class NotepadTabs extends Component {
             userNotes,
             userNoteCategories
         } = this.props;
-        console.log('HERE', userNotes)
+        
         setActiveCategoryOfNotes(event, 
                                     userNotes,
                                     userNoteCategories);

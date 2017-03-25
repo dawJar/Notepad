@@ -21,8 +21,6 @@ const notepad = (state = initialState, action) => {
             let nameOfActiveCategory = userNoteCategories[currentActiveCategoryTab];
             let notesOfCurrentActiveTab = userNotes.filter(note => 
                                         note.category === nameOfActiveCategory);
-            // let notesOfCurrentActiveTab = [];
-            console.log(userNotes)
             return { 
                 ...state,
                 currentActiveCategoryTab,
