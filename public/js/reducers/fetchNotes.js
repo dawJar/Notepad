@@ -1,7 +1,7 @@
 import {
     FETCH_USER_NOTES_SUCCESS,
     FETCH_USER_NOTES_FAIL,
-    SET_ACTIVE_CATEGORY_OF_NOTES
+    SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY
 } from '../constants/actionTypes';
 
 

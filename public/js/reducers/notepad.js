@@ -1,4 +1,5 @@
 import {
+    SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY,
     SET_ACTIVE_CATEGORY_OF_NOTES
 } from '../constants/actionTypes';
 
@@ -17,7 +18,7 @@ const notepad = (state = initialState, action) => {
     } = action;
     
     switch (type) {
-        case SET_ACTIVE_CATEGORY_OF_NOTES: 
+        case SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY: 
             let nameOfActiveCategory = userNoteCategories[currentActiveCategoryTab];
             let notesOfCurrentActiveTab = userNotes.filter(note => 
                                         note.category === nameOfActiveCategory);
@@ -25,7 +26,13 @@ const notepad = (state = initialState, action) => {
                 ...state,
                 currentActiveCategoryTab,
                 notesOfCurrentActiveTab
-            };      
+            };
+
+        case SET_ACTIVE_CATEGORY_OF_NOTES:
+            return {
+                ...state,
+                currentActiveCategoryTab
+            }    
 
         default:
             return state;

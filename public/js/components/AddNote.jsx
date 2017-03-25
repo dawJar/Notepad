@@ -19,7 +19,9 @@ class AddNote extends Component {
     handleButtonClick (whichButton) {
         let { 
             addNoteAddNewCategory,
-            addNewNoteCategory
+            addNewNoteCategory,
+            fetchUserNotes, 
+            currentActiveCategoryTab
         } = this.props;
 
         switch (whichButton) {
@@ -31,6 +33,8 @@ class AddNote extends Component {
             case ADD_NEW_NOTE:
                 this.addNewNoteToDb();
                 this.clearAddNoteFields();
+                this.setActiveTab();
+                fetchUserNotes(currentActiveCategoryTab);
                 browserHistory.push('/notepad');
                 break;
             
@@ -46,6 +50,17 @@ class AddNote extends Component {
             default:
                 break;
         }
+    }
+
+    setActiveTab() {
+        let { 
+            addNewNoteCategory, 
+            userNoteCategories,
+            setActiveCategoryOfNotes 
+        } = this.props;
+
+        if (addNewNoteCategory)
+            setActiveCategoryOfNotes(userNoteCategories.length);
     }
 
     addNewNoteToDb() {

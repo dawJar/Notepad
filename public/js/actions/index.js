@@ -71,13 +71,18 @@ export const addNoteSelectCategory = (addNewSelectedCategory) => ({
 });
 
 // NOTEPAD
-export const setActiveCategoryOfNotes = (currentActiveCategoryTab, 
+export const setActiveNotesOfCurrentCategory = (currentActiveCategoryTab, 
                                         userNotes, 
                                         userNoteCategories) => ({
-    type: types.SET_ACTIVE_CATEGORY_OF_NOTES,
+    type: types.SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY,
     currentActiveCategoryTab,
     userNotes,
     userNoteCategories
+});
+
+export const setActiveCategoryOfNotes = (currentActiveCategoryTab) => ({
+    type: types.SET_ACTIVE_CATEGORY_OF_NOTES,
+    currentActiveCategoryTab
 });
 
 // FETCH NOTES
@@ -102,8 +107,8 @@ export const attemptSingup = (firstName, login, password) => (dispatch) => {
     request.attemptSingupRequest(firstName, login, password, dispatch);
 };
 
-export const fetchUserNotes = () => (dispatch) => {
-    request.fetchUserNotesRequest(dispatch);
+export const fetchUserNotes = (currentActiveCategoryTab) => (dispatch) => {
+    request.fetchUserNotesRequest(currentActiveCategoryTab, dispatch);
 };
 
 // notepad

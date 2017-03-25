@@ -12,18 +12,27 @@ class NotepadTabs extends Component {
         this.handleSelect = this.handleSelect.bind(this);
     }
 
+    componentWillMount() {
+        let { currentActiveCategoryTab } = this.props;
+        this.setVisibleNotes(currentActiveCategoryTab);
+    }
+
     handleSelect(event) {
+        this.setVisibleNotes(event);
+    }
+
+    setVisibleNotes(indexOfCurrentVisibleTab) {
         let { 
-            setActiveCategoryOfNotes,
+            setActiveNotesOfCurrentCategory,
             userNotes,
             userNoteCategories
         } = this.props;
         
-        setActiveCategoryOfNotes(event, 
+        setActiveNotesOfCurrentCategory(indexOfCurrentVisibleTab, 
                                     userNotes,
                                     userNoteCategories);
     }
-
+    
     render() {
         let { 
             userNoteCategories, 

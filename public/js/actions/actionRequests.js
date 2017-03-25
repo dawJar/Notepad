@@ -54,7 +54,7 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
         });
 };
 
-export const fetchUserNotesRequest = (dispatch) => {
+export const fetchUserNotesRequest = (currentActiveCategoryTab, dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/fetch-notes'
@@ -72,6 +72,7 @@ export const fetchUserNotesRequest = (dispatch) => {
             } else {
                 dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
             }
+            dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
         })
 
         .fail((data) => {
