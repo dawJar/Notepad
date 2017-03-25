@@ -1,9 +1,8 @@
-/*import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
+import React, { PropTypes, Component } from 'react';
 import Tab from 'react-bootstrap/lib/Tab';
 
 
-class NotepadTab extends Component {
+class Notes extends Component {
 
     constructor(props) {
         super(props);
@@ -11,24 +10,16 @@ class NotepadTab extends Component {
 
     render() {
         let { userNotes, userNoteCategories } = this.props;
-        let tabsToRender = userNoteCategories.map((category, i) => 
-            <Tab 
-                eventKey={ i } 
-                title={ category }
-            >
-                cont
-            </Tab>
-        );
 
         return (
             <div>
-                { tabsToRender }
+                
             </div>
         );
     }
 }
 
-// NotepadTab.propTypes = {
+// Notes.propTypes = {
 // increment: PropTypes.func.isRequired,
 // incrementIfOdd: PropTypes.func.isRequired,
 // incrementAsync: PropTypes.func.isRequired,
@@ -36,4 +27,4 @@ class NotepadTab extends Component {
 // counter: PropTypes.number.isRequired
 // };
 
-export default NotepadTab;*/
+export default Notes;

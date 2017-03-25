@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import NotepadTab from './NotepadTab.jsx';
+import Notes from './Notes.jsx';
 
 
 class NotepadTabs extends Component {
@@ -29,7 +29,7 @@ class NotepadTabs extends Component {
             userNoteCategories, 
             currentActiveCategoryTab,
             notesOfCurrentActiveTab,
-            activeCategoryOfNotes,
+            // activeCategoryOfNotes,
             ...otherProps 
         } = this.props;
 
@@ -44,7 +44,7 @@ class NotepadTabs extends Component {
 
         return (
             <Tabs
-                activeKey={ activeCategoryOfNotes }
+                activeKey={ currentActiveCategoryTab }
                 id="controlled-tab-example"
                 onSelect={ this.handleSelect }
             >
