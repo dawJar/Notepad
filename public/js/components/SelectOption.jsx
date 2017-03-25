@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 
-class AddNoteSelectOption extends Component {
+class SelectOption extends Component {
 
     constructor(props) {
         super(props);
@@ -48,8 +48,8 @@ class AddNoteSelectOption extends Component {
     }
 }
 
-AddNoteSelectOption.propTypes = {
+SelectOption.propTypes = {
     // value: PropTypes.string.isRequired
 };
 
-export default AddNoteSelectOption;
+export default SelectOption;

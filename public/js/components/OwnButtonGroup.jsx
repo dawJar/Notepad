@@ -7,7 +7,7 @@ export const ADD_NEW_CATEGORY = 'ADD_NEW_CATEGORY';
 export const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
 export const CLEAR_FIELDS = 'CLEAR_FIELDS';
 
-class AddNoteButtonGroup extends Component {
+class OwnButtonGroup extends Component {
 
     constructor(props) {
         super(props);
@@ -51,7 +51,7 @@ class AddNoteButtonGroup extends Component {
     }
 }
 
-// AddNoteButtonGroup.propTypes = {
+// OwnButtonGroup.propTypes = {
 // increment: PropTypes.func.isRequired,
 // incrementIfOdd: PropTypes.func.isRequired,
 // incrementAsync: PropTypes.func.isRequired,
@@ -59,4 +59,4 @@ class AddNoteButtonGroup extends Component {
 // counter: PropTypes.number.isRequired
 // };
 
-export default AddNoteButtonGroup;
+export default OwnButtonGroup;

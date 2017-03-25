@@ -3,11 +3,11 @@ import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import AddNoteSelectOption from './AddNoteSelectOption.jsx';
-import AddNoteTextField, { SET_NOTE_CATEGORY } from './AddNoteTextField.jsx';
+import SelectOption from './SelectOption.jsx';
+import TextField, { SET_NOTE_CATEGORY } from './TextField.jsx';
 
 
-class AddNoteCategories extends Component {
+class NoteCategory extends Component {
 
     constructor(props) {
         super(props);
@@ -20,13 +20,13 @@ class AddNoteCategories extends Component {
             <div>
                 {
                     (addNewNoteCategory) ?
-                        <AddNoteTextField 
+                        <TextField 
                             actionType={ SET_NOTE_CATEGORY }
                             controlLabel="Add new category name" 
                             placeholder="Enter category name" 
                             { ...otherProps } 
                         /> :                  
-                        <AddNoteSelectOption { ...otherProps } /> 
+                        <SelectOption { ...otherProps } /> 
                 }
             </div>
 
@@ -34,7 +34,7 @@ class AddNoteCategories extends Component {
     }
 }
 
-// AddNoteCategories.propTypes = {
+// NoteCategory.propTypes = {
 // increment: PropTypes.func.isRequired,
 // incrementIfOdd: PropTypes.func.isRequired,
 // incrementAsync: PropTypes.func.isRequired,
@@ -42,4 +42,4 @@ class AddNoteCategories extends Component {
 // counter: PropTypes.number.isRequired
 // };
 
-export default AddNoteCategories;
+export default NoteCategory;

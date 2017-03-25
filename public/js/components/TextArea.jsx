@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 
-class AddNoteTextArea extends Component {
+class TextArea extends Component {
 
     constructor(props) {
         super(props);
@@ -34,8 +34,8 @@ class AddNoteTextArea extends Component {
     }
 }
 
-AddNoteTextArea.propTypes = {
+TextArea.propTypes = {
     // value: PropTypes.string.isRequired
 };
 
-export default AddNoteTextArea;
+export default TextArea;

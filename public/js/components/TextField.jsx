@@ -8,7 +8,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 export const SET_NOTE_CATEGORY = "SET_NOTE_CATEGORY";
 export const SET_NOTE_TITLE = "SET_NOTE_TITLE";
 
-class AddNoteTextField extends Component {
+class TextField extends Component {
 
     constructor(props) {
         super(props);
@@ -61,8 +61,8 @@ class AddNoteTextField extends Component {
     }
 }
 
-AddNoteTextField.propTypes = {
+TextField.propTypes = {
     // value: PropTypes.string.isRequired
 };
 
-export default AddNoteTextField;
+export default TextField;

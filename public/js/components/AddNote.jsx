@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import AddNoteCategories from './AddNoteCategories.jsx';
-import AddNoteTextArea from './AddNoteTextArea.jsx';
+import NoteCategory from './NoteCategory.jsx';
+import TextArea from './TextArea.jsx';
 import OwnButton, { BACK_FROM_ADD_NOTE } from './OwnButton.jsx';
-import AddNoteTextField, { SET_NOTE_TITLE } from './AddNoteTextField.jsx';
-import AddNoteButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './AddNoteButtonGroup.jsx';
+import TextField, { SET_NOTE_TITLE } from './TextField.jsx';
+import OwnButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './OwnButtonGroup.jsx';
 
 
 class AddNote extends Component {
@@ -103,16 +103,16 @@ class AddNote extends Component {
                     whichAction={ BACK_FROM_ADD_NOTE }
                     handleOnClick={ this.handleButtonClick }
                 />
-                <AddNoteCategories { ...otherProps } />
-                <AddNoteTextField 
+                <NoteCategory { ...otherProps } />
+                <TextField 
                     actionType={ SET_NOTE_TITLE }
                     controlLabel="Note title" 
                     placeholder="Enter note title" 
                     title
                     { ...otherProps } 
                 />
-                <AddNoteTextArea { ...otherProps } />
-                <AddNoteButtonGroup 
+                <TextArea { ...otherProps } />
+                <OwnButtonGroup 
                     handleOnClick={ this.handleButtonClick } 
                     { ...otherProps }
                 />
