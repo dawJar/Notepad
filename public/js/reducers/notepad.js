@@ -20,8 +20,14 @@ const notepad = (state = initialState, action) => {
     switch (type) {
         case SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY: 
             let nameOfActiveCategory = userNoteCategories[currentActiveCategoryTab];
-            let notesOfCurrentActiveTab = userNotes.filter(note => 
+            let notesOfCurrentActiveTab;
+            if (currentActiveCategoryTab) {
+                notesOfCurrentActiveTab = userNotes.filter(note => 
                                         note.category === nameOfActiveCategory);
+            } else {
+                notesOfCurrentActiveTab = userNotes;
+            }
+            
             return { 
                 ...state,
                 currentActiveCategoryTab,

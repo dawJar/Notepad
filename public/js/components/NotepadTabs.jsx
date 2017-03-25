@@ -46,7 +46,10 @@ class NotepadTabs extends Component {
                 eventKey={ i } 
                 title={ category }
             >
-                <Notes filteredNotes={ notesOfCurrentActiveTab } />
+                <Notes 
+                    filteredNotes={ notesOfCurrentActiveTab } 
+                    currentActiveCategoryTab={ currentActiveCategoryTab } 
+                />
             </Tab>
         );
 

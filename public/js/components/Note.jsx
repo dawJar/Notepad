@@ -9,12 +9,19 @@ class Notes extends Component {
     }
 
     render() {
-        let { title, content, category } = this.props;
+        let { 
+            title, 
+            content, 
+            category, 
+            currentActiveCategoryTab 
+        } = this.props;
 
         return (
             <div>
                 <p>note: { title }</p>
-                <p>category: { category }</p>
+                {
+                    (currentActiveCategoryTab === 0) ? <p>category: { category }</p> : null
+                }
                 <p>content: { content }</p>
             </div>
         );
