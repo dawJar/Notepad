@@ -29,7 +29,6 @@ class NotepadTabs extends Component {
             userNoteCategories, 
             currentActiveCategoryTab,
             notesOfCurrentActiveTab,
-            // activeCategoryOfNotes,
             ...otherProps 
         } = this.props;
 
@@ -38,7 +37,7 @@ class NotepadTabs extends Component {
                 eventKey={ i } 
                 title={ category }
             >
-                cont
+                <Notes filteredNotes={ notesOfCurrentActiveTab } />
             </Tab>
         );
 

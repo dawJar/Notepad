@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Note from './Note.jsx';
+import Tab from 'react-bootstrap/lib/Tab';
 
 
 class Notes extends Component {
@@ -9,18 +9,13 @@ class Notes extends Component {
     }
 
     render() {
-        let { filteredNotes } = this.props;
-        let notesToRender = filteredNotes.map(note => 
-            <Note 
-                title={ note.title }
-                category={ note.category }
-                content={ note.content }
-            />
-        );
+        let { title, content, category } = this.props;
 
         return (
             <div>
-                { notesToRender }
+                <p>note: { title }</p>
+                <p>category: { category }</p>
+                <p>content: { content }</p>
             </div>
         );
     }
