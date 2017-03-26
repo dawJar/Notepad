@@ -17,7 +17,6 @@ export const attemptLoginRequest = (login, password, dispatch) => {
 
             if (loginUser) {
                 dispatch(actions.loginSuccess(message, loginUser));
-                // getUsersNotepadRequest();
             } else {
                 dispatch(actions.loginFail(message, loginUser));
             }
@@ -62,18 +61,8 @@ export const fetchUserNotesRequest = (currentActiveCategoryTab, dispatch) => {
         
         .done((data) => {
             let { notes, userNoteCategories } = data.userData;
-            let anyNotes = notes.length !== 0;
-            console.log('ANYNOTES', anyNotes)
-            console.log('NOTES', notes)
-            console.log('CATEGORIES', userNoteCategories)
-            // console.log(typeof notes)
 
-            
-            if (anyNotes) {
-                dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
-            } else {
-                dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
-            }
+            dispatch(actions.fetchUserNotesSuccess(notes, userNoteCategories));
             dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
         })
 

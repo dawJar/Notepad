@@ -86,9 +86,8 @@ export const setActiveCategoryOfNotes = (currentActiveCategoryTab) => ({
 });
 
 // FETCH NOTES
-export const fetchUserNotesSuccess = (anyNotes, notes, userNoteCategories) => ({
+export const fetchUserNotesSuccess = (notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,
-    anyNotes,
     notes,
     userNoteCategories
 });

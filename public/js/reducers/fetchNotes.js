@@ -20,7 +20,8 @@ const fetchNotes = (state = initialState, action) => {
     } = action;
     
     switch (type) {
-        case FETCH_USER_NOTES_SUCCESS:  
+        case FETCH_USER_NOTES_SUCCESS: 
+            let anyNotes = notes.length !== 0; 
             return { 
                 ...state,
                 anyNotes,
