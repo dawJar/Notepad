@@ -20,8 +20,8 @@ class LoginForm extends Component {
     componentWillReceiveProps(nextProps) {
         let { loginUser, signUpNewUser } = nextProps;
         if (loginUser || signUpNewUser) {
-            browserHistory.push('/notepad');
             location.reload();
+            browserHistory.push('/notepad');
         } 
     }
 
