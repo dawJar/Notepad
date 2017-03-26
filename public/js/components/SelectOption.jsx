@@ -23,14 +23,15 @@ class SelectOption extends Component {
             addNewSelectedCategory 
         } = this.props;
 
+        userNoteCategories = userNoteCategories.filter(category => category !== 'All');
         let optionsToRender = userNoteCategories.map(category => {
             return (category === addNewSelectedCategory) ?
-            <option value={ category } selected>
-                { category }
-            </option> :
-            <option value={ category } >
-                { category }
-            </option>
+                        <option value={ category } selected>
+                            { category }
+                        </option> :
+                        <option value={ category } >
+                            { category }
+                        </option>
         });
 
         return (

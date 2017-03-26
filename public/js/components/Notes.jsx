@@ -12,6 +12,7 @@ class Notes extends Component {
         let { filteredNotes, ...otherProps } = this.props;
         let notesToRender = filteredNotes.map(note => 
             <Note 
+                noteId={ note._id }
                 title={ note.title }
                 category={ note.category }
                 content={ note.content }

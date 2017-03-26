@@ -6,7 +6,8 @@ import {
 
 let initialState = {
      currentActiveCategoryTab: 0,
-     notesOfCurrentActiveTab: []
+     notesOfCurrentActiveTab: [],
+     dropdownSelectItems: ["Important", "Info", "Done", "Edit"]
 };
 
 const notepad = (state = initialState, action) => {

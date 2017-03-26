@@ -48,7 +48,8 @@ class NotepadTabs extends Component {
             >
                 <Notes 
                     filteredNotes={ notesOfCurrentActiveTab } 
-                    currentActiveCategoryTab={ currentActiveCategoryTab } 
+                    currentActiveCategoryTab={ currentActiveCategoryTab }
+                    { ...otherProps }
                 />
             </Tab>
         );

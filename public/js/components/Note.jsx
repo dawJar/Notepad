@@ -2,12 +2,41 @@ import React, { PropTypes, Component } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
+import OwnDropdownButton from './OwnDropdownButton.jsx';
+import * as dropdownControl from './DropdownButtonItem.jsx';
 
 
 class Notes extends Component {
 
     constructor(props) {
         super(props);
+        this.handleSelectMenuItem = this.handleSelectMenuItem.bind(this);
+    }
+    
+    handleSelectMenuItem(whichItem) {
+        console.log(this.props.noteId)
+        switch (whichItem) {
+
+            case dropdownControl.SET_IMPORTANT:
+                console.log('import');
+                break;
+
+            case dropdownControl.SET_INFO:
+                console.log('info');
+                break;
+
+            case dropdownControl.SET_DONE:
+                console.log('done');
+                break;
+
+            case dropdownControl.EDIT_NOTE:
+                console.log('edit');
+                break;
+        
+            default:
+                break;
+
+        }
     }
 
     render() {
@@ -15,23 +44,20 @@ class Notes extends Component {
             title, 
             content, 
             category, 
-            currentActiveCategoryTab 
+            currentActiveCategoryTab,
+            ...otherProps
         } = this.props;
 
-        let test = (
-            <div>
-                { title }
-                <DropdownButton bsStyle={title.toLowerCase()} title="more" key={1} id={`dropdown-basic-${1}`}>
-                    <MenuItem eventKey="1">Important</MenuItem>
-                    <MenuItem eventKey="2">Done</MenuItem>
-                    <MenuItem eventKey="3">Info</MenuItem>
-                    <MenuItem eventKey="3">Warning</MenuItem>
-                </DropdownButton>
-            </div>
+        let panelHeaderToRender = (
+                <OwnDropdownButton 
+                    title={ title } 
+                    handleSelectMenuItem={ this.handleSelectMenuItem } 
+                    { ...otherProps }
+                />
         );
 
         return (
-            <Panel header={ test }>
+            <Panel header={ panelHeaderToRender }>
                 {
                     (currentActiveCategoryTab === 0) ? <p>category: { category }</p> : null
                 }
