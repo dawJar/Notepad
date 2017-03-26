@@ -82,21 +82,15 @@ export const addNewNoteRequest = (title, category, content, dispatch) => {
         }
     })
         
-        // .done((data) => {
-            
-        //     if (anyNotes) {
-        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
-        //     } else {
-        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
-        //     }
-        // })
+        .done((data) => {
+            let { notes, userNoteCategories } = data.userData;
 
-        // .fail((data) => {
-        //     dispatch(actions.fetchUserNotesFail());
-        // });
+            dispatch(actions.fetchUserNotesSuccess(notes, userNoteCategories));
+        });
+
 };
 
-export const updateNoteImportanceRequest = (noteId, importance, dispatch) => {
+export const updateNoteImportanceRequest = (currentActiveCategoryTab, noteId, importance, dispatch) => {
     $.ajax({
         type: 'POST',
         url: '/update-note-importance',
@@ -106,14 +100,12 @@ export const updateNoteImportanceRequest = (noteId, importance, dispatch) => {
         }
     })
         
-        // .done((data) => {
-            
-        //     if (anyNotes) {
-        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
-        //     } else {
-        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
-        //     }
-        // })
+        .done((data) => {
+            let { notes, userNoteCategories } = data.userData;
+
+            dispatch(actions.fetchUserNotesSuccess(notes, userNoteCategories));
+            dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
+        });
 
         // .fail((data) => {
         //     dispatch(actions.fetchUserNotesFail());

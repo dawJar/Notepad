@@ -63,8 +63,8 @@ const notepadAddNoteToDb = (req, res) => {
                     User.findOneAndUpdate({ login: user }, 
                         { $set: { notes, userNoteCategories }})
 
-                        .then(() => {
-                            res.redirect('/notepad');
+                        .then((userData) => {
+                            res.send({ userData });
                         });
                 }
             });
@@ -93,11 +93,17 @@ const notepadUpdateNoteImportance = (req, res) => {
                     }
                 })
 
-                    .then((result) => { 
-                        // TODO: response!
-                        console.log(result);
-                        res.send('dsadsa');
-                    })
+                    .then(() => { 
+
+                        User.findOne({ login: user })
+
+                            .then((userData) => {
+
+                                res.send({ userData });
+
+                            });
+
+                    });
 
             });
     }

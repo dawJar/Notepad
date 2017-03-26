@@ -13,24 +13,35 @@ class Notes extends Component {
         this.handleSelectMenuItem = this.handleSelectMenuItem.bind(this);
     }
 
+    shouldComponentUpdate(nextProps) {
+        console.log(this.props.panelStyle !== nextProps.panelStyle)
+        return this.props.panelStyle !== nextProps.panelStyle;
+    }
+
     handleSelectMenuItem(whichItem) {
         let { 
             updateNoteImportance,
+            currentActiveCategoryTab,
             noteId
-         } = this.props;
+        } = this.props;
+
+        let btnStyle;
 
         switch (whichItem) {
 
             case dropdownControl.SET_IMPORTANT:
-                updateNoteImportance(noteId, 'primary');
+                btnStyle = 'primary';
+                updateNoteImportance(currentActiveCategoryTab, noteId, btnStyle);
                 break;
 
             case dropdownControl.SET_INFO:
-                updateNoteImportance(noteId, 'info');
+                btnStyle = 'info';
+                updateNoteImportance(currentActiveCategoryTab, noteId, btnStyle);
                 break;
 
             case dropdownControl.SET_NORMAL:
-                updateNoteImportance(noteId, 'success');
+                btnStyle = 'success';
+                updateNoteImportance(currentActiveCategoryTab, noteId, btnStyle);
                 break;
 
             case dropdownControl.EDIT_NOTE:

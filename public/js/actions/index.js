@@ -115,6 +115,6 @@ export const addNewNote = (title, category, content) => (dispatch) => {
     request.addNewNoteRequest(title, category, content, dispatch);
 };
 
-export const updateNoteImportance = (noteId, importance) => (dispatch) => {
-    request.updateNoteImportanceRequest(noteId, importance, dispatch);
+export const updateNoteImportance = (currentActiveCategoryTab, noteId, importance) => (dispatch) => {
+    request.updateNoteImportanceRequest(currentActiveCategoryTab, noteId, importance, dispatch);
 };
