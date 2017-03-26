@@ -17,7 +17,11 @@ const NoteSchema = new Schema({
     },
     price: Number,
     todo: Boolean,
-    category: String
+    category: String,
+    importance: {
+        type: String,
+        default: 'success'
+    }
 });
 
 const UserSchema = new Schema({

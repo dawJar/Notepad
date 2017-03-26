@@ -6,7 +6,7 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 export const SET_IMPORTANT = 0;
 export const SET_INFO = 1;
-export const SET_DONE = 2;
+export const SET_NORMAL = 2;
 export const EDIT_NOTE = 3;
 
 class OwnDropdownButton extends Component {

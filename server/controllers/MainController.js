@@ -10,9 +10,10 @@ const {
 } = require('../routes/loginRoutes');
 const { 
     notepadRoute,
-    notepadUserRoute,
+    notepadFetchNotes,
     notepadAddNote,
-    notepadAddNoteToDb
+    notepadAddNoteToDb,
+    notepadUpdateNoteImportance
 } = require('../routes/notepadRoutes');
 
 
@@ -32,10 +33,12 @@ module.exports = function (app) {
 
     app.get('/notepad', notepadRoute);
 
-    app.post('/fetch-notes', notepadUserRoute);
+    app.post('/fetch-notes', notepadFetchNotes);
 
     app.get('/notepad/add-note', notepadAddNote);
 
     app.post('/add-note', notepadAddNoteToDb);
+
+    app.post('/update-note-importance', notepadUpdateNoteImportance);
 
 };

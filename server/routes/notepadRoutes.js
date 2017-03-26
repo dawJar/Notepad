@@ -7,52 +7,23 @@ const notepadRoute = (req, res) => {
     if (user === undefined) {
         res.redirect('/login');
     } else {
-        User.findOne({ login: user })
-
-            .then((result) => {
-                let { notes } = result;
-
-                if (notes.length === 0) {
-                    console.log('no notes')
-                    res.render('notepad', { user });
-                } else {
-                    console.log('got some notes')
-                    res.render('notepad', { user });
-                }
-            });
-
+        res.render('notepad', { user });
     }
 };
 
 
-const notepadUserRoute = (req, res) => {
+const notepadFetchNotes = (req, res) => {
     let { user } = req.session;
+
     if (user === undefined) {
         res.redirect('/login');
     } else {
         User.findOne({ login: user })
 
-            .then((result) => {
-                let { notes, userNoteCategories } = result;
-                console.log(userNoteCategories)
+            .then((userData) => {
 
-                if (notes.length === 0) {
-                    console.log('no notes')
-                    res.send({ 
-                        user,
-                        anyNotes: false,
-                        notes: [],
-                        userNoteCategories
-                    });
-                } else {
-                    console.log('got some notes')
-                    res.send({ 
-                        user,
-                        anyNotes: true,
-                        notes,
-                        userNoteCategories
-                    });
-                }
+                res.send({ userData });
+
             });
     }
 };
@@ -100,9 +71,42 @@ const notepadAddNoteToDb = (req, res) => {
     }
 };
 
+const notepadUpdateNoteImportance = (req, res) => {
+    let { user } = req.session;
+    let { noteId, importance } = req.body;
+
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
+        User.findOne({ login: user })
+
+            .then((result) => {
+
+                // console.log(result)
+                User.update({ 'notes': {
+                    $elemMatch: {
+                        '_id' : noteId         
+                    }   
+                }}, {
+                    '$set': {
+                        'notes.$.importance': importance
+                    }
+                })
+
+                    .then((result) => { 
+                        // TODO: response!
+                        console.log(result);
+                        res.send('dsadsa');
+                    })
+
+            });
+    }
+};
+
 module.exports = {
     notepadRoute,
-    notepadUserRoute,
+    notepadFetchNotes,
     notepadAddNote,
-    notepadAddNoteToDb
+    notepadAddNoteToDb,
+    notepadUpdateNoteImportance
 };

@@ -12,27 +12,31 @@ class Notes extends Component {
         super(props);
         this.handleSelectMenuItem = this.handleSelectMenuItem.bind(this);
     }
-    
+
     handleSelectMenuItem(whichItem) {
-        console.log(this.props.noteId)
+        let { 
+            updateNoteImportance,
+            noteId
+         } = this.props;
+
         switch (whichItem) {
 
             case dropdownControl.SET_IMPORTANT:
-                console.log('import');
+                updateNoteImportance(noteId, 'primary');
                 break;
 
             case dropdownControl.SET_INFO:
-                console.log('info');
+                updateNoteImportance(noteId, 'info');
                 break;
 
-            case dropdownControl.SET_DONE:
-                console.log('done');
+            case dropdownControl.SET_NORMAL:
+                updateNoteImportance(noteId, 'success');
                 break;
 
             case dropdownControl.EDIT_NOTE:
                 console.log('edit');
                 break;
-        
+
             default:
                 break;
 
@@ -40,28 +44,29 @@ class Notes extends Component {
     }
 
     render() {
-        let { 
-            title, 
-            content, 
-            category, 
+        let {
+            title,
+            content,
+            category,
+            panelStyle,
             currentActiveCategoryTab,
             ...otherProps
         } = this.props;
 
         let panelHeaderToRender = (
-                <OwnDropdownButton 
-                    title={ title } 
-                    handleSelectMenuItem={ this.handleSelectMenuItem } 
-                    { ...otherProps }
-                />
+            <OwnDropdownButton
+                title={title}
+                handleSelectMenuItem={this.handleSelectMenuItem}
+                { ...otherProps }
+            />
         );
 
         return (
-            <Panel header={ panelHeaderToRender }>
+            <Panel header={ panelHeaderToRender } bsStyle={ panelStyle } >
                 {
-                    (currentActiveCategoryTab === 0) ? <p>category: { category }</p> : null
+                    (currentActiveCategoryTab === 0) ? <p>category: {category}</p> : null
                 }
-                <p>content: { content }</p>
+                <p>content: {content}</p>
             </Panel>
         );
     }

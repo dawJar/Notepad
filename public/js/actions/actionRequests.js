@@ -61,11 +61,13 @@ export const fetchUserNotesRequest = (currentActiveCategoryTab, dispatch) => {
     })
         
         .done((data) => {
-            let { 
-                anyNotes, 
-                notes,
-                userNoteCategories 
-            } = data;
+            let { notes, userNoteCategories } = data.userData;
+            let anyNotes = notes.length !== 0;
+            console.log('ANYNOTES', anyNotes)
+            console.log('NOTES', notes)
+            console.log('CATEGORIES', userNoteCategories)
+            // console.log(typeof notes)
+
             
             if (anyNotes) {
                 dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
@@ -88,6 +90,30 @@ export const addNewNoteRequest = (title, category, content, dispatch) => {
             title, 
             category, 
             content
+        }
+    })
+        
+        // .done((data) => {
+            
+        //     if (anyNotes) {
+        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, notes, userNoteCategories));
+        //     } else {
+        //         dispatch(actions.fetchUserNotesSuccess(anyNotes, [], userNoteCategories));
+        //     }
+        // })
+
+        // .fail((data) => {
+        //     dispatch(actions.fetchUserNotesFail());
+        // });
+};
+
+export const updateNoteImportanceRequest = (noteId, importance, dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/update-note-importance',
+        data: {
+            noteId, 
+            importance 
         }
     })
         

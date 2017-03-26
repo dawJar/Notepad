@@ -15,7 +15,7 @@ class Notepad extends Component {
 
     componentWillMount() {
         let { fetchUserNotes, currentActiveCategoryTab } = this.props;
-        fetchUserNotes(currentActiveCategoryTab);      
+        fetchUserNotes(currentActiveCategoryTab);  
     }
 
     handleAddNewNote(whichButton) {

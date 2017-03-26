@@ -72,8 +72,8 @@ export const addNoteSelectCategory = (addNewSelectedCategory) => ({
 
 // NOTEPAD
 export const setActiveNotesOfCurrentCategory = (currentActiveCategoryTab, 
-                                        userNotes, 
-                                        userNoteCategories) => ({
+                                                userNotes, 
+                                                userNoteCategories) => ({
     type: types.SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY,
     currentActiveCategoryTab,
     userNotes,
@@ -114,4 +114,8 @@ export const fetchUserNotes = (currentActiveCategoryTab) => (dispatch) => {
 // notepad
 export const addNewNote = (title, category, content) => (dispatch) => {
     request.addNewNoteRequest(title, category, content, dispatch);
+};
+
+export const updateNoteImportance = (noteId, importance) => (dispatch) => {
+    request.updateNoteImportanceRequest(noteId, importance, dispatch);
 };
