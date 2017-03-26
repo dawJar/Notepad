@@ -11,7 +11,7 @@ let initialState = {
      addNewNoteCategory: false,
      currentNewCategory: '',
      addNewNoteContent: '',
-     addNewSelectedCategory: 'All',
+     addNewSelectedCategory: 'Todo',
      currentTitle: ''
 };
 

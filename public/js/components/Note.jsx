@@ -14,7 +14,6 @@ class Notes extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        console.log(this.props.panelStyle !== nextProps.panelStyle)
         return this.props.panelStyle !== nextProps.panelStyle;
     }
 
@@ -60,7 +59,6 @@ class Notes extends Component {
             content,
             category,
             panelStyle,
-            currentActiveCategoryTab,
             ...otherProps
         } = this.props;
 
@@ -74,10 +72,7 @@ class Notes extends Component {
 
         return (
             <Panel header={ panelHeaderToRender } bsStyle={ panelStyle } >
-                {
-                    (currentActiveCategoryTab === 0) ? <p>category: {category}</p> : null
-                }
-                <p>content: {content}</p>
+                <p>{ content }</p>
             </Panel>
         );
     }

@@ -34,7 +34,6 @@ class AddNote extends Component {
                 this.addNewNoteToDb();
                 this.clearAddNoteFields();
                 this.setActiveTab();
-                // fetchUserNotes(currentActiveCategoryTab);
                 browserHistory.push('/notepad');
                 break;
             

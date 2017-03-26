@@ -13,7 +13,6 @@ export const attemptLoginRequest = (login, password, dispatch) => {
         
         .done((data) => {
             let { loginUser, message } = data;
-            console.log('action req login: ', loginUser);
 
             if (loginUser) {
                 dispatch(actions.loginSuccess(message, loginUser));
