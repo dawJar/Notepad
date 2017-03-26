@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import Tab from 'react-bootstrap/lib/Tab';
+import Panel from 'react-bootstrap/lib/Panel';
+import DropdownButton from 'react-bootstrap/lib/DropdownButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 
 class Notes extends Component {
@@ -16,14 +18,25 @@ class Notes extends Component {
             currentActiveCategoryTab 
         } = this.props;
 
-        return (
+        let test = (
             <div>
-                <p>note: { title }</p>
+                { title }
+                <DropdownButton bsStyle={title.toLowerCase()} title="more" key={1} id={`dropdown-basic-${1}`}>
+                    <MenuItem eventKey="1">Important</MenuItem>
+                    <MenuItem eventKey="2">Done</MenuItem>
+                    <MenuItem eventKey="3">Info</MenuItem>
+                    <MenuItem eventKey="3">Warning</MenuItem>
+                </DropdownButton>
+            </div>
+        );
+
+        return (
+            <Panel header={ test }>
                 {
                     (currentActiveCategoryTab === 0) ? <p>category: { category }</p> : null
                 }
                 <p>content: { content }</p>
-            </div>
+            </Panel>
         );
     }
 }
