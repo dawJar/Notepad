@@ -25,8 +25,9 @@ class Notes extends Component {
             setTitleOfEditingNote,
             updateNoteImportance,
             setNoteToEdit,
-            noteId,
             filteredNotes,
+            removeNote,
+            noteId,
         } = this.props;
 
         let btnStyle;
@@ -55,10 +56,14 @@ class Notes extends Component {
                 setContentOfEditingNote(selectedNote[0].content);
                 browserHistory.push(`/notepad/edit-note`);
                 break;
+            
+            case dropdownControl.REMOVE_NOTE:
+                setNoteToEdit(noteId);
+                removeNote(noteId);
+                break;
 
             default:
                 break;
-
         }
     }
 

@@ -18,8 +18,12 @@ class OwnDropdownButton extends Component {
             ...otherProps
         } = this.props;
 
-        let selectItemsToRender = dropdownSelectItems.map((item, i) => 
-            <DropdownButtonItem counter={ i } title={ item } { ...otherProps } />);
+        let selectItemsToRender = dropdownSelectItems.map((item, i) => {
+            return (i === 3) ? 
+                <MenuItem divider /> : 
+                <DropdownButtonItem counter={ i } title={ item } { ...otherProps } />
+        });
+
             
         return (
             <div>

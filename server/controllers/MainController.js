@@ -9,7 +9,8 @@ const {
     notepadFetchNotes,
     notepadAddNote,
     notepadAddNoteToDb,
-    notepadUpdateNoteImportance
+    notepadUpdateNoteImportance,
+    removeNote
 } = require('../routes/notepadRoutes');
 
 
@@ -32,6 +33,8 @@ module.exports = function (app) {
     app.post('/add-note', notepadAddNoteToDb);
 
     app.post('/update-note-importance', notepadUpdateNoteImportance);
+
+    app.post('/remove-note', removeNote);
 
     app.get('*', mainRoute);
 

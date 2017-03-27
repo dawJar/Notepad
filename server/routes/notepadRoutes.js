@@ -109,10 +109,42 @@ const notepadUpdateNoteImportance = (req, res) => {
     }
 };
 
+const removeNote = (req, res) => {
+    let { user } = req.session;
+    let { noteId } = req.body;
+
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
+        User.findOne({ login: user })
+
+            .then((result) => {
+
+                if (result !== null) {
+                    let { notes } = result;
+                    
+                    // let newNotes = notes.filter(note => String(note._id) !== noteId);
+                    notes = notes.filter(note => String(note._id) !== noteId);
+
+                    User.findOneAndUpdate({ login: user }, 
+                        { $set: { notes }})
+
+                        .then(() => {
+                            
+                            User.findOne({ login: user })
+                                .then((userData) => res.send({ userData }));
+                            
+                        });
+                }
+            });
+    }
+};
+
 module.exports = {
     notepadRoute,
     notepadFetchNotes,
     notepadAddNote,
     notepadAddNoteToDb,
-    notepadUpdateNoteImportance
+    notepadUpdateNoteImportance,
+    removeNote
 };

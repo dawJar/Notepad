@@ -7,7 +7,8 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
 export const SET_IMPORTANT = 0;
 export const SET_INFO = 1;
 export const SET_NORMAL = 2;
-export const EDIT_NOTE = 3;
+export const EDIT_NOTE = 4;
+export const REMOVE_NOTE = 5;
 
 class OwnDropdownButton extends Component {
 
