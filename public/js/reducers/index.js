@@ -1,17 +1,19 @@
 import { combineReducers } from 'redux';
+import formValidation from './formValidation';
 import signUpMessage from './signUpMessage';
 import loginMessage from './loginMessage';
-import formValidation from './formValidation';
 import fetchNotes from './fetchNotes';
+import editNote from './editNote';
 import addNote from './addNote';
 import notepad from './notepad';
 
 
 const rootReducer = combineReducers({
+    formValidation,
     signUpMessage,
     loginMessage,
-    formValidation,
     fetchNotes,
+    editNote,
     addNote,
     notepad
 });

@@ -20,8 +20,9 @@ class Notes extends Component {
 
     handleSelectMenuItem(whichItem) {
         let { 
-            updateNoteImportance,
             currentActiveCategoryTab,
+            updateNoteImportance,
+            setNoteToEdit,
             noteId
         } = this.props;
 
@@ -45,6 +46,7 @@ class Notes extends Component {
                 break;
 
             case dropdownControl.EDIT_NOTE:
+                setNoteToEdit(noteId);
                 browserHistory.push(`/notepad/edit-note`);
                 break;
 

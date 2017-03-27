@@ -85,6 +85,18 @@ export const setActiveCategoryOfNotes = (currentActiveCategoryTab) => ({
     currentActiveCategoryTab
 });
 
+// EDIT NOTE
+export const setNoteToEdit = (selectedNoteToEdit) => ({
+    type: types.SET_NOTE_TO_EDIT,
+    selectedNoteToEdit
+});
+
+export const setDataOfEditingNote = (currentTitleOfEdditingNote, currentContentOfEdditingNote) => ({
+    type: types.SET_DATA_OF_EDDITING_NOTE,
+    currentTitleOfEdditingNote,
+    currentContentOfEdditingNote
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,
