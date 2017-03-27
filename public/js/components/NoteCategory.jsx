@@ -14,7 +14,7 @@ class NoteCategory extends Component {
     }
 
     render() {
-        let { addNewNoteCategory, ...otherProps } = this.props;
+        let { addNewNoteCategory, currentNewCategory, ...otherProps } = this.props;
 
         return (
             <div>
@@ -23,7 +23,8 @@ class NoteCategory extends Component {
                         <TextField 
                             actionType={ SET_NOTE_CATEGORY }
                             controlLabel="Add new category name" 
-                            placeholder="Enter category name" 
+                            placeholder="Enter category name"
+                            valueText={ currentNewCategory }
                             { ...otherProps } 
                         /> :                  
                         <SelectOption { ...otherProps } /> 

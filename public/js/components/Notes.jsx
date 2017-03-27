@@ -17,6 +17,7 @@ class Notes extends Component {
                 category={ note.category }
                 content={ note.content }
                 panelStyle={ note.importance }
+                filteredNotes={ filteredNotes }
                 { ...otherProps }
             />
         );

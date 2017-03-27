@@ -35,7 +35,10 @@ const mapStateToProps = state => ({
     addNewSelectedCategory: state.addNote.addNewSelectedCategory,
     currentActiveCategoryTab: state.notepad.currentActiveCategoryTab,
     notesOfCurrentActiveTab: state.notepad.notesOfCurrentActiveTab,
-    dropdownSelectItems: state.notepad.dropdownSelectItems
+    dropdownSelectItems: state.notepad.dropdownSelectItems,
+    currentContentOfEdditingNote: state.editNote.currentContentOfEdditingNote,
+    currentTitleOfEdditingNote: state.editNote.currentTitleOfEdditingNote,
+    selectedNoteToEdit: state.editNote.selectedNoteToEdit
 });
 
 const mapDispatchToProps = (dispatch) => {

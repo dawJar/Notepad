@@ -5,7 +5,7 @@ import Tab from 'react-bootstrap/lib/Tab';
 import NoteCategory from './NoteCategory.jsx';
 import TextArea from './TextArea.jsx';
 import OwnButton, { BACK_FROM_EDIT_NOTE } from './OwnButton.jsx';
-import TextField, { SET_NOTE_TITLE } from './TextField.jsx';
+import TextField, { EDIT_NOTE_TITLE } from './TextField.jsx';
 import OwnButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './OwnButtonGroup.jsx';
 
 
@@ -34,12 +34,16 @@ class EditNote extends Component {
     }
 
     clearEditNoteData() {
-        let { setDataOfEditingNote } = this.props;
-        setDataOfEditingNote('', '');
+        let { setContentOfEditingNote, setTitleOfEditingNote } = this.props;
+        setTitleOfEditingNote('');
+        setContentOfEditingNote('');
     }
 
     render() {
-        let { ...otherProps } = this.props;
+        let { 
+            currentTitleOfEdditingNote,
+            ...otherProps 
+        } = this.props;
 
         return (
             <div>
@@ -48,15 +52,15 @@ class EditNote extends Component {
                     whichAction={ BACK_FROM_EDIT_NOTE }
                     handleOnClick={ this.handleButtonClick }
                 />
-                {/*<NoteCategory { ...otherProps } />
+                {/*<NoteCategory { ...otherProps } />*/}
                 <TextField 
-                    actionType={ SET_NOTE_TITLE }
-                    controlLabel="Note title" 
-                    placeholder="Enter note title" 
-                    title
+                    actionType={ EDIT_NOTE_TITLE }
+                    controlLabel="Edit note title" 
+                    placeholder="Edit note title" 
+                    valueText={ currentTitleOfEdditingNote }
                     { ...otherProps } 
                 />
-                <TextArea { ...otherProps } />
+                {/*<TextArea { ...otherProps } />
                 <OwnButtonGroup 
                     handleOnClick={ this.handleButtonClick } 
                     { ...otherProps }

@@ -93,7 +93,7 @@ class AddNote extends Component {
     }
 
     render() {
-        let { ...otherProps } = this.props;
+        let { currentTitle, ...otherProps } = this.props;
 
         return (
             <div>
@@ -107,7 +107,7 @@ class AddNote extends Component {
                     actionType={ SET_NOTE_TITLE }
                     controlLabel="Note title" 
                     placeholder="Enter note title" 
-                    title
+                    valueText={ currentTitle }
                     { ...otherProps } 
                 />
                 <TextArea { ...otherProps } />

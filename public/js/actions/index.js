@@ -91,10 +91,14 @@ export const setNoteToEdit = (selectedNoteToEdit) => ({
     selectedNoteToEdit
 });
 
-export const setDataOfEditingNote = (currentTitleOfEdditingNote, currentContentOfEdditingNote) => ({
-    type: types.SET_DATA_OF_EDDITING_NOTE,
-    currentTitleOfEdditingNote,
+export const setContentOfEditingNote = (currentContentOfEdditingNote) => ({
+    type: types.SET_CONTENT_OF_EDDITING_NOTE,
     currentContentOfEdditingNote
+});
+
+export const setTitleOfEditingNote = (currentTitleOfEdditingNote) => ({
+    type: types.SET_TITLE_OF_EDDITING_NOTE,
+    currentTitleOfEdditingNote
 });
 
 // FETCH NOTES

@@ -21,9 +21,12 @@ class Notes extends Component {
     handleSelectMenuItem(whichItem) {
         let { 
             currentActiveCategoryTab,
+            setContentOfEditingNote,
+            setTitleOfEditingNote,
             updateNoteImportance,
             setNoteToEdit,
-            noteId
+            noteId,
+            filteredNotes,
         } = this.props;
 
         let btnStyle;
@@ -46,7 +49,10 @@ class Notes extends Component {
                 break;
 
             case dropdownControl.EDIT_NOTE:
+                let selectedNote = filteredNotes.filter(note => note._id === noteId);
                 setNoteToEdit(noteId);
+                setTitleOfEditingNote(selectedNote[0].title);
+                setContentOfEditingNote(selectedNote[0].content);
                 browserHistory.push(`/notepad/edit-note`);
                 break;
 

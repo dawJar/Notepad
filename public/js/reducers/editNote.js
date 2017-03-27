@@ -1,6 +1,7 @@
 import {
     SET_NOTE_TO_EDIT,
-    SET_DATA_OF_EDDITING_NOTE
+    SET_CONTENT_OF_EDDITING_NOTE,
+    SET_TITLE_OF_EDDITING_NOTE
 } from '../constants/actionTypes';
 
 
@@ -25,11 +26,16 @@ const editNote = (state = initialState, action) => {
                 selectedNoteToEdit
             };         
 
-        case SET_DATA_OF_EDDITING_NOTE:  
+        case SET_CONTENT_OF_EDDITING_NOTE:  
             return { 
                 ...state,
-                currentTitleOfEdditingNote,
                 currentContentOfEdditingNote
+            };         
+
+        case SET_TITLE_OF_EDDITING_NOTE:  
+            return { 
+                ...state,
+                currentTitleOfEdditingNote
             };         
 
         default:

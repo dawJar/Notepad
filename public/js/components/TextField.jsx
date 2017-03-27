@@ -6,6 +6,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 
 export const SET_NOTE_CATEGORY = "SET_NOTE_CATEGORY";
+export const EDIT_NOTE_TITLE = "EDIT_NOTE_TITLE";
 export const SET_NOTE_TITLE = "SET_NOTE_TITLE";
 
 class TextField extends Component {
@@ -19,6 +20,7 @@ class TextField extends Component {
         let { 
             addNoteCurrentNewCategory,
             addNoteCurrentTitle,
+            setTitleOfEditingNote,
             actionType 
         } = this.props;
 
@@ -30,6 +32,10 @@ class TextField extends Component {
             case SET_NOTE_TITLE:
                 addNoteCurrentTitle(event.target.value);
                 break;
+
+            case EDIT_NOTE_TITLE:
+                setTitleOfEditingNote(event.target.value);
+                break;
         
             default:
                 break;
@@ -38,14 +44,12 @@ class TextField extends Component {
 
     render() {
         let { 
-            currentNewCategory,
-            currentTitle,
             controlLabel,
             placeholder,
-            title
+            valueText
         } = this.props;
 
-        let valueText = (title) ? currentTitle : currentNewCategory;
+        // let valueText = (title) ? currentTitle : currentNewCategory;
 
         return (
             <FormGroup>
