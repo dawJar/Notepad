@@ -131,10 +131,21 @@ export const addNewNote = (title, category, content) => (dispatch) => {
     request.addNewNoteRequest(title, category, content, dispatch);
 };
 
-export const updateNoteImportance = (currentActiveCategoryTab, noteId, importance) => (dispatch) => {
-    request.updateNoteImportanceRequest(currentActiveCategoryTab, noteId, importance, dispatch);
+export const updateNoteImportance = (currentActiveCategoryTab, 
+                                        noteId, importance) => (dispatch) => {
+    request.updateNoteImportanceRequest(currentActiveCategoryTab, 
+                                        noteId, importance, dispatch);
 };
 
 export const removeNote = (noteId) => (dispatch) => {
     request.removeNoteRequest(noteId, dispatch);
+};
+
+export const updateNote = (selectedNoteToEdit, 
+                            currentTitleOfEdditingNote, 
+                            currentContentOfEdditingNote) => (dispatch) => {
+    request.updateNoteRequest(selectedNoteToEdit, 
+                                currentTitleOfEdditingNote, 
+                                currentContentOfEdditingNote, 
+                                dispatch);
 };

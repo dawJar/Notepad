@@ -82,7 +82,6 @@ const notepadUpdateNoteImportance = (req, res) => {
 
             .then((result) => {
 
-                // console.log(result)
                 User.update({ 'notes': {
                     $elemMatch: {
                         '_id' : noteId         
@@ -99,6 +98,48 @@ const notepadUpdateNoteImportance = (req, res) => {
 
                             .then((userData) => {
 
+                                res.send({ userData });
+
+                            });
+
+                    });
+
+            });
+    }
+};
+
+const notepadUpdateNote = (req, res) => {
+    let { user } = req.session;
+    let { 
+        currentContentOfEdditingNote,
+        currentTitleOfEdditingNote,
+        selectedNoteToEdit
+    } = req.body;
+
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
+        User.findOne({ login: user })
+
+            .then((result) => {
+
+                User.update({ 'notes': {
+                    $elemMatch: {
+                        '_id' : selectedNoteToEdit         
+                    }   
+                }}, {
+                    '$set': { 
+                        'notes.$.title': currentTitleOfEdditingNote,
+                        'notes.$.content': currentContentOfEdditingNote 
+                    } 
+                })
+
+                    .then(() => { 
+
+                        User.findOne({ login: user })
+
+                            .then((userData) => {
+                                
                                 res.send({ userData });
 
                             });
@@ -141,10 +182,11 @@ const removeNote = (req, res) => {
 };
 
 module.exports = {
-    notepadRoute,
-    notepadFetchNotes,
-    notepadAddNote,
-    notepadAddNoteToDb,
     notepadUpdateNoteImportance,
+    notepadAddNoteToDb,
+    notepadFetchNotes,
+    notepadUpdateNote,
+    notepadAddNote,
+    notepadRoute,
     removeNote
 };

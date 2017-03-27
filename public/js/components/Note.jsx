@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
-import Panel from 'react-bootstrap/lib/Panel';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
-import OwnDropdownButton from './OwnDropdownButton.jsx';
+import Panel from 'react-bootstrap/lib/Panel';
 import * as dropdownControl from './DropdownButtonItem.jsx';
+import OwnDropdownButton from './OwnDropdownButton.jsx';
 
 
 class Notes extends Component {

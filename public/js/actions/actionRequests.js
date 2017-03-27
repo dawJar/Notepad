@@ -103,3 +103,20 @@ export const removeNoteRequest = (noteId, dispatch) => {
             dispatch(actions.fetchUserNotesSuccess(notes, userNoteCategories));
         });
 };
+
+export const updateNoteRequest = (selectedNoteToEdit, currentTitleOfEdditingNote, currentContentOfEdditingNote, dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/update-note',
+        data: { 
+            currentContentOfEdditingNote,
+            currentTitleOfEdditingNote,
+            selectedNoteToEdit
+        }
+    })
+        
+        .done((data) => {
+            let { notes, userNoteCategories } = data.userData;
+            dispatch(actions.fetchUserNotesSuccess(notes, userNoteCategories));
+        });
+};
