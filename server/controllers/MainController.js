@@ -1,10 +1,6 @@
 const mainRoute = require('../routes/mainRoutes');
+const { addNewUserRoute } = require('../routes/signupRoutes');
 const { 
-    signUpRoute, 
-    addNewUserRoute 
-} = require('../routes/signupRoutes');
-const { 
-    loginRoute, 
     loginUserRoute, 
     logoutRoute 
 } = require('../routes/loginRoutes');
@@ -21,11 +17,7 @@ module.exports = function (app) {
 
     app.get('/', mainRoute);
 
-    app.get('/signup', signUpRoute);
-
     app.post('/signup', addNewUserRoute);
-
-    app.get('/login', loginRoute);
 
     app.post('/login', loginUserRoute);
 
@@ -40,5 +32,7 @@ module.exports = function (app) {
     app.post('/add-note', notepadAddNoteToDb);
 
     app.post('/update-note-importance', notepadUpdateNoteImportance);
+
+    app.get('*', mainRoute);
 
 };

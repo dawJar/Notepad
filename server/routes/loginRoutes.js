@@ -1,11 +1,6 @@
 const User = require('../model/User');
 
 
-const loginRoute = (req, res) => {
-    let { user } = req.session;
-    res.render('signup', { user });
-};
-
 const loginUserRoute = (req, res) => {
     let { login, password } = req.body;
 
@@ -48,7 +43,6 @@ const logoutRoute = (req, res) => {
 }
 
 module.exports = {
-    loginRoute,
     loginUserRoute,
     logoutRoute
 };

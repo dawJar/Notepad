@@ -1,11 +1,4 @@
 const User = require('../model/User');
-// User.Promise = global.Promise;
-
-
-const signUpRoute = (req, res) => {
-    let { user } = req.session;
-    res.render('signup', { user });
-};
 
 
 const addNewUserRoute = (req, res) => {
@@ -49,6 +42,5 @@ const addNewUserRoute = (req, res) => {
 };
 
 module.exports = {
-    signUpRoute,
     addNewUserRoute
 };
