@@ -28,11 +28,12 @@ const notepadFetchNotes = (req, res) => {
     }
 };
 
-const notepadAddNote = (req, res) => {
+const notepadRedirectToNotepad = (req, res) => {
     let { user } = req.session;
     if (user === undefined)
         res.redirect('/login');
-    res.redirect('/notepad');
+    else
+        res.redirect('/notepad');
 };
 
 const notepadAddNoteToDb = (req, res) => {
@@ -186,7 +187,7 @@ module.exports = {
     notepadAddNoteToDb,
     notepadFetchNotes,
     notepadUpdateNote,
-    notepadAddNote,
+    notepadRedirectToNotepad,
     notepadRoute,
     removeNote
 };

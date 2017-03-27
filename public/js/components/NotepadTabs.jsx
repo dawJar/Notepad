@@ -17,10 +17,6 @@ class NotepadTabs extends Component {
         this.setVisibleNotes(currentActiveCategoryTab);
     }
 
-    // shouldComponentUpdate(nextProps) {
-    //     return this.props.userNotes !== nextProps.userNotes;
-    // }
-
     handleSelect(event) {
         this.setVisibleNotes(event);
     }

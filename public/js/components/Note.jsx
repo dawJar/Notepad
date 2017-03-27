@@ -15,7 +15,9 @@ class Notes extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return this.props.panelStyle !== nextProps.panelStyle;
+        return this.props.panelStyle !== nextProps.panelStyle ||
+               this.props.title !== nextProps.title ||
+               this.props.content !== nextProps.content;
     }
 
     handleSelectMenuItem(whichItem) {
