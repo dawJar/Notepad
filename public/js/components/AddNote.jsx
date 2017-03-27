@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import NoteCategory from './NoteCategory.jsx';
-import TextArea from './TextArea.jsx';
-import OwnButton, { BACK_FROM_ADD_NOTE } from './OwnButton.jsx';
-import TextField, { SET_NOTE_TITLE } from './TextField.jsx';
 import OwnButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './OwnButtonGroup.jsx';
+import OwnButton, { BACK_FROM_ADD_NOTE } from './OwnButton.jsx';
+import TextArea, { SET_NOTE_CONTENT } from './TextArea.jsx';
+import TextField, { SET_NOTE_TITLE } from './TextField.jsx';
+import NoteCategory from './NoteCategory.jsx';
 
 
 class AddNote extends Component {
@@ -64,36 +64,40 @@ class AddNote extends Component {
 
     addNewNoteToDb() {
         let {
+            addNewSelectedCategory,
             addNewNoteCategory,
             currentNewCategory,
-            addNewSelectedCategory,
-            currentTitle,
             addNewNoteContent,
+            currentTitle,
             addNewNote
         } = this.props;
 
         let category = (addNewNoteCategory) ? 
                             currentNewCategory : addNewSelectedCategory;
-        let title = currentTitle;
         let content = addNewNoteContent;
+        let title = currentTitle;
         addNewNote(title, category, content);
     }
 
     clearAddNoteFields() {
         let { 
             addNoteCurrentNewCategory,
-            addNoteContent,
-            addNoteCurrentTitle
+            addNoteCurrentTitle,
+            addNoteContent
         } = this.props;
 
         addNoteCurrentNewCategory('');
-        addNoteContent('');
         addNoteCurrentTitle('');
+        addNoteContent('');
         addNoteContent('');
     }
 
     render() {
-        let { currentTitle, ...otherProps } = this.props;
+        let { 
+            currentTitle, 
+            addNewNoteContent, 
+            ...otherProps 
+        } = this.props;
 
         return (
             <div>
@@ -110,7 +114,13 @@ class AddNote extends Component {
                     valueText={ currentTitle }
                     { ...otherProps } 
                 />
-                <TextArea { ...otherProps } />
+                <TextArea 
+                    actionType={ SET_NOTE_CONTENT }
+                    controlLabel="Note content"
+                    placeholder="Enter note content"
+                    valueText={ addNewNoteContent }
+                    { ...otherProps } 
+                />
                 <OwnButtonGroup 
                     handleOnClick={ this.handleButtonClick } 
                     { ...otherProps }

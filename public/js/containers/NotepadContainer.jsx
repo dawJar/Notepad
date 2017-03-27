@@ -25,14 +25,14 @@ class NotepadContainer extends Component {
 }
 
 const mapStateToProps = state => ({
+    userNoteCategories: state.fetchNotes.userNoteCategories,
     anyNotes: state.fetchNotes.anyNotes,
     userNotes: state.fetchNotes.notes,
-    userNoteCategories: state.fetchNotes.userNoteCategories,
+    addNewSelectedCategory: state.addNote.addNewSelectedCategory,
     addNewNoteCategory: state.addNote.addNewNoteCategory,
     currentNewCategory: state.addNote.currentNewCategory,
-    currentTitle: state.addNote.currentTitle,
     addNewNoteContent: state.addNote.addNewNoteContent,
-    addNewSelectedCategory: state.addNote.addNewSelectedCategory,
+    currentTitle: state.addNote.currentTitle,
     currentActiveCategoryTab: state.notepad.currentActiveCategoryTab,
     notesOfCurrentActiveTab: state.notepad.notesOfCurrentActiveTab,
     dropdownSelectItems: state.notepad.dropdownSelectItems,

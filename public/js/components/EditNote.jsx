@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import NoteCategory from './NoteCategory.jsx';
-import TextArea from './TextArea.jsx';
-import OwnButton, { BACK_FROM_EDIT_NOTE } from './OwnButton.jsx';
-import TextField, { EDIT_NOTE_TITLE } from './TextField.jsx';
 import OwnButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './OwnButtonGroup.jsx';
+import OwnButton, { BACK_FROM_EDIT_NOTE } from './OwnButton.jsx';
+import TextArea, { EDIT_NOTE_CONTENT } from './TextArea.jsx';
+import TextField, { EDIT_NOTE_TITLE } from './TextField.jsx';
+import NoteCategory from './NoteCategory.jsx';
 
 
 class EditNote extends Component {
@@ -42,6 +42,7 @@ class EditNote extends Component {
     render() {
         let { 
             currentTitleOfEdditingNote,
+            currentContentOfEdditingNote,
             ...otherProps 
         } = this.props;
 
@@ -52,7 +53,6 @@ class EditNote extends Component {
                     whichAction={ BACK_FROM_EDIT_NOTE }
                     handleOnClick={ this.handleButtonClick }
                 />
-                {/*<NoteCategory { ...otherProps } />*/}
                 <TextField 
                     actionType={ EDIT_NOTE_TITLE }
                     controlLabel="Edit note title" 
@@ -60,8 +60,14 @@ class EditNote extends Component {
                     valueText={ currentTitleOfEdditingNote }
                     { ...otherProps } 
                 />
-                {/*<TextArea { ...otherProps } />
-                <OwnButtonGroup 
+                <TextArea 
+                    actionType={ EDIT_NOTE_CONTENT }
+                    controlLabel="Edit note content"
+                    placeholder="Edit note content"
+                    valueText={ currentContentOfEdditingNote }
+                    { ...otherProps } 
+                />
+                {/*<OwnButtonGroup 
                     handleOnClick={ this.handleButtonClick } 
                     { ...otherProps }
                 />*/}

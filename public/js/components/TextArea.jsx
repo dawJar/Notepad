@@ -5,6 +5,9 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 
+export const EDIT_NOTE_CONTENT = "EDIT_NOTE_CONTENT";
+export const SET_NOTE_CONTENT = "SET_NOTE_CONTENT";
+
 class TextArea extends Component {
 
     constructor(props) {
@@ -13,21 +16,42 @@ class TextArea extends Component {
     }
 
     handleChange(event) {
-        let { addNoteContent } = this.props;
-        addNoteContent(event.target.value);
+        let { 
+            actionType, 
+            addNoteContent,
+            setContentOfEditingNote
+        } = this.props;
+
+        switch (actionType) {
+            
+            case EDIT_NOTE_CONTENT:
+                setContentOfEditingNote(event.target.value);
+                break;
+
+            case SET_NOTE_CONTENT:
+                addNoteContent(event.target.value);
+                break;
+        
+            default:
+                break;
+        }
     }
 
     render() {
-        let { addNewNoteContent } = this.props;
+        let { 
+            controlLabel, 
+            valueText, 
+            placeholder 
+        } = this.props;
 
         return (
             <FormGroup controlId="formControlsTextarea">
-                <ControlLabel>Textarea</ControlLabel>
+                <ControlLabel>{ controlLabel }</ControlLabel>
                 <FormControl 
                     componentClass="textarea" 
-                    placeholder="textarea" 
+                    placeholder={ placeholder } 
                     onChange={ this.handleChange }
-                    value={ addNewNoteContent }
+                    value={ valueText }
                 />
             </FormGroup>
         );
