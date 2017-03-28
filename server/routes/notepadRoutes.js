@@ -2,6 +2,8 @@ const User = require('../model/User');
 
 
 const notepadRoute = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
 
     if (user === undefined) {
@@ -13,6 +15,8 @@ const notepadRoute = (req, res) => {
 
 
 const notepadFetchNotes = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
 
     if (user === undefined) {
@@ -29,6 +33,8 @@ const notepadFetchNotes = (req, res) => {
 };
 
 const notepadRedirectToNotepad = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
     if (user === undefined)
         res.redirect('/login');
@@ -37,6 +43,8 @@ const notepadRedirectToNotepad = (req, res) => {
 };
 
 const notepadAddNoteToDb = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
     let { category, title, content } = req.body;
 
@@ -73,6 +81,8 @@ const notepadAddNoteToDb = (req, res) => {
 };
 
 const notepadUpdateNoteImportance = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
     let { noteId, importance } = req.body;
 
@@ -110,6 +120,8 @@ const notepadUpdateNoteImportance = (req, res) => {
 };
 
 const notepadUpdateNote = (req, res) => {
+    console.log(req.method, req.url);
+    
     let { user } = req.session;
     let { 
         currentContentOfEdditingNote,
@@ -152,6 +164,8 @@ const notepadUpdateNote = (req, res) => {
 };
 
 const removeNote = (req, res) => {
+    console.log(req.method, req.url);
+
     let { user } = req.session;
     let { noteId } = req.body;
 

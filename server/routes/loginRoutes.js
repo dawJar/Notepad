@@ -2,6 +2,8 @@ const User = require('../model/User');
 
 
 const loginUserRoute = (req, res) => {
+    console.log(req.method, req.url);
+
     let { login, password } = req.body;
 
     if (!login || !password) {
@@ -38,6 +40,8 @@ const loginUserRoute = (req, res) => {
 };
 
 const logoutRoute = (req, res) => {
+    console.log(req.method, req.url);
+    
     req.session.destroy(() => console.log('user logged out'));
     res.redirect('/login');
 }

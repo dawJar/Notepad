@@ -1,10 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Button from 'react-bootstrap/lib/Button';
 import Form from 'react-bootstrap/lib/Form';
+import TextField, { SET_FIRST_NAME, SET_PASSWORD, SET_LOGIN } from'./TextField.jsx';
 
 
 class LoginForm extends Component {
@@ -12,25 +11,14 @@ class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-        this.handleLoginChange = this.handleLoginChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        let { loginUser, signUpNewUser } = nextProps;
-        if (loginUser || signUpNewUser) {
-            location.reload();
-            browserHistory.push('/notepad');
-        } 
     }
 
     handleSubmit(event) {
         let {
             location: { pathname },
             formInputFirstName,
-            formInputLogin,
-            formInputPassword
+            formInputPassword,
+            formInputLogin
         } = this.props;
 
         if (pathname === '/login') {
@@ -39,25 +27,19 @@ class LoginForm extends Component {
             this.props.attemptSingup(formInputFirstName, formInputLogin, formInputPassword);
         }
         event.preventDefault();
-    }
-
-    handleFirstNameChange(event) {
-        this.props.inputFirstNameChange(event.target.value);
-    }
-
-    handleLoginChange(event) {
-        this.props.inputLoginChange(event.target.value);
-    }
-
-    handlePasswordChange(event) {
-        this.props.inputPasswordChange(event.target.value);
+        location.reload();
+        browserHistory.push('/notepad');
     }
 
     render() {
         let {
             signUpMessage,
             loginMessage,
-            location: { pathname }
+            location: { pathname },
+            formInputFirstName,
+            formInputPassword,
+            formInputLogin,
+            ...otherProps
         } = this.props;
 
         let loginStyle = pathname === '/login';
@@ -67,49 +49,35 @@ class LoginForm extends Component {
                 
                 {
                     (!loginStyle) ? 
-                    <FormGroup controlId="inputFirstName">
-                        <ControlLabel>
-                            First name:
-                        </ControlLabel>
-                        <FormControl 
-                            controlId="inputFirstName"
-                            type="text" 
-                            placeholder="First name" 
-                            onChange={ this.handleFirstNameChange } 
-                            required 
-                        />
-                    </FormGroup> : null      
+                    <TextField 
+                        actionType={ SET_FIRST_NAME }
+                        controlLabel="First name:" 
+                        placeholder="Enter first name" 
+                        valueText={ formInputFirstName }
+                        { ...otherProps } 
+                    /> : null      
                 }
 
-                <FormGroup controlId="inputLogin">
-                    <ControlLabel>
-                        Login:
-                    </ControlLabel>
-                    <FormControl 
-                        controlId="inputLogin"
-                        type="text" 
-                        placeholder="Login" 
-                        onChange={ this.handleLoginChange } 
-                        required
-                    />
-                </FormGroup>
+                <TextField 
+                    actionType={ SET_LOGIN }
+                    controlLabel="Login:" 
+                    placeholder="Enter login" 
+                    valueText={ formInputLogin }
+                    { ...otherProps } 
+                />
 
-                <FormGroup controlId="inputPassword">
-                    <ControlLabel>
-                        Password:
-                    </ControlLabel>
-                    <FormControl 
-                        controlId="inputPassword"
-                        type="password" 
-                        placeholder="Password" 
-                        onChange={ this.handlePasswordChange } 
-                        required 
-                    />
-                </FormGroup>
+                <TextField 
+                    actionType={ SET_PASSWORD }
+                    controlLabel="Password:" 
+                    placeholder="Enter password" 
+                    valueText={ formInputPassword }
+                    type="password"
+                    { ...otherProps } 
+                />
 
                 <FormGroup>
                     <Button type="submit">
-                        Sign in
+                        { (loginStyle) ? 'Log in' : 'Sign in'}
                     </Button>
                 </FormGroup>
 
@@ -119,6 +87,5 @@ class LoginForm extends Component {
         );
     }
 }
-
 
 export default LoginForm;

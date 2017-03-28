@@ -2,6 +2,8 @@ const User = require('../model/User');
 
 
 const addNewUserRoute = (req, res) => {
+    console.log(req.method, req.url);
+
     let { firstName, login, password } = req.body;
 
     let specialCharsRegex = /^[a-zA-Z\d\-_.,\s]+$/;
