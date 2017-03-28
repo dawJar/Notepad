@@ -39,7 +39,7 @@ const UserSchema = new Schema({
     },
     userNoteCategories: {
         type: Array,
-        default: [ 'All', 'Todo', 'Shopping' ]
+        default: [ 'All' ]
     },
     notes: [ NoteSchema ]
 });

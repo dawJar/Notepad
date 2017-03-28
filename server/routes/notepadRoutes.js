@@ -181,12 +181,20 @@ const removeNote = (req, res) => {
             .then((result) => {
 
                 if (result !== null) {
-                    let { notes } = result;
+                    let { notes, userNoteCategories } = result;
                     
-                    notes = notes.filter(note => String(note._id) !== noteId);
+                    let noteToRemove = notes.filter(note => String(note._id) === noteId);
+                    let newNotes = notes.filter(note => String(note._id) !== noteId);
+
+                    let notesWithSameCategory = newNotes.filter(note => 
+                                            note.category === noteToRemove[0].category);
+                    if (notesWithSameCategory.length === 0) {
+                        userNoteCategories = userNoteCategories.filter(category => 
+                                                    category !== noteToRemove[0].category)
+                    }
 
                     User.findOneAndUpdate({ login: user }, 
-                        { $set: { notes }})
+                        { $set: { notes: newNotes, userNoteCategories }})
 
                         .then(() => {
                             

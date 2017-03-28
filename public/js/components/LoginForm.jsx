@@ -84,9 +84,9 @@ class LoginForm extends Component {
                                     { (loginStyle) ? 'Log in' : 'Sign in'}
                                 </Button>
                             </FormGroup>
+                            <h2>{ signUpMessage || loginMessage }</h2>
                         </div> : 
                         <div>
-                            <h2>{ signUpMessage || loginMessage }</h2>
                             <FormGroup>
                                 <Link to="/notepad">go to notepad!</Link>
                             </FormGroup>

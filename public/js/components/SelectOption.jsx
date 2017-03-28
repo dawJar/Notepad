@@ -20,18 +20,19 @@ class SelectOption extends Component {
     render() {
         let { 
             userNoteCategories, 
-            addNewSelectedCategory 
+            addNewSelectedCategory,
+            concatedCategories 
         } = this.props;
 
-        userNoteCategories = userNoteCategories.filter(category => category !== 'All');
-        let optionsToRender = userNoteCategories.map(category => {
+        // let categoriesToMap = concatedCategories.filter(category => category !== 'All');
+        let optionsToRender = concatedCategories.map(category => {
             return (category === addNewSelectedCategory) ?
-                        <option value={ category } selected>
-                            { category }
-                        </option> :
-                        <option value={ category } >
-                            { category }
-                        </option>
+                <option value={ category } selected>
+                    { category }
+                </option> :
+                <option value={ category } >
+                    { category }
+                </option>
         });
 
         return (
@@ -42,7 +43,7 @@ class SelectOption extends Component {
                     placeholder="select category"
                     onChange={ this.handleChange }
                 >
-                    {optionsToRender}
+                    { optionsToRender }
                 </FormControl>
             </FormGroup>
         );

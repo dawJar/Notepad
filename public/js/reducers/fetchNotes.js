@@ -9,6 +9,8 @@ const initialState = {
     anyNotes: false,
     notes: [],
     userNoteCategories: [],
+    defaultCategories: [ 'Todo', 'Shopping', 'Events' ],
+    concatedCategories: [],
     userLogin: ''
 };
 
@@ -23,14 +25,22 @@ const fetchNotes = (state = initialState, action) => {
     
     switch (type) {
         case FETCH_USER_NOTES_SUCCESS: 
+            let { defaultCategories } = state;
+
             let anyNotes = notes.length !== 0;
             let userLogin = login;
+
+            let allCategories = [ ...defaultCategories, ...userNoteCategories ];
+            let removeAllFromCategories = allCategories.filter(cat => cat !== 'All');
+            let filterForUniqueCategories = new Set([ ...removeAllFromCategories ]);
+            let concatedCategories = Array.from(filterForUniqueCategories);
             return { 
                 ...state,
                 userLogin,
                 anyNotes,
                 notes,
-                userNoteCategories
+                userNoteCategories,
+                concatedCategories
             };      
 
         case FETCH_USER_NOTES_FAIL:

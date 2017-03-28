@@ -33,6 +33,7 @@ class NotepadContainer extends Component {
 
 const mapStateToProps = state => ({
     userNoteCategories: state.fetchNotes.userNoteCategories,
+    concatedCategories: state.fetchNotes.concatedCategories,
     userLogin: state.fetchNotes.userLogin,
     anyNotes: state.fetchNotes.anyNotes,
     userNotes: state.fetchNotes.notes,
