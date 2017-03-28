@@ -5,6 +5,7 @@ const loginUserRoute = (req, res) => {
     console.log(req.method, req.url);
 
     let { login, password } = req.body;
+    console.log('login', login)
 
     if (!login || !password) {
         res.status('400');
@@ -16,23 +17,25 @@ const loginUserRoute = (req, res) => {
 
                 if (result === null) {
                     res.send({ 
-                        loginUser: false, 
+                        isUserLoggedIn: false, 
                         message: 'user does not exsists!' 
                     });
                 } else if (result.password !== password) {
                     res.send({ 
-                        loginUser: false, 
+                        isUserLoggedIn: false, 
                         message: 'wrong login or password!' 
                     });
                 } else {
                     req.session.user = login;
                     let { user } = req.session;
-
-                    res.send({ 
+                    console.log('/login', req.session)
+                    let userData = { 
                         user, 
-                        loginUser: true, 
+                        isUserLoggedIn: true, 
                         message: `logged in as ${ user }`
-                    });
+                    }
+                    
+                    res.send(userData);
                 }
 
             });        
@@ -43,7 +46,7 @@ const logoutRoute = (req, res) => {
     console.log(req.method, req.url);
     
     req.session.destroy(() => console.log('user logged out'));
-    res.redirect('/login');
+    // res.redirect('/login');
 }
 
 module.exports = {

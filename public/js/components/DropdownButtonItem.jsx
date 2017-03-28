@@ -30,8 +30,8 @@ class OwnDropdownButton extends Component {
 
         return (
             <MenuItem
-                eventKey={counter}
-                onSelect={this.handleSelect}
+                eventKey={ counter }
+                onSelect={ this.handleSelect }
             >
                 {title}
             </MenuItem>

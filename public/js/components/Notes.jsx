@@ -8,6 +8,10 @@ class Notes extends Component {
         super(props);
     }
 
+    shouldComponentUpdate(nextProps) {
+        return this.props.filteredNotes !== nextProps.filteredNotes;
+    }
+
     render() {
         let { filteredNotes, ...otherProps } = this.props;
         let notesToRender = filteredNotes.map(note => 

@@ -6,23 +6,23 @@ import {
 
 let initState = {
     message: '',
-    loginUser: false
+    isUserLoggedIn: false,
 }
 
 const loginMessage = (state = initState, action) => {
-    let { type, message, loginUser } = action;
+    let { type, message, isUserLoggedIn } = action;
 
     switch (type) {
         case LOGIN_SUCCESS:
             return {
                 message,
-                loginUser
+                isUserLoggedIn
             };      
 
         case LOGIN_FAIL:
             return {
                 message,
-                loginUser
+                isUserLoggedIn
             };       
 
         default:

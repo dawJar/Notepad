@@ -1,56 +1,57 @@
 const User = require('../model/User');
 
 
-const notepadRoute = (req, res) => {
-    console.log(req.method, req.url);
+// const notepadRoute = (req, res) => {
+//     console.log(req.method, req.url);
+//     console.log(req.method, req.url, req.session.user);
 
-    let { user } = req.session;
+//     let { user } = req.session;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
-        res.render('notepad', { user });
-    }
-};
+//     if (user === undefined) {
+//         res.redirect('/login');
+//     } else {
+//         res.render('notepad', { user });
+//     }
+// };
 
 
 const notepadFetchNotes = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         User.findOne({ login: user })
 
-            .then((userData) => {
-
-                res.send({ userData });
-
-            });
-    }
+            .then((userData) => res.send({ userData }));
+    // }
 };
 
 const notepadRedirectToNotepad = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
-    if (user === undefined)
-        res.redirect('/login');
-    else
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         res.redirect('/notepad');
+    // }
 };
 
 const notepadAddNoteToDb = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
     let { category, title, content } = req.body;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -77,18 +78,19 @@ const notepadAddNoteToDb = (req, res) => {
                         });
                 }
             });
-    }
+    // }
 };
 
 const notepadUpdateNoteImportance = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
     let { noteId, importance } = req.body;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -116,11 +118,12 @@ const notepadUpdateNoteImportance = (req, res) => {
                     });
 
             });
-    }
+    // }
 };
 
 const notepadUpdateNote = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
     
     let { user } = req.session;
     let { 
@@ -129,9 +132,9 @@ const notepadUpdateNote = (req, res) => {
         selectedNoteToEdit
     } = req.body;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -160,18 +163,19 @@ const notepadUpdateNote = (req, res) => {
                     });
 
             });
-    }
+    // }
 };
 
 const removeNote = (req, res) => {
     console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
     let { noteId } = req.body;
 
-    if (user === undefined) {
-        res.redirect('/login');
-    } else {
+    // if (user === undefined) {
+        // res.redirect('/login');
+    // } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -179,7 +183,6 @@ const removeNote = (req, res) => {
                 if (result !== null) {
                     let { notes } = result;
                     
-                    // let newNotes = notes.filter(note => String(note._id) !== noteId);
                     notes = notes.filter(note => String(note._id) !== noteId);
 
                     User.findOneAndUpdate({ login: user }, 
@@ -193,7 +196,7 @@ const removeNote = (req, res) => {
                         });
                 }
             });
-    }
+    // }
 };
 
 module.exports = {
@@ -202,6 +205,6 @@ module.exports = {
     notepadFetchNotes,
     notepadUpdateNote,
     notepadRedirectToNotepad,
-    notepadRoute,
+    // notepadRoute,
     removeNote
 };

@@ -61,7 +61,7 @@ class Notes extends Component {
             
             case dropdownControl.REMOVE_NOTE:
                 setNoteToEdit(noteId);
-                removeNote(noteId);
+                removeNote(currentActiveCategoryTab, noteId);
                 break;
 
             default:

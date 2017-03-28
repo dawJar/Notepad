@@ -32,16 +32,16 @@ export const signUpFail = (message, addNewUser) => ({
 });
 
 // LOGIN
-export const loginSuccess = (message, loginUser) => ({
+export const loginSuccess = (message, isUserLoggedIn) => ({
     type: types.LOGIN_SUCCESS,
     message,
-    loginUser
+    isUserLoggedIn
 });
 
-export const loginFail = (message, loginUser) => ({
+export const loginFail = (message, isUserLoggedIn) => ({
     type: types.LOGIN_FAIL,
     message,
-    loginUser
+    isUserLoggedIn
 });
 
 // ADD NEW NOTES
@@ -102,8 +102,9 @@ export const setTitleOfEditingNote = (currentTitleOfEdditingNote) => ({
 });
 
 // FETCH NOTES
-export const fetchUserNotesSuccess = (notes, userNoteCategories) => ({
+export const fetchUserNotesSuccess = (login, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,
+    login, 
     notes,
     userNoteCategories
 });
@@ -137,8 +138,8 @@ export const updateNoteImportance = (currentActiveCategoryTab,
                                         noteId, importance, dispatch);
 };
 
-export const removeNote = (noteId) => (dispatch) => {
-    request.removeNoteRequest(noteId, dispatch);
+export const removeNote = (currentActiveCategoryTab, noteId) => (dispatch) => {
+    request.removeNoteRequest(currentActiveCategoryTab, noteId, dispatch);
 };
 
 export const updateNote = (selectedNoteToEdit, 

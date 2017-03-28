@@ -6,14 +6,16 @@ import {
 
 
 let initialState = {
-     anyNotes: false,
-     notes: [],
-     userNoteCategories: []
+    anyNotes: false,
+    notes: [],
+    userNoteCategories: [],
+    userLogin: ''
 };
 
 const fetchNotes = (state = initialState, action) => {
     let { 
         type, 
+        login, 
         anyNotes, 
         notes, 
         userNoteCategories 
@@ -21,9 +23,11 @@ const fetchNotes = (state = initialState, action) => {
     
     switch (type) {
         case FETCH_USER_NOTES_SUCCESS: 
-            let anyNotes = notes.length !== 0; 
+            let anyNotes = notes.length !== 0;
+            let userLogin = login;
             return { 
                 ...state,
+                userLogin,
                 anyNotes,
                 notes,
                 userNoteCategories

@@ -2,6 +2,7 @@ import React, { cloneElement } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import NavigationContainer from './NavigationContainer.jsx';
 
 
 const AppContainer = ({ children, ...otherProps }) => {
@@ -10,13 +11,14 @@ const AppContainer = ({ children, ...otherProps }) => {
 
     return (
         <div>
+            <NavigationContainer />
             { childrenToShow }
         </div>
     );
 }
 
 const mapStateToProps = state => ({
-    loginUser: state.loginMessage.loginUser,
+    isUserLoggedIn: state.loginMessage.isUserLoggedIn,
     loginMessage: state.loginMessage.message,
     signUpMessage: state.signUpMessage.message,
     signUpNewUser: state.signUpMessage.addNewUser,

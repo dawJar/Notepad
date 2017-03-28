@@ -21,13 +21,14 @@ class LoginForm extends Component {
             formInputLogin
         } = this.props;
 
+        
         if (pathname === '/login') {
             this.props.attemptLogin(formInputLogin, formInputPassword);
         } else {
             this.props.attemptSingup(formInputFirstName, formInputLogin, formInputPassword);
         }
+        
         event.preventDefault();
-        location.reload();
         browserHistory.push('/notepad');
     }
 
