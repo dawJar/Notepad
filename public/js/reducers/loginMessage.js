@@ -1,10 +1,11 @@
 import {
+    USER_LOGGED_OUT,
     LOGIN_SUCCESS,
     LOGIN_FAIL
 } from '../constants/actionTypes';
 
 
-let initState = {
+const initState = {
     message: '',
     isUserLoggedIn: false,
 }
@@ -23,7 +24,10 @@ const loginMessage = (state = initState, action) => {
             return {
                 message,
                 isUserLoggedIn
-            };       
+            };  
+
+        case USER_LOGGED_OUT:
+            return initState;
 
         default:
             return state;

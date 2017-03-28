@@ -1,11 +1,11 @@
 import {
     FETCH_USER_NOTES_SUCCESS,
     FETCH_USER_NOTES_FAIL,
-    SET_ACTIVE_NOTES_OF_CURRENT_CATEGORY
+    USER_LOGGED_OUT
 } from '../constants/actionTypes';
 
 
-let initialState = {
+const initialState = {
     anyNotes: false,
     notes: [],
     userNoteCategories: [],
@@ -35,6 +35,9 @@ const fetchNotes = (state = initialState, action) => {
 
         case FETCH_USER_NOTES_FAIL:
             return state;  
+
+        case USER_LOGGED_OUT:
+            return initialState;  
 
         default:
             return state;

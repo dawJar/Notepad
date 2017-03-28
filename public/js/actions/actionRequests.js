@@ -120,3 +120,12 @@ export const updateNoteRequest = (selectedNoteToEdit, currentTitleOfEdditingNote
             dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
         });
 };
+
+export const logoutUserRequest = (dispatch) => {
+    $.ajax({
+        type: 'POST',
+        url: '/logout-user',
+    })
+        
+        .done(() => dispatch(actions.userLoggedOut()));
+};

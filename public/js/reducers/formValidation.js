@@ -1,11 +1,12 @@
 import {
     INPUT_FIRST_NAME_CHANGE,
     INPUT_LOGIN_CHANGE,
-    INPUT_PASSWORD_CHANGE
+    INPUT_PASSWORD_CHANGE,
+    USER_LOGGED_OUT
 } from '../constants/actionTypes';
 
 
-let initialState = {
+const initialState = {
      firstName: '',
      login: '',
      password: ''
@@ -31,7 +32,10 @@ const formValidation = (state = initialState, action) => {
             return { 
                 ...state,
                 password
-            };            
+            }; 
+
+        case USER_LOGGED_OUT:
+            return initialState;          
 
         default:
             return state;

@@ -1,8 +1,8 @@
 const mainRoute = require('../routes/mainRoutes');
 const { addNewUserRoute } = require('../routes/signupRoutes');
 const { 
-    loginUserRoute, 
-    logoutRoute 
+    logoutUserRoute,
+    loginUserRoute 
 } = require('../routes/loginRoutes');
 const { 
     notepadUpdateNoteImportance,
@@ -23,7 +23,9 @@ module.exports = function (app) {
 
     app.post('/attempt-login', loginUserRoute);
 
-    app.get('/logout', logoutRoute);
+    // app.get('/logout', logoutRoute);
+
+    app.post('/logout-user', logoutUserRoute);
 
     // app.get('/notepad', notepadRoute);
 

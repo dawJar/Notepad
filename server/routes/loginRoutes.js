@@ -42,14 +42,14 @@ const loginUserRoute = (req, res) => {
     }
 };
 
-const logoutRoute = (req, res) => {
+const logoutUserRoute = (req, res) => {
     console.log(req.method, req.url);
     
     req.session.destroy(() => console.log('user logged out'));
-    // res.redirect('/login');
+    res.send({ message: 'user logged out' });
 }
 
 module.exports = {
+    logoutUserRoute,
     loginUserRoute,
-    logoutRoute
 };

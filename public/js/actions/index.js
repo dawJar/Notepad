@@ -44,6 +44,10 @@ export const loginFail = (message, isUserLoggedIn) => ({
     isUserLoggedIn
 });
 
+export const userLoggedOut = () => ({
+    type: types.USER_LOGGED_OUT
+});
+
 // ADD NEW NOTES
 export const addNoteAddNewCategory = (addNewNoteCategory) => ({
     type: types.ADD_NOTE_SHOW_USER_CATEGORIES,
@@ -121,6 +125,10 @@ export const attemptLogin = (login, password) => (dispatch) => {
 
 export const attemptSingup = (firstName, login, password) => (dispatch) => {
     request.attemptSingupRequest(firstName, login, password, dispatch);
+};
+
+export const logoutUser = () => (dispatch) => {
+    request.logoutUserRequest(dispatch);
 };
 
 export const fetchUserNotes = (currentActiveCategoryTab) => (dispatch) => {

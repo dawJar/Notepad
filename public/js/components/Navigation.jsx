@@ -12,6 +12,13 @@ class Navigation extends Component {
 
     constructor(props) {
         super(props);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    }
+
+    handleLogoutClick() {
+        let { logoutUser } = this.props;
+        logoutUser();
+        console.log(logoutUser)
     }
 
     shouldComponentUpdate(nextProps) {
@@ -45,8 +52,8 @@ class Navigation extends Component {
                                     { userLogin }
                                 </Link>
                             </Breadcrumb.Item>
-                            <Breadcrumb.Item >
-                                <Link to="/logout">
+                            <Breadcrumb.Item onClick={ this.handleLogoutClick } >
+                                <Link to="/login">
                                     logout
                                 </Link>
                             </Breadcrumb.Item>
