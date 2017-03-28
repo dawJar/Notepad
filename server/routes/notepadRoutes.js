@@ -10,7 +10,7 @@ const notepadRoute = (req, res) => {
     if (user === undefined) {
         res.redirect('/login');
     } else {
-        res.render('notepad', { user });
+        res.render('index');
     }
 };
 

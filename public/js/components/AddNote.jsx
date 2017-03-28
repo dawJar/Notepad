@@ -16,6 +16,12 @@ class AddNote extends Component {
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
+    componentWillMount() {
+        let { userLogin } = this.props;
+        if (userLogin === '') 
+            browserHistory.push('/login');
+    }
+
     handleButtonClick (whichButton) {
         let { 
             addNoteAddNewCategory,
