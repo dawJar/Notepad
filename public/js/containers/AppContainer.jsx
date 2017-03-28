@@ -17,14 +17,15 @@ const AppContainer = ({ children, ...otherProps }) => {
     );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     isUserLoggedIn: state.loginMessage.isUserLoggedIn,
     loginMessage: state.loginMessage.message,
-    signUpMessage: state.signUpMessage.message,
     signUpNewUser: state.signUpMessage.addNewUser,
+    signUpMessage: state.signUpMessage.message,
     formInputFirstName: state.formValidation.firstName,
-    formInputLogin: state.formValidation.login,
     formInputPassword: state.formValidation.password,
+    formInputLogin: state.formValidation.login,
+    userLogin: state.fetchNotes.userLogin
 });
 
 const mapDispatchToProps = (dispatch) => {

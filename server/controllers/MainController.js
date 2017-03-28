@@ -10,7 +10,7 @@ const {
     notepadFetchNotes,
     notepadUpdateNote,
     notepadRedirectToNotepad,
-    // notepadRoute,
+    notepadRoute,
     removeNote
 } = require('../routes/notepadRoutes');
 
@@ -27,7 +27,7 @@ module.exports = function (app) {
 
     app.post('/logout-user', logoutUserRoute);
 
-    // app.get('/notepad', notepadRoute);
+    app.get('/notepad', notepadRoute);
 
     app.post('/fetch-notes', notepadFetchNotes);
 

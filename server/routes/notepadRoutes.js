@@ -1,18 +1,18 @@
 const User = require('../model/User');
 
 
-// const notepadRoute = (req, res) => {
-//     console.log(req.method, req.url);
-//     console.log(req.method, req.url, req.session.user);
+const notepadRoute = (req, res) => {
+    console.log(req.method, req.url);
+    console.log(req.method, req.url, req.session.user);
 
-//     let { user } = req.session;
+    let { user } = req.session;
 
-//     if (user === undefined) {
-//         res.redirect('/login');
-//     } else {
-//         res.render('notepad', { user });
-//     }
-// };
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
+        res.render('notepad', { user });
+    }
+};
 
 
 const notepadFetchNotes = (req, res) => {
@@ -21,13 +21,13 @@ const notepadFetchNotes = (req, res) => {
 
     let { user } = req.session;
 
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         User.findOne({ login: user })
 
             .then((userData) => res.send({ userData }));
-    // }
+    }
 };
 
 const notepadRedirectToNotepad = (req, res) => {
@@ -35,11 +35,11 @@ const notepadRedirectToNotepad = (req, res) => {
     console.log(req.method, req.url, req.session.user);
 
     let { user } = req.session;
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         res.redirect('/notepad');
-    // }
+    }
 };
 
 const notepadAddNoteToDb = (req, res) => {
@@ -49,9 +49,9 @@ const notepadAddNoteToDb = (req, res) => {
     let { user } = req.session;
     let { category, title, content } = req.body;
 
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -78,7 +78,7 @@ const notepadAddNoteToDb = (req, res) => {
                         });
                 }
             });
-    // }
+    }
 };
 
 const notepadUpdateNoteImportance = (req, res) => {
@@ -88,9 +88,9 @@ const notepadUpdateNoteImportance = (req, res) => {
     let { user } = req.session;
     let { noteId, importance } = req.body;
 
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -118,7 +118,7 @@ const notepadUpdateNoteImportance = (req, res) => {
                     });
 
             });
-    // }
+    }
 };
 
 const notepadUpdateNote = (req, res) => {
@@ -132,9 +132,9 @@ const notepadUpdateNote = (req, res) => {
         selectedNoteToEdit
     } = req.body;
 
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -163,7 +163,7 @@ const notepadUpdateNote = (req, res) => {
                     });
 
             });
-    // }
+    }
 };
 
 const removeNote = (req, res) => {
@@ -173,9 +173,9 @@ const removeNote = (req, res) => {
     let { user } = req.session;
     let { noteId } = req.body;
 
-    // if (user === undefined) {
-        // res.redirect('/login');
-    // } else {
+    if (user === undefined) {
+        res.redirect('/login');
+    } else {
         User.findOne({ login: user })
 
             .then((result) => {
@@ -196,7 +196,7 @@ const removeNote = (req, res) => {
                         });
                 }
             });
-    // }
+    }
 };
 
 module.exports = {
@@ -205,6 +205,6 @@ module.exports = {
     notepadFetchNotes,
     notepadUpdateNote,
     notepadRedirectToNotepad,
-    // notepadRoute,
+    notepadRoute,
     removeNote
 };

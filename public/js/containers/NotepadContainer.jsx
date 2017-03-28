@@ -1,4 +1,5 @@
 import React, { Component, cloneElement } from 'react';
+import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -10,6 +11,12 @@ class NotepadContainer extends Component {
     constructor(props) {
         super(props);
     }   
+
+    componentWillMount() {
+        let { userLogin } = this.props;
+        if (userLogin === '') 
+            browserHistory.push('/login');
+    }
 
     render() {
         let { children, ...otherProps } = this.props;
@@ -26,6 +33,7 @@ class NotepadContainer extends Component {
 
 const mapStateToProps = state => ({
     userNoteCategories: state.fetchNotes.userNoteCategories,
+    userLogin: state.fetchNotes.userLogin,
     anyNotes: state.fetchNotes.anyNotes,
     userNotes: state.fetchNotes.notes,
     addNewSelectedCategory: state.addNote.addNewSelectedCategory,

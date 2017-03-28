@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Button from 'react-bootstrap/lib/Button';
 import Form from 'react-bootstrap/lib/Form';
@@ -29,13 +29,13 @@ class LoginForm extends Component {
         }
         
         event.preventDefault();
-        browserHistory.push('/notepad');
     }
 
     render() {
         let {
             signUpMessage,
             loginMessage,
+            userLogin,
             location: { pathname },
             formInputFirstName,
             formInputPassword,
@@ -49,7 +49,7 @@ class LoginForm extends Component {
             <Form id="accessForm" onSubmit={ this.handleSubmit }>        
                 
                 {
-                    (!loginStyle) ? 
+                    (!loginStyle && userLogin === '') ? 
                     <TextField 
                         actionType={ SET_FIRST_NAME }
                         controlLabel="First name:" 
@@ -59,31 +59,40 @@ class LoginForm extends Component {
                     /> : null      
                 }
 
-                <TextField 
-                    actionType={ SET_LOGIN }
-                    controlLabel="Login:" 
-                    placeholder="Enter login" 
-                    valueText={ formInputLogin }
-                    { ...otherProps } 
-                />
+                {
+                    (userLogin === '') ?
+                        <div>
+                            <TextField 
+                                actionType={ SET_LOGIN }
+                                controlLabel="Login:" 
+                                placeholder="Enter login" 
+                                valueText={ formInputLogin }
+                                { ...otherProps } 
+                            />
 
-                <TextField 
-                    actionType={ SET_PASSWORD }
-                    controlLabel="Password:" 
-                    placeholder="Enter password" 
-                    valueText={ formInputPassword }
-                    type="password"
-                    { ...otherProps } 
-                />
+                            <TextField 
+                                actionType={ SET_PASSWORD }
+                                controlLabel="Password:" 
+                                placeholder="Enter password" 
+                                valueText={ formInputPassword }
+                                type="password"
+                                { ...otherProps } 
+                            />
 
-                <FormGroup>
-                    <Button type="submit">
-                        { (loginStyle) ? 'Log in' : 'Sign in'}
-                    </Button>
-                </FormGroup>
+                            <FormGroup>
+                                <Button type="submit">
+                                    { (loginStyle) ? 'Log in' : 'Sign in'}
+                                </Button>
+                            </FormGroup>
+                        </div> : 
+                        <div>
+                            <h2>{ signUpMessage || loginMessage }</h2>
+                            <FormGroup>
+                                <Link to="/notepad">go to notepad!</Link>
+                            </FormGroup>
+                        </div>
+                }
 
-                {/*TEMP*/}
-                <h2>{ signUpMessage || loginMessage }</h2>
             </Form>
         );
     }

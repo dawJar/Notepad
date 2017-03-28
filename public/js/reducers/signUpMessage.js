@@ -1,4 +1,5 @@
 import {
+    USER_LOGGED_OUT,
     SIGNUP_SUCCESS,
     SIGNUP_FAIL
 } from '../constants/actionTypes';
@@ -24,7 +25,10 @@ const signUpMessage = (state = initialState, action) => {
             return {
                 message,
                 addNewUser
-            };       
+            };
+
+        case USER_LOGGED_OUT:
+            return initialState;   
 
         default:
             return state;
