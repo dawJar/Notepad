@@ -5,7 +5,6 @@ const loginUserRoute = (req, res) => {
     console.log(req.method, req.url);
 
     let { login, password } = req.body;
-    console.log('login', login)
 
     if (!login || !password) {
         res.status('400');
@@ -28,7 +27,7 @@ const loginUserRoute = (req, res) => {
                 } else {
                     req.session.user = login;
                     let { user } = req.session;
-                    console.log('/login', req.session)
+
                     let userData = { 
                         user, 
                         isUserLoggedIn: true, 

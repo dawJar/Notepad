@@ -18,17 +18,14 @@ class Navigation extends Component {
     handleLogoutClick() {
         let { logoutUser } = this.props;
         logoutUser();
-        console.log(logoutUser)
     }
 
     shouldComponentUpdate(nextProps) {
-        console.log('SCU!!!!!!!')
         return this.props.userLogin !== nextProps.userLogin;
     }
 
     render() {
         let { userLogin } = this.props;
-        console.log('login:', userLogin)
 
         return (
             <div>

@@ -8,9 +8,7 @@ export const attemptLoginRequest = (login, password, dispatch) => {
         data: { login, password }
     })
         
-        .done((data) => {
-            let { isUserLoggedIn, message } = data;
-
+        .done(({ isUserLoggedIn, message }) => {
             if (isUserLoggedIn) {
                 dispatch(actions.loginSuccess(message, isUserLoggedIn));
                 dispatch(actions.fetchUserNotes(0));
@@ -29,9 +27,7 @@ export const attemptSingupRequest = (firstName, login, password, dispatch) => {
         data: { firstName, login, password }
     })
         
-        .done((data) => {
-            let { addedNewUser, message } = data;
-
+        .done(({ addedNewUser, message }) => {
             if (addedNewUser) {
                 dispatch(actions.signUpSuccess(message, addedNewUser));
                 dispatch(actions.fetchUserNotes(0));
@@ -49,9 +45,7 @@ export const fetchUserNotesRequest = (currentActiveCategoryTab, dispatch) => {
         url: '/fetch-notes'
     })
         
-        .done((data) => {
-            let { login, notes, userNoteCategories } = data.userData;
-            
+        .done(({ userData: { login, notes, userNoteCategories } }) => {
             dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
             dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
         })
@@ -66,11 +60,8 @@ export const addNewNoteRequest = (title, category, content, dispatch) => {
         data: { title, category, content }
     })
         
-        .done((data) => {
-            let { login, notes, userNoteCategories } = data.userData;
-            
-            dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
-        });
+        .done(({ userData: { login, notes, userNoteCategories } }) => 
+            dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories)));
 };
 
 export const updateNoteImportanceRequest = (currentActiveCategoryTab, noteId, importance, dispatch) => {
@@ -80,9 +71,7 @@ export const updateNoteImportanceRequest = (currentActiveCategoryTab, noteId, im
         data: { noteId, importance }
     })
         
-        .done((data) => {
-            let { login, notes, userNoteCategories } = data.userData;
-            
+        .done(({ userData: { login, notes, userNoteCategories } }) => {
             dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
             dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
         });
@@ -95,9 +84,7 @@ export const removeNoteRequest = (currentActiveCategoryTab, noteId, dispatch) =>
         data: { noteId }
     })
         
-        .done((data) => {
-            let { login, notes, userNoteCategories } = data.userData;
-            
+        .done(({ userData: { login, notes, userNoteCategories } }) => {
             dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
             dispatch(actions.setActiveNotesOfCurrentCategory(currentActiveCategoryTab, notes, userNoteCategories))
         });
@@ -114,11 +101,8 @@ export const updateNoteRequest = (selectedNoteToEdit, currentTitleOfEdditingNote
         }
     })
         
-        .done((data) => {
-            let { login, notes, userNoteCategories } = data.userData;
-            
-            dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories));
-        });
+        .done(({ userData: { login, notes, userNoteCategories } }) => 
+            dispatch(actions.fetchUserNotesSuccess(login, notes, userNoteCategories)));
 };
 
 export const logoutUserRequest = (dispatch) => {

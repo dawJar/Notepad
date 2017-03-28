@@ -209,10 +209,10 @@ const removeNote = (req, res) => {
 
 module.exports = {
     notepadUpdateNoteImportance,
+    notepadRedirectToNotepad,
     notepadAddNoteToDb,
     notepadFetchNotes,
     notepadUpdateNote,
-    notepadRedirectToNotepad,
     notepadRoute,
     removeNote
 };

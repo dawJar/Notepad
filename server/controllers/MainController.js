@@ -6,10 +6,10 @@ const {
 } = require('../routes/loginRoutes');
 const { 
     notepadUpdateNoteImportance,
+    notepadRedirectToNotepad,
     notepadAddNoteToDb,
     notepadFetchNotes,
     notepadUpdateNote,
-    notepadRedirectToNotepad,
     notepadRoute,
     removeNote
 } = require('../routes/notepadRoutes');
@@ -22,8 +22,6 @@ module.exports = function (app) {
     app.post('/attempt-signup', addNewUserRoute);
 
     app.post('/attempt-login', loginUserRoute);
-
-    // app.get('/logout', logoutRoute);
 
     app.post('/logout-user', logoutUserRoute);
 
