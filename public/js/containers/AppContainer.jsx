@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import NavigationContainer from './NavigationContainer.jsx';
 
+import '../../sass/appContainer.scss';
+
 
 const AppContainer = ({ children, ...otherProps }) => {
 
@@ -12,7 +14,9 @@ const AppContainer = ({ children, ...otherProps }) => {
     return (
         <div>
             <NavigationContainer />
-            { childrenToShow }
+            <div className="container-under-nav" >
+                {childrenToShow}
+            </div>
         </div>
     );
 }

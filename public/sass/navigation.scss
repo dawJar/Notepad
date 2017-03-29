@@ -1,9 +1,6 @@
-$mainIndexColor: #FBBC05;
-$complementaryIndexColor: #212121;
-$breadcrumbNavHeight: 70px;
-$navbarTronHeight: 170px;
-$navbarTronTopPos: $breadcrumbNavHeight - 1px;
-$navPadding: 8px 15px;
+@import './vars.scss';
+@import './mixins.scss';
+
 
 ol.breadcrumb {
     position: fixed;
@@ -16,7 +13,7 @@ ol.breadcrumb {
     border-radius: 0;
     margin-bottom: 0;
     z-index: 10;
-    padding: $navPadding;
+    padding: $mainPadding;
 
     li {
         box-sizing: border-box;
@@ -36,6 +33,7 @@ ol.breadcrumb {
         font-weight: bold;
         color: $complementaryIndexColor;
         padding: 10px 5px;
+        text-decoration: none;
 
         &:hover {
             text-decoration: none;
@@ -64,7 +62,7 @@ div#navbar-tron {
     background-color: $mainIndexColor;
     color: $complementaryIndexColor;
     font-size: 28px;
-    padding: $navPadding;
+    padding: $mainPadding;
     margin: 0 auto;
     height: $navbarTronHeight;
 
