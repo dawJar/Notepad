@@ -18,3 +18,14 @@ div.main-jumbotron {
     color: $fontColorOnDark;
     background-color: $complementaryIndexColor;
 }
+
+footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $footerHeight;
+    background-color: $footerBackgroundColor;
+    color: $footerFontColor;
+    
+
+}

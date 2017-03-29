@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import NavigationContainer from './NavigationContainer.jsx';
+import Footer from '../components/Footer.jsx';
 
 import '../../sass/appContainer.scss';
 
@@ -17,6 +18,7 @@ const AppContainer = ({ children, ...otherProps }) => {
             <div className="container-under-nav" >
                 {childrenToShow}
             </div>
+            <Footer />
         </div>
     );
 }
