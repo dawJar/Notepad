@@ -7,12 +7,6 @@ import Navigation from '../components/Navigation.jsx';
 
 const mapStateToProps = state => ({
     userLogin: state.fetchNotes.userLogin
-    // loginMessage: state.loginMessage.message,
-    // signUpMessage: state.signUpMessage.message,
-    // signUpNewUser: state.signUpMessage.addNewUser,
-    // formInputFirstName: state.formValidation.firstName,
-    // formInputLogin: state.formValidation.login,
-    // formInputPassword: state.formValidation.password,
 });
 
 const mapDispatchToProps = (dispatch) => {

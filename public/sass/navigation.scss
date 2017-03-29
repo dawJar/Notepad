@@ -1,0 +1,88 @@
+$mainIndexColor: #FBBC05;
+$complementaryIndexColor: #212121;
+$breadcrumbNavHeight: 70px;
+$navbarTronHeight: 170px;
+$navbarTronTopPos: $breadcrumbNavHeight - 1px;
+$navPadding: 8px 15px;
+
+ol.breadcrumb {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: $breadcrumbNavHeight;
+    background-color: $mainIndexColor;
+    border-radius: 0;
+    margin-bottom: 0;
+    z-index: 10;
+    padding: $navPadding;
+
+    li {
+        box-sizing: border-box;
+        padding: 10px 0;
+        &:hover {
+            border-bottom: 2px solid $complementaryIndexColor;
+        }
+    }
+
+    li + li:before {
+        display: none;
+    }
+
+    a {
+        box-sizing: border-box;
+        font-size: 13px;
+        font-weight: bold;
+        color: $complementaryIndexColor;
+        padding: 10px 5px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+ol.main-navbar-shadow {
+    &::after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: fixed;
+        top: $breadcrumbNavHeight;
+        left: 1px;
+        z-index: -1;
+        box-shadow: 0px 1px 6px 1px #212121;
+    }
+}
+
+div#navbar-tron {
+    display: flex;
+    position: relative;
+    align-items: center;  
+    top: $navbarTronTopPos;
+    background-color: $mainIndexColor;
+    color: $complementaryIndexColor;
+    font-size: 28px;
+    padding: $navPadding;
+    margin: 0 auto;
+    height: $navbarTronHeight;
+
+    h1.navbar-tron-header-appear {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+    }
+
+    h1.navbar-tron-header-disappear {
+        opacity: 0;
+        transition: opacity .5s ease-out;
+    }
+}
+.navbarTronHeader-appear {
+    opacity: 0.01;
+}
+
+.navbarTronHeader-appear.navbarTronHeader-appear-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}

@@ -37,6 +37,7 @@
     "postcss-loader": "^1.2.2",
     "pug": "^2.0.0-beta11",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-axios": "0.0.9",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.4.2",
