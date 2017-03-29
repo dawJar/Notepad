@@ -32,10 +32,8 @@ class Navigation extends Component {
         let normalClass = 'navbar-tron-header-appear';
         let disappearClass = 'navbar-tron-header-disappear';
 
-        console.log(scrollPos)
         if (scrollPos > 1) {
             if (navbarTronHeader.className.includes(normalClass)) {
-                // navbarTronHeader.className += ` ${disappearClass}`;
                 navbarTronHeader.className = disappearClass;
             }
         } else {
