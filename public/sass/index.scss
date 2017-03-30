@@ -1,0 +1,24 @@
+@import './vars.scss';
+@import './mixins.scss';
+
+
+div.index-item-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.index-item-title {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+h3.items-header {
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+div.items-row {
+    margin-bottom: 50px;
+}

@@ -7,6 +7,6 @@ html {
 }
 
 body {
-    margin-bottom: $footerHeight + $breadcrumbNavHeight;
+    margin-bottom: $footerHeight + $breadcrumbNavHeight -1px;
     font-family: 'Space Mono', monospace;
 }
