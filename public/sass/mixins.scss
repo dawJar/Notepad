@@ -1,1 +1,66 @@
 @import './vars.scss';
+
+
+@mixin navbarTronStyle($bgColor, $fontColor) {
+    display: flex;
+    position: relative;
+    align-items: center;  
+    top: $navbarTronTopPos;
+    background-color: $bgColor;
+    color: $complementaryIndexColor;
+    font-size: 28px;
+    padding: $mainPadding;
+    margin: 0 auto;
+    height: $navbarTronHeight;
+
+    h1.navbar-tron-header-appear {
+        opacity: 1;
+        color: $fontColor;
+        transition: opacity .5s ease-in;
+    }
+
+    h1.navbar-tron-header-disappear {
+        opacity: 0;
+        color: $fontColor;
+        transition: opacity .5s ease-out;
+    }
+}
+
+@mixin breadcrumbNavStyle($bgColor, $fontColor) {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: $breadcrumbNavHeight;
+    background-color: $bgColor;
+    border-radius: 0;
+    margin-bottom: 0;
+    z-index: 10;
+    padding: $mainPadding;
+
+    li {
+        box-sizing: border-box;
+        padding: 10px 0;
+        &:hover {
+            border-bottom: 2px solid $fontColor;
+        }
+    }
+
+    li + li:before {
+        display: none;
+    }
+
+    a {
+        box-sizing: border-box;
+        font-size: 13px;
+        font-weight: bold;
+        color: $fontColor;
+        padding: 10px 5px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

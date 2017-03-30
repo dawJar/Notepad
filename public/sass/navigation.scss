@@ -2,45 +2,7 @@
 @import './mixins.scss';
 
 
-ol.breadcrumb {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    min-height: $breadcrumbNavHeight;
-    background-color: $mainIndexColor;
-    border-radius: 0;
-    margin-bottom: 0;
-    z-index: 10;
-    padding: $mainPadding;
-
-    li {
-        box-sizing: border-box;
-        padding: 10px 0;
-        &:hover {
-            border-bottom: 2px solid $complementaryIndexColor;
-        }
-    }
-
-    li + li:before {
-        display: none;
-    }
-
-    a {
-        box-sizing: border-box;
-        font-size: 13px;
-        font-weight: bold;
-        color: $complementaryIndexColor;
-        padding: 10px 5px;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
+// shadow nav
 ol.main-navbar-shadow {
     &::after {
         content: "";
@@ -54,29 +16,34 @@ ol.main-navbar-shadow {
     }
 }
 
-div#navbar-tron {
-    display: flex;
-    position: relative;
-    align-items: center;  
-    top: $navbarTronTopPos;
-    background-color: $mainIndexColor;
-    color: $complementaryIndexColor;
-    font-size: 28px;
-    padding: $mainPadding;
-    margin: 0 auto;
-    height: $navbarTronHeight;
-
-    h1.navbar-tron-header-appear {
-        opacity: 1;
-        transition: opacity .5s ease-in;
-    }
-
-    h1.navbar-tron-header-disappear {
-        opacity: 0;
-        transition: opacity .5s ease-out;
-    }
+ol.navbar-index-style {
+    @include breadcrumbNavStyle($mainIndexColor, $complementaryIndexColor);
 }
 
-// ol.navbar-index-style, div.navbar-index-style {
-    
-// }
+div.navbar-index-style {
+    @include navbarTronStyle($mainIndexColor, $complementaryIndexColor);
+}
+
+ol.navbar-login-style {
+    @include breadcrumbNavStyle($loginBgColor, $loginFontColor);
+}
+
+div.navbar-login-style {
+    @include navbarTronStyle($loginBgColor, $loginFontColor);
+}
+
+ol.navbar-notepad-style {
+    @include breadcrumbNavStyle($notepadBgColor, $notepadFontColor);
+}
+
+div.navbar-notepad-style {
+    @include navbarTronStyle($notepadBgColor, $notepadFontColor);
+}
+
+ol.navbar-add-edit-style {
+    @include breadcrumbNavStyle($addEditBgColor, $addEditFontColor);
+}
+
+div.navbar-add-edit-style {
+    @include navbarTronStyle($addEditBgColor, $addEditFontColor);
+}
