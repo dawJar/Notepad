@@ -22,11 +22,11 @@ class OwnButton extends Component {
 
     render() {
         let { 
-            btnText, 
-            className, 
-            bsSize,
             showAsIcon,
-            iconStyle
+            className, 
+            iconStyle,
+            btnText, 
+            bsSize
         } = this.props;
 
         return (
@@ -34,7 +34,7 @@ class OwnButton extends Component {
                 <Button 
                     className={ className || '' }
                     bsSize={ bsSize || '' }
-                    onClick={ this.handleClick } 
+                    onClick={ this.handleClick }
                 >
                     { 
                         (!showAsIcon) ?

@@ -51,6 +51,8 @@ const notepadAddNoteToDb = (req, res) => {
 
     if (user === undefined) {
         res.redirect('/login');
+    } else if (title === '' || content === '') {
+        res.redirect('/notepad');
     } else {
         User.findOne({ login: user })
 

@@ -8,6 +8,8 @@ import TextArea, { SET_NOTE_CONTENT } from './TextArea.jsx';
 import TextField, { SET_NOTE_TITLE } from './TextField.jsx';
 import NoteCategory from './NoteCategory.jsx';
 
+import '../../sass/addEditNote.scss';
+
 
 class AddNote extends Component {
 
@@ -108,7 +110,7 @@ class AddNote extends Component {
         } = this.props;
 
         return (
-            <div>
+            <div className="add-edit-note-container">
                 <OwnButton 
                     className="btn-fixed-back"
                     btnText="back" 

@@ -1,0 +1,13 @@
+@import './vars.scss';
+@import './mixins.scss';
+
+
+div.add-edit-note-container {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 20px;
+}
+
+textarea#form-control-textarea {
+    min-height: 200px;
+}

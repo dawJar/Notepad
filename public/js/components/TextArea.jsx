@@ -45,7 +45,7 @@ class TextArea extends Component {
         } = this.props;
 
         return (
-            <FormGroup controlId="formControlsTextarea">
+            <FormGroup controlId="form-control-textarea">
                 <ControlLabel>{ controlLabel }</ControlLabel>
                 <FormControl 
                     componentClass="textarea" 

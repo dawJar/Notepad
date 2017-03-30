@@ -36,7 +36,7 @@ class OwnButtonGroup extends Component {
         let categoryButtonText = (addNewNoteCategory) ? 'Select category' : 'Add new category';
 
         return (
-            <ButtonGroup>
+            <ButtonGroup className="pull-right">
                 <Button onClick={ this.handleClearFields } >
                     Clear fields
                 </Button>
