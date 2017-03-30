@@ -8,11 +8,6 @@ form.login-form {
     max-width: 500px;
 } 
 
-div.go-to-notepad-button {
-    
-}
-
 div.container-under-nav-login {
     @include containerUnderNavStyle($loginUnderNavBgColor);
 }
-

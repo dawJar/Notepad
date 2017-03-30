@@ -58,6 +58,7 @@ const addNote = (state = initialState, action) => {
 
         default:
             return state;
+            
     }
 };
 

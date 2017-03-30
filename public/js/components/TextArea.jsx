@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
@@ -59,7 +58,12 @@ class TextArea extends Component {
 }
 
 TextArea.propTypes = {
-    // value: PropTypes.string.isRequired
+    setContentOfEditingNote: PropTypes.func.isRequired,
+    addNoteContent: PropTypes.func.isRequired,
+    controlLabel: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    actionType: PropTypes.string.isRequired,
+    valueText: PropTypes.string.isRequired,
 };
 
 export default TextArea;

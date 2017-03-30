@@ -15,8 +15,8 @@ const rootReducer = combineReducers({
     loginMessage,
     fetchNotes,
     editNote,
-    addNote,
     notepad,
+    addNote,
     navbar
 });
 

@@ -34,12 +34,8 @@ class Notes extends Component {
     }
 }
 
-// Notes.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+Notes.propTypes = {
+    filteredNotes:  PropTypes.arrayOf(PropTypes.object.isRequired)
+};
 
 export default Notes;

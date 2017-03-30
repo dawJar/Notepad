@@ -51,12 +51,9 @@ class OwnButtonGroup extends Component {
     }
 }
 
-// OwnButtonGroup.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+OwnButtonGroup.propTypes = {
+    addNewNoteCategory: PropTypes.bool.isRequired,
+    handleOnClick: PropTypes.func.isRequired
+};
 
 export default OwnButtonGroup;

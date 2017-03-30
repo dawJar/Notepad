@@ -28,7 +28,6 @@ const notepad = (state = initialState, action) => {
             } else {
                 notesOfCurrentActiveTab = userNotes;
             }
-            
             return { 
                 ...state,
                 currentActiveCategoryTab,
@@ -43,6 +42,7 @@ const notepad = (state = initialState, action) => {
 
         default:
             return state;
+            
     }
 };
 

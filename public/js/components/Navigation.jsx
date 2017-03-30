@@ -1,12 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import Nav from 'react-bootstrap/lib/Nav';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Breadcrumb from 'react-bootstrap/lib/Breadcrumb';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 
 import '../../sass/navigation.scss';
 
@@ -142,7 +137,10 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-    // value: PropTypes.string.isRequired
+    logoutUser: PropTypes.func.isRequired, 
+    userLogin: PropTypes.string.isRequired, 
+    whichClassName: PropTypes.string.isRequired, 
+    navbarTitle: PropTypes.string.isRequired
 };
 
 export default Navigation;

@@ -12,7 +12,6 @@ const initialState = {
 
 const signUpMessage = (state = initialState, action) => {
     let { type, message, addNewUser } = action;
-    // message = (message === undefined) ? state : message;
 
     switch (type) {
         case SIGNUP_SUCCESS:

@@ -34,7 +34,7 @@ const fetchNotes = (state = initialState, action) => {
             let removeAllFromCategories = allCategories.filter(cat => cat !== 'All');
             let filterForUniqueCategories = new Set([ ...removeAllFromCategories ]);
             let concatedCategories = Array.from(filterForUniqueCategories);
-            console.log('userLogin', userLogin)
+
             return { 
                 ...state,
                 userLogin,
@@ -52,6 +52,7 @@ const fetchNotes = (state = initialState, action) => {
 
         default:
             return state;
+            
     }
 };
 

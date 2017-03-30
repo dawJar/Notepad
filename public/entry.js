@@ -8,6 +8,6 @@ import './sass/main.scss';
 
 
 render(
-    <RootContainer />,
+    <RootContainer/>,
     document.getElementById('app')
 );

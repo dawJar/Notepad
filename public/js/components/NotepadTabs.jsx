@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import Notes from './Notes.jsx';
@@ -66,12 +65,12 @@ class NotepadTabs extends Component {
     }
 }
 
-// NotepadTabs.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+NotepadTabs.propTypes = {
+    notesOfCurrentActiveTab: PropTypes.arrayOf(PropTypes.object.isRequired),
+    userNoteCategories: PropTypes.arrayOf(PropTypes.string.isRequired),
+    setActiveNotesOfCurrentCategory: PropTypes.func.isRequired,
+    userNotes: PropTypes.arrayOf(PropTypes.object.isRequired),
+    currentActiveCategoryTab: PropTypes.number.isRequired,
+};
 
 export default NotepadTabs;

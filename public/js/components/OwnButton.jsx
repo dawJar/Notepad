@@ -48,7 +48,13 @@ class OwnButton extends Component {
 }
 
 OwnButton.propTypes = {
-    // value: PropTypes.string.isRequired
+    handleOnClick: PropTypes.func.isRequired,
+    whichAction: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
+    iconStyle: PropTypes.string.isRequired,
+    showAsIcon: PropTypes.bool.isRequired,
+    btnText: PropTypes.string.isRequired,
+    bsSize: PropTypes.string.isRequired
 };
 
 export default OwnButton;

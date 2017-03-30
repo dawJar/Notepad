@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { Link, browserHistory } from 'react-router';
-import Tabs from 'react-bootstrap/lib/Tabs';
-import Tab from 'react-bootstrap/lib/Tab';
 import NotepadTabs from './NotepadTabs.jsx';
 import OwnButton, { NOTEPAD_ADD_NOTE } from './OwnButton.jsx';
 
@@ -78,12 +76,12 @@ class Notepad extends Component {
     }
 }
 
-// Notepad.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+Notepad.propTypes = {
+    userNotes: PropTypes.arrayOf(PropTypes.object.isRequired),
+    currentActiveCategoryTab: PropTypes.number.isRequired,
+    fetchUserNotes: PropTypes.func.isRequired,
+    setNavStyles: PropTypes.func.isRequired,
+    anyNotes: PropTypes.bool.isRequired
+};
 
 export default Notepad;

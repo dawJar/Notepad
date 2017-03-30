@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
@@ -19,12 +18,10 @@ class SelectOption extends Component {
 
     render() {
         let { 
-            userNoteCategories, 
             addNewSelectedCategory,
             concatedCategories 
         } = this.props;
 
-        // let categoriesToMap = concatedCategories.filter(category => category !== 'All');
         let optionsToRender = concatedCategories.map(category => {
             return (category === addNewSelectedCategory) ?
                 <option value={ category } selected>
@@ -51,7 +48,9 @@ class SelectOption extends Component {
 }
 
 SelectOption.propTypes = {
-    // value: PropTypes.string.isRequired
+    concatedCategories: PropTypes.arrayOf(PropTypes.string.isRequired),
+    addNewSelectedCategory: PropTypes.string.isRequired,
+    addNoteSelectCategory: PropTypes.func.isRequired
 };
 
 export default SelectOption;

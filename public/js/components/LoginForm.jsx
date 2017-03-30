@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Button from 'react-bootstrap/lib/Button';
 import Form from 'react-bootstrap/lib/Form';
@@ -120,5 +120,16 @@ class LoginForm extends Component {
         );
     }
 }
+
+LoginForm.propTypes = {
+    setContainerUnderNavStyles: PropTypes.func.isRequired,
+    formInputFirstName: PropTypes.string.isRequired,
+    formInputPassword: PropTypes.string.isRequired,
+    formInputLogin: PropTypes.string.isRequired,
+    signUpMessage: PropTypes.string.isRequired,
+    loginMessage: PropTypes.string.isRequired,
+    setNavStyles: PropTypes.func.isRequired,
+    userLogin: PropTypes.string.isRequired
+};
 
 export default LoginForm;

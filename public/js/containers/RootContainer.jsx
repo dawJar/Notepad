@@ -46,7 +46,6 @@ class RootContainer extends Component {
             </ Provider>
         );
     }
-
 }
 
 export default RootContainer;

@@ -16,10 +16,10 @@ class IndexItem extends Component {
             <Col sm={6}>
                 <Row className="items-row">
                     <Col xs={4} className="index-item-icon">
-                        <i className={icon} aria-hidden="true"></i>
+                        <i className={ icon } aria-hidden="true"></i>
                     </Col>
                     <Col xs={8} className="index-item-title">
-                        {title}
+                        { title }
                     </Col>
                 </Row>
             </Col>
@@ -27,12 +27,9 @@ class IndexItem extends Component {
     }
 }
 
-// IndexItem.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+IndexItem.propTypes = {
+    icon: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+};
 
 export default IndexItem;

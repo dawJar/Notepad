@@ -1,9 +1,6 @@
-const mainRoute = require('../routes/mainRoutes');
+const { mainRoute, errorRoute } = require('../routes/mainRoutes');
 const { addNewUserRoute } = require('../routes/signupRoutes');
-const { 
-    logoutUserRoute,
-    loginUserRoute 
-} = require('../routes/loginRoutes');
+const { logoutUserRoute, loginUserRoute } = require('../routes/loginRoutes');
 const { 
     notepadUpdateNoteImportance,
     notepadRedirectToNotepad,
@@ -19,13 +16,17 @@ module.exports = function (app) {
 
     app.get('/', mainRoute);
 
+    app.get('/login', mainRoute);
+
+    app.get('/signup', mainRoute);
+
+    app.get('/notepad', notepadRoute);
+
     app.post('/attempt-signup', addNewUserRoute);
 
     app.post('/attempt-login', loginUserRoute);
 
     app.post('/logout-user', logoutUserRoute);
-
-    app.get('/notepad', notepadRoute);
 
     app.post('/fetch-notes', notepadFetchNotes);
 
@@ -41,6 +42,6 @@ module.exports = function (app) {
 
     app.post('/remove-note', removeNote);
 
-    app.get('*', mainRoute);
+    app.get('*', errorRoute);
 
 };

@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
@@ -88,7 +87,17 @@ class TextField extends Component {
 }
 
 TextField.propTypes = {
-    // value: PropTypes.string.isRequired
+    addNoteCurrentNewCategory: PropTypes.func.isRequired,
+    setTitleOfEditingNote: PropTypes.func.isRequired,
+    inputFirstNameChange: PropTypes.func.isRequired,
+    inputPasswordChange: PropTypes.func.isRequired,
+    addNoteCurrentTitle: PropTypes.func.isRequired,
+    inputLoginChange: PropTypes.func.isRequired,
+    controlLabel: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    actionType: PropTypes.string.isRequired,
+    valueText: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 export default TextField;

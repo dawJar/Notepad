@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes';
 import * as request from './actionRequests';
 
 
-// FORM
+// FORM 
 export const inputFirstNameChange = (firstName) => ({
     type: types.INPUT_FIRST_NAME_CHANGE,
     firstName

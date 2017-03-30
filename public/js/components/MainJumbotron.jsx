@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Button from 'react-bootstrap/lib/Button';
@@ -35,13 +35,5 @@ class MainJumbotron extends Component {
         );
     }
 }
-
-// MainJumbotron.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
 
 export default MainJumbotron;

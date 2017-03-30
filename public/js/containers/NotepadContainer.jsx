@@ -12,12 +12,6 @@ class NotepadContainer extends Component {
         super(props);
     }   
 
-    // componentWillMount() {
-    //     let { userLogin } = this.props;
-    //     if (userLogin === '') 
-    //         browserHistory.push('/login');
-    // }
-
     render() {
         let { children, ...otherProps } = this.props;
         let childrenToShow = cloneElement(children, { ...otherProps }); 

@@ -34,6 +34,7 @@ const navbar = (state = initialState, action) => {
 
         default:
             return state;
+            
     }
 };
 

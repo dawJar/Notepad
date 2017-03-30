@@ -31,6 +31,7 @@ const loginMessage = (state = initState, action) => {
 
         default:
             return state;
+            
     }
 };
 

@@ -1,8 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import MainJumbotron from './MainJumbotron.jsx';
 import IndexItem from './IndexItem.jsx';
 
@@ -52,12 +50,8 @@ class Index extends Component {
     }
 }
 
-// Index.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+Index.propTypes = {
+    setNavStyles: PropTypes.func.isRequired
+};
 
 export default Index;

@@ -112,4 +112,5 @@ export const logoutUserRequest = (dispatch) => {
     })
         
         .done(() => dispatch(actions.userLoggedOut()));
+        
 };

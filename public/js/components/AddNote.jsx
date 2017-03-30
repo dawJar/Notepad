@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
-import Tabs from 'react-bootstrap/lib/Tabs';
-import Tab from 'react-bootstrap/lib/Tab';
 import OwnButtonGroup, { ADD_NEW_CATEGORY, ADD_NEW_NOTE, CLEAR_FIELDS } from './OwnButtonGroup.jsx';
 import OwnButton, { BACK_FROM_ADD_NOTE } from './OwnButton.jsx';
 import TextArea, { SET_NOTE_CONTENT } from './TextArea.jsx';
@@ -99,7 +97,6 @@ class AddNote extends Component {
         addNoteCurrentNewCategory('');
         addNoteCurrentTitle('');
         addNoteContent('');
-        addNoteContent('');
     }
 
     render() {
@@ -143,12 +140,20 @@ class AddNote extends Component {
     }
 }
 
-// AddNote.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+AddNote.propTypes = {
+    currentTitle: PropTypes.string.isRequired,
+    addNewNoteContent: PropTypes.string.isRequired,
+    addNoteCurrentNewCategory: PropTypes.func.isRequired,
+    addNoteCurrentTitle: PropTypes.func.isRequired,
+    addNoteContent: PropTypes.func.isRequired,
+    addNewSelectedCategory: PropTypes.func.isRequired,
+    addNewNoteCategory: PropTypes.bool.isRequired,
+    currentNewCategory: PropTypes.string.isRequired,
+    addNewNoteContent: PropTypes.string.isRequired,
+    currentTitle: PropTypes.string.isRequired,
+    addNewNote: PropTypes.func.isRequired,
+    fetchUserNotes: PropTypes.func.isRequired,
+    currentActiveCategoryTab: PropTypes.number.isRequired
+};
 
 export default AddNote;

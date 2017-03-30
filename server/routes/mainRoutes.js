@@ -7,4 +7,13 @@ const mainRoute = (req, res) => {
     res.render('index');
 };
 
-module.exports = mainRoute;
+const errorRoute = (req, res) => {
+    console.log(req.method, req.url);
+
+    res.render('error');
+};
+
+module.exports = {
+    mainRoute,
+    errorRoute
+};

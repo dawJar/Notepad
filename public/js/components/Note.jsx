@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { browserHistory } from 'react-router';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
 import Panel from 'react-bootstrap/lib/Panel';
 import * as dropdownControl from './DropdownButtonItem.jsx';
 import OwnDropdownButton from './OwnDropdownButton.jsx';
@@ -98,12 +96,19 @@ class Notes extends Component {
     }
 }
 
-// Notes.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+Notes.propTypes = {
+    filteredNotes: PropTypes.arrayOf(PropTypes.object.isRequired),
+    currentActiveCategoryTab: PropTypes.number.isRequired,
+    setContentOfEditingNote: PropTypes.func.isRequired,
+    setTitleOfEditingNote: PropTypes.func.isRequired,
+    updateNoteImportance: PropTypes.func.isRequired,
+    setNoteToEdit: PropTypes.func.isRequired,
+    removeNote: PropTypes.func.isRequired,
+    noteId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    panelStyle: PropTypes.string.isRequired,
+};
 
 export default Notes;

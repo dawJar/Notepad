@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import Panel from 'react-bootstrap/lib/Panel';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import DropdownButtonItem from './DropdownButtonItem.jsx';
@@ -43,12 +42,9 @@ class OwnDropdownButton extends Component {
     }
 }
 
-// OwnDropdownButton.propTypes = {
-// increment: PropTypes.func.isRequired,
-// incrementIfOdd: PropTypes.func.isRequired,
-// incrementAsync: PropTypes.func.isRequired,
-// decrement: PropTypes.func.isRequired,
-// counter: PropTypes.number.isRequired
-// };
+OwnDropdownButton.propTypes = {
+    dropdownSelectItems: PropTypes.arrayOf(PropTypes.string.isRequired),
+    title: PropTypes.string.isRequired
+};
 
 export default OwnDropdownButton;
