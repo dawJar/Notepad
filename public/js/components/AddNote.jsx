@@ -110,9 +110,12 @@ class AddNote extends Component {
         return (
             <div>
                 <OwnButton 
+                    className="btn-fixed-back"
                     btnText="back" 
                     whichAction={ BACK_FROM_ADD_NOTE }
                     handleOnClick={ this.handleButtonClick }
+                    showAsIcon
+                    iconStyle="glyphicon glyphicon-arrow-left"
                 />
                 <NoteCategory { ...otherProps } />
                 <TextField 

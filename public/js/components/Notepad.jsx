@@ -55,24 +55,23 @@ class Notepad extends Component {
                             userNotes={ userNotes }
                             { ...otherProps }
                         /> : 
-                        <Link
-                            to={ `${pathname}/add-note` }
-                            onClick={ this.handleAddNewNote }
-                        >
-                            You got no notes. Add new one!
-                        </Link>
+                        <div className="no-notes-info-container">
+                            <Link
+                                to={ `${pathname}/add-note` }
+                                onClick={ this.handleAddNewNote }
+                            >
+                                You got no notes. Add new one!
+                            </Link>
+                        </div>
                 }
 
-                {
-                    (renderNotes) ?
-                        <OwnButton 
-                            className="btn-fixed"
-                            bsSize="large"
-                            btnText="Add note" 
-                            whichAction={ NOTEPAD_ADD_NOTE }
-                            handleOnClick={ this.handleAddNewNote }
-                        /> : null
-                }
+                <OwnButton 
+                    className="btn-fixed-add-note"
+                    bsSize="large"
+                    btnText="Add note" 
+                    whichAction={ NOTEPAD_ADD_NOTE }
+                    handleOnClick={ this.handleAddNewNote }
+                /> 
 
             </div>
         );

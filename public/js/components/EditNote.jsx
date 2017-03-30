@@ -64,9 +64,12 @@ class EditNote extends Component {
         return (
             <div>
                 <OwnButton 
+                    className="btn-fixed-back"
                     btnText="back" 
                     whichAction={ BACK_FROM_EDIT_NOTE }
                     handleOnClick={ this.handleButtonClick }
+                    showAsIcon
+                    iconStyle="glyphicon glyphicon-arrow-left"
                 />
                 <TextField 
                     actionType={ EDIT_NOTE_TITLE }

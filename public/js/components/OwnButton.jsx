@@ -21,7 +21,13 @@ class OwnButton extends Component {
     }
 
     render() {
-        let { btnText, className, bsSize } = this.props;
+        let { 
+            btnText, 
+            className, 
+            bsSize,
+            showAsIcon,
+            iconStyle
+        } = this.props;
 
         return (
             <ButtonToolbar>
@@ -30,7 +36,11 @@ class OwnButton extends Component {
                     bsSize={ bsSize || '' }
                     onClick={ this.handleClick } 
                 >
-                    { btnText }
+                    { 
+                        (!showAsIcon) ?
+                            btnText :
+                            <span className={ iconStyle } aria-hidden="true"></span>
+                    }
                 </Button>
             </ButtonToolbar>
         );

@@ -13,7 +13,7 @@ button.dropdown-btn {
     background-color: transparent;
 }
 
-button.btn-fixed {
+button.btn-fixed-add-note {
     position: fixed;
     bottom: 30px;
     right: 20px;
@@ -21,13 +21,42 @@ button.btn-fixed {
     background-color: $notepadBgColor;
     color: $notepadFontColor;
 
-    &:hover {
+    &:hover, &:focus {
         border: 1px solid $notepadBgColor;
         color: $notepadBgColor;
+    }
+    &:active:focus, &:active {
+        background-color: $notepadBgColor;
+        color: $notepadFontColor;
+    }
+}
+
+button.btn-fixed-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    background-color: transparent;
+    color: $addEditFontColor;
+
+    &:hover, &:focus {
+        color: $addEditBgColor;
+        background-color: $addEditFontColor;
+    }
+    &:active:focus, &:active {
+        background-color: transparent;
+        color: $addEditFontColor;
     }
 }
 
 div.panel-margin {
     margin: 0;
     margin-top: 20px;
+}
+
+div.no-notes-info-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+    font-size: 18px;
 }
