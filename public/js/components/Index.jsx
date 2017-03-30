@@ -15,6 +15,11 @@ class Index extends Component {
         super(props);
     }
 
+    componentWillMount() {
+        let { setNavStyles } = this.props;
+        setNavStyles('navbar-index-style', 'Hello!');
+    }
+
     render() {
         return (
             <div>

@@ -14,8 +14,9 @@ class Notepad extends Component {
     }
 
     componentWillMount() {
-        let { fetchUserNotes, currentActiveCategoryTab } = this.props;
+        let { fetchUserNotes, currentActiveCategoryTab, setNavStyles } = this.props;
         fetchUserNotes(currentActiveCategoryTab);  
+        setNavStyles('navbar-notepad-style', 'Notepad');
     }
 
     handleAddNewNote(whichButton) {

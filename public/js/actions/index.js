@@ -105,6 +105,13 @@ export const setTitleOfEditingNote = (currentTitleOfEdditingNote) => ({
     currentTitleOfEdditingNote
 });
 
+// NAVBAR STYLES
+export const setNavStyles = (whichClassName, navbarTitle) => ({
+    type: types.SET_NAV_STYLES,
+    whichClassName,
+    navbarTitle
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (login, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,

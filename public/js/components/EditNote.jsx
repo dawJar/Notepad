@@ -15,6 +15,11 @@ class EditNote extends Component {
         super(props);
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
+    
+    componentWillMount() {
+        let { setNavStyles } = this.props;
+        setNavStyles('navbar-add-edit-style', 'Edit note');
+    }
 
     handleButtonClick (whichButton) {
         let { 

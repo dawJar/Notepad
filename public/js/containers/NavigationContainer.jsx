@@ -6,7 +6,9 @@ import Navigation from '../components/Navigation.jsx';
 
 
 const mapStateToProps = state => ({
-    userLogin: state.fetchNotes.userLogin
+    userLogin: state.fetchNotes.userLogin,
+    whichClassName: state.navbar.whichClassName,
+    navbarTitle: state.navbar.navbarTitle
 });
 
 const mapDispatchToProps = (dispatch) => {

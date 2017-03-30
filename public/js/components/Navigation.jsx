@@ -70,17 +70,18 @@ class Navigation extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return this.props.userLogin !== nextProps.userLogin;
+        return this.props.userLogin !== nextProps.userLogin ||
+                this.props.navbarTitle !== nextProps.navbarTitle;
     }
 
     render() {
-        let { userLogin } = this.props;
+        let { userLogin, whichClassName, navbarTitle } = this.props;
 
         return (
             <div>
                 {
                     (userLogin === '') ?
-                        <Breadcrumb id="main-navbar" ref="fixedNav">
+                        <Breadcrumb id="main-navbar" className={ whichClassName }>
                             <Breadcrumb.Item >
                                 <Link to="/login">
                                     LOGIN
@@ -92,7 +93,7 @@ class Navigation extends Component {
                                 </Link>
                             </Breadcrumb.Item>
                         </Breadcrumb> :
-                        <Breadcrumb id="main-navbar" ref="fixedNav">
+                        <Breadcrumb id="main-navbar" className={ whichClassName }>
                             <Breadcrumb.Item >
                                 <Link to="/notepad">
                                     { userLogin.toUpperCase() }
@@ -105,12 +106,12 @@ class Navigation extends Component {
                             </Breadcrumb.Item>
                         </Breadcrumb>
                 }
-                <Jumbotron id="navbar-tron">
+                <Jumbotron id="navbar-tron" className={ whichClassName }>
                     <h1 
                         id="navbar-tron-header" 
                         className="navbar-tron-header-appear"
                     >
-                        Welcome!
+                        { navbarTitle }
                     </h1>
                 </Jumbotron>
             </div>

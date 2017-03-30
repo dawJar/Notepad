@@ -13,6 +13,11 @@ class LoginForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillMount() {
+        let { setNavStyles } = this.props;
+        setNavStyles('navbar-login-style', 'Join us!');
+    }
+
     handleSubmit(event) {
         let {
             location: { pathname },

@@ -17,7 +17,9 @@ class AddNote extends Component {
     }
 
     componentWillMount() {
-        let { userLogin } = this.props;
+        let { userLogin, setNavStyles } = this.props;
+
+        setNavStyles('navbar-add-edit-style', 'Add note');
         if (userLogin === '') 
             browserHistory.push('/login');
     }

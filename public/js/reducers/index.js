@@ -6,6 +6,7 @@ import fetchNotes from './fetchNotes';
 import editNote from './editNote';
 import addNote from './addNote';
 import notepad from './notepad';
+import navbar from './navbar';
 
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     fetchNotes,
     editNote,
     addNote,
-    notepad
+    notepad,
+    navbar
 });
 
 export default rootReducer;
