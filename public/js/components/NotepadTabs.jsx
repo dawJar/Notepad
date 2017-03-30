@@ -56,8 +56,8 @@ class NotepadTabs extends Component {
 
         return (
             <Tabs
-                activeKey={ currentActiveCategoryTab }
                 id="controlled-tab-example"
+                activeKey={ currentActiveCategoryTab }
                 onSelect={ this.handleSelect }
             >
                 { tabsToRender }

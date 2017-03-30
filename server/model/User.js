@@ -20,7 +20,7 @@ const NoteSchema = new Schema({
     category: String,
     importance: {
         type: String,
-        default: 'success'
+        default: 'warning'
     }
 });
 

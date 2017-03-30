@@ -47,7 +47,7 @@ class Notes extends Component {
                 break;
 
             case dropdownControl.SET_NORMAL:
-                btnStyle = 'success';
+                btnStyle = 'warning';
                 updateNoteImportance(currentActiveCategoryTab, noteId, btnStyle);
                 break;
 
@@ -87,7 +87,11 @@ class Notes extends Component {
         );
 
         return (
-            <Panel header={ panelHeaderToRender } bsStyle={ panelStyle } >
+            <Panel 
+                className="panel-margin"
+                bsStyle={ panelStyle } 
+                header={ panelHeaderToRender } 
+            >
                 <p>{ content }</p>
             </Panel>
         );

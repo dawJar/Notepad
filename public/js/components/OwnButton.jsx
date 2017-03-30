@@ -21,11 +21,15 @@ class OwnButton extends Component {
     }
 
     render() {
-        let { btnText } = this.props;
+        let { btnText, className, bsSize } = this.props;
 
         return (
             <ButtonToolbar>
-                <Button onClick={ this.handleClick } >
+                <Button 
+                    className={ className || '' }
+                    bsSize={ bsSize || '' }
+                    onClick={ this.handleClick } 
+                >
                     { btnText }
                 </Button>
             </ButtonToolbar>

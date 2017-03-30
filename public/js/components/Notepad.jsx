@@ -66,6 +66,8 @@ class Notepad extends Component {
                 {
                     (renderNotes) ?
                         <OwnButton 
+                            className="btn-fixed"
+                            bsSize="large"
                             btnText="Add note" 
                             whichAction={ NOTEPAD_ADD_NOTE }
                             handleOnClick={ this.handleAddNewNote }

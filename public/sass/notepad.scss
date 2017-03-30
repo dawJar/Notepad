@@ -8,7 +8,26 @@ div.notepad-container {
     padding: 20px;
 }
 
-.dropdown-btn {
+button.dropdown-btn {
     top: -6px;
     background-color: transparent;
+}
+
+button.btn-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    z-index: 10;
+    background-color: $notepadBgColor;
+    color: $notepadFontColor;
+
+    &:hover {
+        border: 1px solid $notepadBgColor;
+        color: $notepadBgColor;
+    }
+}
+
+div.panel-margin {
+    margin: 0;
+    margin-top: 20px;
 }
