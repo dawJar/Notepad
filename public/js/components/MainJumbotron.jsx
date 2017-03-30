@@ -18,12 +18,13 @@ class MainJumbotron extends Component {
     render() {
         return (
             <Jumbotron className="main-jumbotron">
-                <div>
+                <div className="container">
                     <h2>Best online notepad ever!</h2>
-                    <p>start using it</p>
+                    <p className="additional-margin-top">start using it</p>
                     <p>are you new? sign up! its simple.</p>
                     <Button 
                         className="pull-right"
+                        bsSize="large"
                         bsStyle="danger"
                         onClick={this.handleClick}
                     >

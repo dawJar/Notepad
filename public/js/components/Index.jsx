@@ -29,21 +29,21 @@ class Index extends Component {
                     <Row>
                         <IndexItem 
                             icon="fa fa-users fa-4x"
-                            title="Growing community"
+                            title="Growing community."
                         />
                         <IndexItem 
                             icon="fa fa-sticky-note-o fa-5x"
-                            title="Easy to use"
+                            title="Easy to use."
                         />
                     </Row>
                     <Row>
                         <IndexItem 
                             icon="fa fa-mobile fa-5x"
-                            title="Mobile friendly"
+                            title="Mobile friendly."
                         />
                         <IndexItem 
-                            icon="fa fa-google fa-5x"
-                            title="Material design"
+                            icon="fa fa-suitcase fa-5x"
+                            title="A suitcase."
                         />
                     </Row>
                 </Grid>

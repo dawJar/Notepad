@@ -10,3 +10,22 @@ body {
     margin-bottom: $footerHeight + $breadcrumbNavHeight -1px;
     font-family: 'Space Mono', monospace;
 }
+
+
+footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $footerHeight;
+    background-color: $footerBackgroundColor;
+    color: $footerFontColor;
+}
+
+div.footer-container {
+    margin-top: 55px;
+    padding: $mainPadding;
+}
+
+.additional-margin-top {
+    margin-top: 40px;
+}
