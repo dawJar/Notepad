@@ -5,6 +5,8 @@ import Tab from 'react-bootstrap/lib/Tab';
 import NotepadTabs from './NotepadTabs.jsx';
 import OwnButton, { NOTEPAD_ADD_NOTE } from './OwnButton.jsx';
 
+import '../../sass/notepad.scss';
+
 
 class Notepad extends Component {
 
@@ -46,7 +48,7 @@ class Notepad extends Component {
         let renderNotes = userNotes.length > 0;
 
         return (
-            <div>
+            <div className="notepad-container">
                 {
                     (renderNotes) ?
                         <NotepadTabs 

@@ -28,9 +28,16 @@ class OwnDropdownButton extends Component {
         return (
             <div>
                 { title }
-                <DropdownButton bsStyle={title.toLowerCase()} title="more" id={`dropdown-basic-${1}`}>
-                    { selectItemsToRender }
-                </DropdownButton>
+                <div className="pull-right">
+                    <DropdownButton 
+                        pullRight 
+                        className="dropdown-btn"
+                        bsStyle={title.toLowerCase()} 
+                        title="more" 
+                    >
+                        { selectItemsToRender }
+                    </DropdownButton>
+                </div>
             </div>
         );
     }

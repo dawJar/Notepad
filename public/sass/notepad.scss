@@ -1,0 +1,14 @@
+@import './vars.scss';
+@import './mixins.scss';
+
+
+div.notepad-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dropdown-btn {
+    top: -6px;
+    background-color: transparent;
+}
