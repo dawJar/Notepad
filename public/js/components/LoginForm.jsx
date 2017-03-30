@@ -64,16 +64,20 @@ class LoginForm extends Component {
                 className="login-form"
                 onSubmit={ this.handleSubmit }
             >        
-                
+                <h2 className="additional-margin-bottom">
+                    {  (!loginStyle && userLogin === '') ?
+                        'Create new account' : 'Login to your account'
+                    }
+                </h2>
                 {
                     (!loginStyle && userLogin === '') ? 
-                    <TextField 
-                        actionType={ SET_FIRST_NAME }
-                        controlLabel="First name:" 
-                        placeholder="Enter first name" 
-                        valueText={ formInputFirstName }
-                        { ...otherProps } 
-                    /> : null      
+                        <TextField 
+                            actionType={ SET_FIRST_NAME }
+                            controlLabel="First name:" 
+                            placeholder="Enter first name" 
+                            valueText={ formInputFirstName }
+                            { ...otherProps } 
+                        /> : null      
                 }
 
                 {
@@ -103,10 +107,12 @@ class LoginForm extends Component {
                             </FormGroup>
                             <h2>{ signUpMessage || loginMessage }</h2>
                         </div> : 
-                        <div>
-                            <FormGroup className="go-to-notepad-button">
-                                <Link to="/notepad">go to notepad!</Link>
-                            </FormGroup>
+                        <div className="pull-right additional-margin-top">
+                            <Link to="/notepad" className="go-to-notepad-button">
+                                <Button bsSize="large">
+                                    open notepad!
+                                </Button>
+                            </Link>
                         </div>
                 }
 
