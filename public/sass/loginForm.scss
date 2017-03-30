@@ -1,0 +1,18 @@
+@import './vars.scss';
+@import './mixins.scss';
+
+
+form.login-form {
+    margin: 0 auto;
+    padding-top: 40px;
+    max-width: 500px;
+} 
+
+div.go-to-notepad-button {
+    
+}
+
+div.container-under-nav-login {
+    @include containerUnderNavStyle($loginUnderNavBgColor);
+}
+

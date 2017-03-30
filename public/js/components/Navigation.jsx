@@ -44,15 +44,33 @@ class Navigation extends Component {
     setMainNavShadow(scrollPos) {
         let mainNavbar = document.getElementById('main-navbar');
         let shadowClass = 'main-navbar-shadow';
+        let includesClass = mainNavbar.className.includes(shadowClass);
 
         if (scrollPos > 168) {
-            if (!mainNavbar.className.includes(shadowClass)) {
+            if (!includesClass) {
                 mainNavbar.className += ` ${shadowClass}`;
             }
         } else {
-            if (mainNavbar.className.includes(shadowClass)) {
+            if (includesClass) {
                 let newClassName = mainNavbar.className.replace(shadowClass, '').trim();
                 mainNavbar.className = newClassName; 
+            }
+        }
+    }
+
+    setNavbarTronStaticShadow(scrollPos) {
+        let navbarTron = document.getElementById('navbar-tron');
+        let staticShadowClass = 'navbar-tron-static-shadow';
+        let includesClass = navbarTron.className.includes(staticShadowClass);
+
+        if (scrollPos >= 168) {
+            if (includesClass) {
+                let newClassName = navbarTron.className.replace(staticShadowClass, '').trim();
+                navbarTron.className = newClassName;
+            }
+        } else {
+            if (!includesClass) {
+                navbarTron.className += ` ${staticShadowClass}`;
             }
         }
     }
@@ -62,6 +80,7 @@ class Navigation extends Component {
 
         this.setMainNavShadow(bodyScrollPosition);
         this.setNavTronHeaderAnim(bodyScrollPosition);
+        this.setNavbarTronStaticShadow(bodyScrollPosition);
     }
 
     handleLogoutClick() {
@@ -106,7 +125,10 @@ class Navigation extends Component {
                             </Breadcrumb.Item>
                         </Breadcrumb>
                 }
-                <Jumbotron id="navbar-tron" className={ whichClassName }>
+                <Jumbotron 
+                    id="navbar-tron" 
+                    className={ `${whichClassName} navbar-tron-static-shadow` }
+                >
                     <h1 
                         id="navbar-tron-header" 
                         className="navbar-tron-header-appear"

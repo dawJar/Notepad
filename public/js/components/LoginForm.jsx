@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/lib/Button';
 import Form from 'react-bootstrap/lib/Form';
 import TextField, { SET_FIRST_NAME, SET_PASSWORD, SET_LOGIN } from'./TextField.jsx';
 
+import '../../sass/loginForm.scss';
+
 
 class LoginForm extends Component {
 
@@ -14,8 +16,14 @@ class LoginForm extends Component {
     }
 
     componentWillMount() {
-        let { setNavStyles } = this.props;
+        let { setNavStyles, setContainerUnderNavStyles } = this.props;
         setNavStyles('navbar-login-style', 'Join us!');
+        setContainerUnderNavStyles('container-under-nav-login');
+    }
+
+    componentWillUnmount() {
+        let { setContainerUnderNavStyles } = this.props;
+        setContainerUnderNavStyles('container-under-nav');
     }
 
     handleSubmit(event) {
@@ -51,7 +59,11 @@ class LoginForm extends Component {
         let loginStyle = pathname === '/login';
 
         return (
-            <Form id="accessForm" onSubmit={ this.handleSubmit }>        
+            <Form 
+                id="accessForm" 
+                className="login-form"
+                onSubmit={ this.handleSubmit }
+            >        
                 
                 {
                     (!loginStyle && userLogin === '') ? 
@@ -85,14 +97,14 @@ class LoginForm extends Component {
                             />
 
                             <FormGroup>
-                                <Button type="submit">
+                                <Button type="submit" className="pull-right">
                                     { (loginStyle) ? 'Log in' : 'Sign in'}
                                 </Button>
                             </FormGroup>
                             <h2>{ signUpMessage || loginMessage }</h2>
                         </div> : 
                         <div>
-                            <FormGroup>
+                            <FormGroup className="go-to-notepad-button">
                                 <Link to="/notepad">go to notepad!</Link>
                             </FormGroup>
                         </div>

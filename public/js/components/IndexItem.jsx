@@ -14,7 +14,7 @@ class IndexItem extends Component {
 
         return (
             <Col sm={6}>
-                <Row>
+                <Row className="items-row">
                     <Col xs={4} className="index-item-icon">
                         <i className={icon} aria-hidden="true"></i>
                     </Col>

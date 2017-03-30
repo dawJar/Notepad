@@ -3,10 +3,7 @@
 
 
 div.container-under-nav {
-    position: relative;
-    top: $appContainerTopPos;
-    background-color: $mainBackgroundColor;
-    min-height: $jumbotronHeight;
+    @include containerUnderNavStyle($mainBackgroundColor)
 }
 
 div.main-jumbotron {

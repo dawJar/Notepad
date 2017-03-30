@@ -26,7 +26,7 @@ class Index extends Component {
                 <MainJumbotron />
                 <Grid>
                     <h3 className="items-header">about:</h3>
-                    <Row className="items-row">
+                    <Row>
                         <IndexItem 
                             icon="fa fa-users fa-4x"
                             title="Growing community"
@@ -36,7 +36,7 @@ class Index extends Component {
                             title="Easy to use"
                         />
                     </Row>
-                    <Row className="items-row">
+                    <Row>
                         <IndexItem 
                             icon="fa fa-mobile fa-5x"
                             title="Mobile friendly"

@@ -23,6 +23,7 @@ class MainJumbotron extends Component {
                     <p>start using it</p>
                     <p>are you new? sign up! its simple.</p>
                     <Button 
+                        className="pull-right"
                         bsStyle="danger"
                         onClick={this.handleClick}
                     >

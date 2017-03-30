@@ -1,6 +1,30 @@
 @import './vars.scss';
 
 
+@mixin navShadowStyle($topPos, $static) {
+    &::after {
+        content: "";
+        width: 100%;
+        display: block;
+        @if $static {
+            position: absolute;
+        } @else {
+            position: fixed;
+        } 
+        top: $topPos;
+        left: 1px;
+        z-index: 1;
+        box-shadow: 0px 1px 6px 1px #212121;
+    }
+}
+
+@mixin containerUnderNavStyle($bgColor) {
+    position: relative;
+    top: $appContainerTopPos;
+    background-color: $bgColor;
+    min-height: $jumbotronHeight;
+}
+
 @mixin navbarTronStyle($bgColor, $fontColor) {
     display: flex;
     position: relative;

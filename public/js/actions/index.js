@@ -112,6 +112,11 @@ export const setNavStyles = (whichClassName, navbarTitle) => ({
     navbarTitle
 });
 
+export const setContainerUnderNavStyles = (containerUnderNavStyle) => ({
+    type: types.SET_CONTAINER_UNDER_NAV_STYLE,
+    containerUnderNavStyle
+});
+
 // FETCH NOTES
 export const fetchUserNotesSuccess = (login, notes, userNoteCategories) => ({
     type: types.FETCH_USER_NOTES_SUCCESS,
